@@ -1,6 +1,10 @@
 import React from "react";
 
-function Login() {
+function Login({
+    isLoaded={isLoaded},
+    isLoggedIn={isLoggedIn},
+    currentUser={currentUser}
+}) {
     return (
         <div className="display-container">
             <p>Login</p>

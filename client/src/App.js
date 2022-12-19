@@ -12,22 +12,63 @@ import Profile from "./Components/Profile/Profile.js";
 import Users from "./Components/Users/Users.js";
 import Home from "./Components/Home/Home.js";
 
+
 function App() {
+
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [friends, setFriends] = useState();
+  const [gameNights, setGameNights] = useState();
+  const [games, setGames] = useState()
+
+  //useEffect to fetch user, friends, gamenights, games
+
+
+
+  function logout() {
+
+  };
+
+
   return (
     <div className="App">
-      <Banner />
+      <Banner isLoaded={isLoaded} isLoggedIn={isLoggedIn} logout={logout}/>
       <Switch>
         <Route path="/friends">
-          <Friends />
+          <Friends 
+            isLoaded={isLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            gameNights={gameNights}
+          />
         </Route>
         <Route path="/game_nights">
-          <GameNights />
+          <GameNights
+            isLoaded={isLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            gameNights={gameNights}
+            games={games}
+          />
         </Route>
         <Route path="/games">
-          <Games />
+          <Games
+            isLoaded={isLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            games={games}
+          />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login 
+          isLoaded={isLoaded}
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          />
         </Route>
         <Route path="/logout">
           <Logout />
@@ -36,14 +77,22 @@ function App() {
           <Signup />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile 
+            isLoaded={isLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+          />
         </Route>
         <Route path="/users">
-          <Users />
+          <Users 
+            isLoaded={isLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+          />
         </Route>
         <Route path="/">
-            <Home
-            />
+            <Home />
         </Route>
       </Switch>
     </div>
