@@ -1,0 +1,2 @@
+class GameNightsController < ApplicationController
+end

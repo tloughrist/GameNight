@@ -1,11 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Users({
-    isLoaded={isLoaded},
-    isLoggedIn={isLoggedIn},
-    currentUser={currentUser},
-    friends={friends}
-}) {
+function Users({isLoaded, isLoggedIn, currentUser, friends}) {
 
     const [searchedUsers, setSearchedUsers] = useState(null);
 

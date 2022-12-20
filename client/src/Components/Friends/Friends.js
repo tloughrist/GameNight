@@ -1,12 +1,6 @@
 import React from "react";
 
-function Friends({
-    isLoaded={isLoaded},
-    isLoggedIn={isLoggedIn},
-    currentUser={currentUser},
-    friends={friends},
-    gameNights={gameNights}
-}) {
+function Friends({isLoaded, isLoggedIn, currentUser, friends, gameNights}) {
     
     return (
         <div className="display-container">

@@ -30,10 +30,19 @@ function App() {
 
   };
 
+  function search() {
+
+  };
+
 
   return (
     <div className="App">
-      <Banner isLoaded={isLoaded} isLoggedIn={isLoggedIn} logout={logout}/>
+      <Banner
+        isLoaded={isLoaded}
+        isLoggedIn={isLoggedIn}
+        logout={logout}
+        search={search}
+      />
       <Switch>
         <Route path="/friends">
           <Friends 
