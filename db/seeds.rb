@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+users = User.create([{ name: 'Albert Camus', dob: 11/07/1913, pronouns: 'he/him', blurb: 'Man\'s existence is absurd because his contingency finds no external justification.', username: 'acamus', password_digest: User.digest('proxy') }, {}])
