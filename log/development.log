@@ -1,2 +1,795 @@
   [1m[35m (72.8ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
   [1m[35m (75.3ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (27.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221220124416)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124416"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGames (20221220124532)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124532"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserGames (20221220124607)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124607"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriendships (20221220124644)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124644"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriendRequests (20221220124718)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124718"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGameNights (20221220124821)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124821"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateInvitations (20221220124916)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124916"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAttendances (20221220124957)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220124957"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20221220130655)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221220130655"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 13:46:43.249028"], ["updated_at", "2022-12-26 13:46:43.249028"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (37.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (40.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (159.9ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (98.2ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 13:49:42.464022"], ["updated_at", "2022-12-26 13:49:42.464022"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 13:49:42.472748"], ["updated_at", "2022-12-26 13:49:42.472748"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 13:49:42.694502"], ["updated_at", "2022-12-26 13:49:42.694502"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-12-26 13:49:42.703546"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 13:49:42.709775"], ["updated_at", "2022-12-26 13:49:42.709775"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (8.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Albert Camus"], ["username", "acamus"], ["password_digest", "$2a$12$d8YgyEhqYgEAE7tD6ckZFuyKQkQbjlytwKz2ztFqc5l6iJVJ9oExC"], ["blurb", "Man's existence is absurd because his contingency finds no external justification."], ["dob", 0], ["pronouns", "he/him"], ["created_at", "2022-12-26 13:49:45.001980"], ["updated_at", "2022-12-26 13:49:45.001980"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (41.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (41.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (94.5ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (59.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (40.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (93.7ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:01:01.362902"], ["updated_at", "2022-12-26 14:01:01.362902"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:01:01.372491"], ["updated_at", "2022-12-26 14:01:01.372491"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:01:01.593992"], ["updated_at", "2022-12-26 14:01:01.593992"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-12-26 14:01:01.603271"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:01:01.610553"], ["updated_at", "2022-12-26 14:01:01.610553"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (48.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (41.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (96.0ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (96.6ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:02:42.751579"], ["updated_at", "2022-12-26 14:02:42.751579"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:02:42.760236"], ["updated_at", "2022-12-26 14:02:42.760236"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:02:42.985761"], ["updated_at", "2022-12-26 14:02:42.985761"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-12-26 14:02:42.996430"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:02:43.003067"], ["updated_at", "2022-12-26 14:02:43.003067"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (49.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (40.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (93.9ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (91.7ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:03:07.911737"], ["updated_at", "2022-12-26 14:03:07.911737"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:03:07.920658"], ["updated_at", "2022-12-26 14:03:07.920658"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:03:08.141455"], ["updated_at", "2022-12-26 14:03:08.141455"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-12-26 14:03:08.148882"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:03:08.155334"], ["updated_at", "2022-12-26 14:03:08.155334"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Albert Camus"], ["username", "acamus"], ["password_digest", "$2a$12$W/6c4Cf24tE2J1P1MiRQPOz7aFk7s/x/9RpqrI2V8b8kb0bZSi2Fa"], ["blurb", "Man's existence is absurd because his contingency finds no external justification."], ["dob", "1913-11-07"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.453469"], ["updated_at", "2022-12-26 14:03:10.453469"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jean-Paul Sartre"], ["username", "jpsartre"], ["password_digest", "$2a$12$pk5FntFYW/IpCVOeX4AEse8jWDWqwmkuwAda7Aelv4waPEtgZ.7Wq"], ["blurb", "There is a contingency of human existence. It is a condemnation of their being. Their being is not determined, so it is up to everyone to create their own existence, for which they are then responsible. They cannot not be free, there is a form of necessity for freedom, which can never be given up."], ["dob", "1905-06-21"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.467647"], ["updated_at", "2022-12-26 14:03:10.467647"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Simone de Beauvoir"], ["username", "sdebeauvoir"], ["password_digest", "$2a$12$Dhht/mh4cmDD4/hrK8V0weArr5eu3ILCT/uIsqYS1PA31LJXegtqO"], ["blurb", "On ne naît pas femme, on le devient."], ["dob", "1908-01-09"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:10.474909"], ["updated_at", "2022-12-26 14:03:10.474909"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Herbert Marcuse"], ["username", "hmarcuse"], ["password_digest", "$2a$12$rgtVeq3SWG15mjcImpB9ruCHeOLfsR544mmx0Q6V9QKEfdnDZUw9O"], ["blurb", "The people recognize themselves in their commodities; they find their soul in their automobile, hi-fi set, split-level home, kitchen equipment."], ["dob", "1898-07-19"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.481796"], ["updated_at", "2022-12-26 14:03:10.481796"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Maurice Merleau-Ponty"], ["username", "mmerleauponty"], ["password_digest", "$2a$12$p2cSWE1ti29UChY2YFY6EO2vRH8Tbt1oS23ZGkndphr.J1t7wt6a2"], ["blurb", "Insofar as I have hands, feet, a body, I sustain around me intentions which are not dependent on my decisions and which affect my surroundings in a way that I do not choose."], ["dob", "1908-03-14"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.487289"], ["updated_at", "2022-12-26 14:03:10.487289"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Franz Brentano"], ["username", "fbrentano"], ["password_digest", "$2a$12$NGSDa2yTwK4HjCcikPVvm.gn0aC4i7atidZixZmKTkFNT.OkgWoBS"], ["blurb", "We could, therefore, define mental phenomena by saying that they are those phenomena which contain an object intentionally within themselves."], ["dob", "1838-01-16"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.492873"], ["updated_at", "2022-12-26 14:03:10.492873"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Edmund Husserl"], ["username", "ehusserl"], ["password_digest", "$2a$12$xXtwHfLG9SUcgcKqVsUPgeUC3yhJKAhkWgFJI0/wIBkkbgWuIPb2a"], ["blurb", "It is my conviction that intentional phenomenology has for the first time made spirit as spirit the field of systematic scientific experience, thus effecting a total transformation of the task of knowledge."], ["dob", "1859-04-08"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.499210"], ["updated_at", "2022-12-26 14:03:10.499210"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jacques Lacan"], ["username", "jlacan"], ["password_digest", "$2a$12$aP4bKtOWwcmKOkFj3u1GvOVRnb6jRnAJ3LyL70TtCkpzAVxTc2AMC"], ["blurb", "The Other must first of all be considered a locus in which speech is constituted."], ["dob", "1901-04-13"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.505371"], ["updated_at", "2022-12-26 14:03:10.505371"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Avital Ronell"], ["username", "aronell"], ["password_digest", "$2a$12$IpAI7u83.0YdkI1Zsmjrt.mdPMSlwwu49uz6HBiYM0Kmpd.nSPS2W"], ["blurb", "Always incomplete, always unreachable, forever promising at once its essence and its existence, philosophy identifies itself finally with this promise, which is to say, with its own unreachability."], ["dob", "1952-04-15"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:10.511547"], ["updated_at", "2022-12-26 14:03:10.511547"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Judith Butler"], ["username", "jbutler"], ["password_digest", "$2a$12$vXh.gXeCQSwrx/6w5MkSJO0OpxCFI4J4dqq9fHYdMFp6nyNZngZfq"], ["blurb", "If speech depends upon censorship, then the principle that one might seek to oppose is at once the formative principle of oppositional speech."], ["dob", "1956-02-24"], ["pronouns", "they/them"], ["created_at", "2022-12-26 14:03:10.517361"], ["updated_at", "2022-12-26 14:03:10.517361"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Martha Nussbaum"], ["username", "mnussbaum"], ["password_digest", "$2a$12$Y4LVG5t7sCkguRQ3Qgjn2uchXBYQge/TMspsT5spCrY9g0b2FdwdC"], ["blurb", "Disgust and shame are inherently hierarchical; they set up ranks and orders of human beings."], ["dob", "1947-05-06"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:10.523088"], ["updated_at", "2022-12-26 14:03:10.523088"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Andrea Dworkin"], ["username", "adworkin"], ["password_digest", "$2a$12$pnFLa0ky6OGO6KA.6ahQHu8/xkhELtiyEZqKLu6ZJvB.VWVsL7SGa"], ["blurb", "Feminism is hated because women are hated. Anti-feminism is a direct expression of misogyny; it is the political defense of women hating."], ["dob", "1946-09-26"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:10.529542"], ["updated_at", "2022-12-26 14:03:10.529542"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jacques Derrida"], ["username", "jderrida"], ["password_digest", "$2a$12$yx1QMjZcJm5GgK45pss/ke456gGbRIyFYJTjh0jBhm4/OcilKw20S"], ["blurb", "Any text contains implicit hierarchies, by which an order is imposed on reality and by which a subtle repression is exercised, as these hierarchies exclude, subordinate, and hide the various potential meanings."], ["dob", "1930-07-15"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:10.535854"], ["updated_at", "2022-12-26 14:03:10.535854"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (60.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (41.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (95.7ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (91.9ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:03:40.661434"], ["updated_at", "2022-12-26 14:03:40.661434"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:03:40.670604"], ["updated_at", "2022-12-26 14:03:40.670604"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" integer, "attendee_id" integer, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "requestor_id" integer, "receiver_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "date" date, "time" time, "owner_id" integer, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "title" character varying, "no_players" character varying, "duration_minutes" integer, "complexity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" integer, "receiver_id" integer, "sender_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_id" integer, "receiver_id" integer, "topic" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_games" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "user_games" ("id" bigserial primary key, "owner_id" integer, "game_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220130655)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124532),
+(20221220124607),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916),
+(20221220124957);
+
+[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-26 14:03:40.892823"], ["updated_at", "2022-12-26 14:03:40.892823"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-12-26 14:03:40.902305"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5f96d6e6662c5b538344dd504959032dc264e9db"], ["created_at", "2022-12-26 14:03:40.909333"], ["updated_at", "2022-12-26 14:03:40.909333"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Albert Camus"], ["username", "acamus"], ["password_digest", "$2a$12$b0eUfcbpyLSuPlFiA4WTuOWaQUS4HqcHJTz.lhCt8L9Liju7OQ15y"], ["blurb", "Man's existence is absurd because his contingency finds no external justification."], ["dob", "1913-11-07"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.215083"], ["updated_at", "2022-12-26 14:03:43.215083"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jean-Paul Sartre"], ["username", "jpsartre"], ["password_digest", "$2a$12$eZ.Q77vugwuckpVLXKKa5.vto3NdCIukEAraz6zNAZvOFO5LiHUNu"], ["blurb", "There is a contingency of human existence. It is a condemnation of their being. Their being is not determined, so it is up to everyone to create their own existence, for which they are then responsible. They cannot not be free, there is a form of necessity for freedom, which can never be given up."], ["dob", "1905-06-21"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.220934"], ["updated_at", "2022-12-26 14:03:43.220934"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Simone de Beauvoir"], ["username", "sdebeauvoir"], ["password_digest", "$2a$12$eYh0qPQuDIQJpIGmrmQnS.alWLVTbNkjZZazpf7sUQFWRr21xqO82"], ["blurb", "On ne naît pas femme, on le devient."], ["dob", "1908-01-09"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:43.225402"], ["updated_at", "2022-12-26 14:03:43.225402"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Herbert Marcuse"], ["username", "hmarcuse"], ["password_digest", "$2a$12$5wRv5sH0ZQys4l.cg6eMpOA2bhdRF98mUY7Qjxdcqw8jfx2vFXLbu"], ["blurb", "The people recognize themselves in their commodities; they find their soul in their automobile, hi-fi set, split-level home, kitchen equipment."], ["dob", "1898-07-19"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.231070"], ["updated_at", "2022-12-26 14:03:43.231070"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Maurice Merleau-Ponty"], ["username", "mmerleauponty"], ["password_digest", "$2a$12$Zzbktp7HNIueIerM9gIBwOg4TTKk952nG1VaiUJJsyCo8Gx8iE4n2"], ["blurb", "Insofar as I have hands, feet, a body, I sustain around me intentions which are not dependent on my decisions and which affect my surroundings in a way that I do not choose."], ["dob", "1908-03-14"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.236768"], ["updated_at", "2022-12-26 14:03:43.236768"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Franz Brentano"], ["username", "fbrentano"], ["password_digest", "$2a$12$E55/VfDjX9YRb7Bcu3YFcOWA2DskacJiBbyyVqWVNPZ.tmr3lWmG6"], ["blurb", "We could, therefore, define mental phenomena by saying that they are those phenomena which contain an object intentionally within themselves."], ["dob", "1838-01-16"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.241673"], ["updated_at", "2022-12-26 14:03:43.241673"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Edmund Husserl"], ["username", "ehusserl"], ["password_digest", "$2a$12$lBTYoQA4dlQQQS5Ff9HhwuqDVY6xOYsNRWtIb8d47KracbwVKrYEi"], ["blurb", "It is my conviction that intentional phenomenology has for the first time made spirit as spirit the field of systematic scientific experience, thus effecting a total transformation of the task of knowledge."], ["dob", "1859-04-08"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.248000"], ["updated_at", "2022-12-26 14:03:43.248000"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jacques Lacan"], ["username", "jlacan"], ["password_digest", "$2a$12$4nVGaBRnxCAfjY1i5Le9tuQlOD5fiIei3d.U5F70L5kUEaMH29KGq"], ["blurb", "The Other must first of all be considered a locus in which speech is constituted."], ["dob", "1901-04-13"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.253414"], ["updated_at", "2022-12-26 14:03:43.253414"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Avital Ronell"], ["username", "aronell"], ["password_digest", "$2a$12$1dANcPi44TLD/AGtiNhLLuQpmAxK92DpjHQ0jIm.nlulEllIhVSyq"], ["blurb", "Always incomplete, always unreachable, forever promising at once its essence and its existence, philosophy identifies itself finally with this promise, which is to say, with its own unreachability."], ["dob", "1952-04-15"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:43.258884"], ["updated_at", "2022-12-26 14:03:43.258884"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Judith Butler"], ["username", "jbutler"], ["password_digest", "$2a$12$wQMBw0lHckXoeGaBGdh2i.8uKxoO8yk81KrO0/Yhrl2dpRz7SsYL6"], ["blurb", "If speech depends upon censorship, then the principle that one might seek to oppose is at once the formative principle of oppositional speech."], ["dob", "1956-02-24"], ["pronouns", "they/them"], ["created_at", "2022-12-26 14:03:43.264222"], ["updated_at", "2022-12-26 14:03:43.264222"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Martha Nussbaum"], ["username", "mnussbaum"], ["password_digest", "$2a$12$YbKQAVag9IKgDPjajmdiZeAW9CcMgOIQcusAyw1aBodUk/asgusEy"], ["blurb", "Disgust and shame are inherently hierarchical; they set up ranks and orders of human beings."], ["dob", "1947-05-06"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:43.269937"], ["updated_at", "2022-12-26 14:03:43.269937"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Andrea Dworkin"], ["username", "adworkin"], ["password_digest", "$2a$12$4/Uurf9I9ySqCIQkOuVfO.5W1ADknALy/0IY2a/JFpa7lL6HtbpqK"], ["blurb", "Feminism is hated because women are hated. Anti-feminism is a direct expression of misogyny; it is the political defense of women hating."], ["dob", "1946-09-26"], ["pronouns", "she/her"], ["created_at", "2022-12-26 14:03:43.275067"], ["updated_at", "2022-12-26 14:03:43.275067"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jacques Derrida"], ["username", "jderrida"], ["password_digest", "$2a$12$F5H27DKBCXbev09tjTMIzuAdWsVHNswr.pTZ4l3TpC8UU/0X1GlWe"], ["blurb", "Any text contains implicit hierarchies, by which an order is imposed on reality and by which a subtle repression is exercised, as these hierarchies exclude, subordinate, and hide the various potential meanings."], ["dob", "1930-07-15"], ["pronouns", "he/him"], ["created_at", "2022-12-26 14:03:43.281374"], ["updated_at", "2022-12-26 14:03:43.281374"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.7ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Settlers of Catan"], ["no_players", "3-4"], ["duration_minutes", 90], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.298177"], ["updated_at", "2022-12-26 14:03:43.298177"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Carcassonne"], ["no_players", "2-5"], ["duration_minutes", 40], ["complexity", 1], ["created_at", "2022-12-26 14:03:43.304791"], ["updated_at", "2022-12-26 14:03:43.304791"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "RoboRally"], ["no_players", "2-8"], ["duration_minutes", 60], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.308933"], ["updated_at", "2022-12-26 14:03:43.308933"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dominion"], ["no_players", "2-4"], ["duration_minutes", 30], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.313671"], ["updated_at", "2022-12-26 14:03:43.313671"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Red Dragon Inn"], ["no_players", "2-4"], ["duration_minutes", 45], ["complexity", 1], ["created_at", "2022-12-26 14:03:43.324065"], ["updated_at", "2022-12-26 14:03:43.324065"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Betrayal at House on the Hill"], ["no_players", "3-6"], ["duration_minutes", 60], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.329070"], ["updated_at", "2022-12-26 14:03:43.329070"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Racoon Tycoon"], ["no_players", "2-5"], ["duration_minutes", 75], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.334295"], ["updated_at", "2022-12-26 14:03:43.334295"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Love Letter"], ["no_players", "2-6"], ["duration_minutes", 20], ["complexity", 1], ["created_at", "2022-12-26 14:03:43.339824"], ["updated_at", "2022-12-26 14:03:43.339824"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Root"], ["no_players", "2-4"], ["duration_minutes", 75], ["complexity", 3], ["created_at", "2022-12-26 14:03:43.345409"], ["updated_at", "2022-12-26 14:03:43.345409"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "no_players", "duration_minutes", "complexity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Zombicide: Black Plague"], ["no_players", "1-6"], ["duration_minutes", 120], ["complexity", 2], ["created_at", "2022-12-26 14:03:43.350937"], ["updated_at", "2022-12-26 14:03:43.350937"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/users/index" for ::1 at 2022-12-26 08:08:22 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"index", "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 404 Not Found in 10ms (Views: 1.5ms | ActiveRecord: 2.0ms | Allocations: 5440)
+
+
+Started GET "/users/1" for ::1 at 2022-12-26 08:09:01 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1", "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 8ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 4574)
+
+
+Started GET "/users" for ::1 at 2022-12-26 08:09:53 -0600
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:15:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.63ms)
+Completed 202 Accepted in 29ms (Views: 26.0ms | ActiveRecord: 2.6ms | Allocations: 10800)
+
+
+Started GET "/games" for ::1 at 2022-12-26 08:10:00 -0600
+Processing by GamesController#index as */*
+  Parameters: {"game"=>{}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:14:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 202 Accepted in 9ms (Views: 6.2ms | ActiveRecord: 3.3ms | Allocations: 5645)
+
+
+Started GET "/games/1" for ::1 at 2022-12-26 08:10:08 -0600
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"1", "game"=>{}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:18:in `show'
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 1098)
+
+
+Started GET "/games/2" for ::1 at 2022-12-26 08:10:09 -0600
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"2", "game"=>{}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:18:in `show'
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 704)
+
+
+Started GET "/games/3" for ::1 at 2022-12-26 08:10:11 -0600
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"3", "game"=>{}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:18:in `show'
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 722)
+
+
+Started GET "/users/1" for ::1 at 2022-12-26 08:10:15 -0600
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1", "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 4ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 749)
+
+
+Started GET "/users/2" for ::1 at 2022-12-26 08:10:16 -0600
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 736)
+
+
+Started GET "/users/10" for ::1 at 2022-12-26 08:10:18 -0600
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"10", "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 404 Not Found in 5ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 736)
+
+
+Started GET "/users/13" for ::1 at 2022-12-26 08:10:21 -0600
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 4ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 736)
+
+
+Started GET "/users" for ::1 at 2022-12-26 08:10:22 -0600
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:15:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.72ms)
+Completed 202 Accepted in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 3106)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/1" for ::1 at 2022-12-26 08:11:54 -0600
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 200 OK in 12ms (Views: 3.0ms | ActiveRecord: 4.6ms | Allocations: 6667)
+
+
