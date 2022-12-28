@@ -793,3 +793,30 @@ Processing by UsersController#show as */*
 Completed 200 OK in 12ms (Views: 3.0ms | ActiveRecord: 4.6ms | Allocations: 6667)
 
 
+Started POST "/login" for 127.0.0.1 at 2022-12-26 08:29:28 -0600
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2022-12-26 08:30:39 -0600
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"", "session"=>{"username"=>""}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.2ms | Allocations: 11856)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:4:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-26 08:32:33 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "session"=>{"username"=>"acamus"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 5.3ms | Allocations: 17483)
+
+

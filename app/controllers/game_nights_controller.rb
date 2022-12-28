@@ -1,5 +1,7 @@
 class GameNightsController < ApplicationController
 
+  before_action :authorize
+
   def create
       gameNight = GameNight.create(game_night_params)
       if gameNight.valid?

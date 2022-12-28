@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Login({isLoaded, isLoggedIn, currentUser}) {
+function Login({ isLoaded, onLogin}) {
+    
+    const [username, setUsername] = useState("");
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username }),
+        });
+        const user = res.json();
+        onLogin(user);
+    }
+    
     return (
-        <div className="display-container">
-            <p>Login</p>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button type="submit">Login</button>
+        </form>
     );
 };
 

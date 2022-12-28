@@ -1,5 +1,7 @@
 class AttendancesController < ApplicationController
 
+  before_action :authorize
+
   def create
       attendance = Attendance.create(attendance_params)
       if attendance.valid?
