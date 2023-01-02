@@ -12,6 +12,8 @@ class User < ApplicationRecord
     has_many :user_games
     has_many :games, through: :user_games
 
+    validates :username, uniqueness: true
+
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)

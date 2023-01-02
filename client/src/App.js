@@ -77,15 +77,17 @@ function App() {
         </Route>
         <Route path="/login">
           <Login 
-          isLoaded={isLoaded}
-          onLogin={onLogin}
+            isLoaded={isLoaded}
+            onLogin={onLogin}
           />
         </Route>
         <Route path="/logout">
           <Logout />
         </Route>
         <Route path="/signup">
-          <Signup />
+          <Signup 
+            onLogin={onLogin}
+          />
         </Route>
         <Route path="/profile">
           <Profile 
