@@ -16,7 +16,7 @@ function Banner({isLoaded, isLoggedIn, search}) {
 
     return (
         <div className="display-container">
-            <img src="./gamenight_logo.png" />
+            <img src="./gamenight_logo.png" alt="Gamenight" />
             {bannerDisplay}
         </div>
     );
