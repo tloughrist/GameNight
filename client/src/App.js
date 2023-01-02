@@ -26,6 +26,7 @@ function App() {
   function onLogin(user) {
     console.log("Login");
     setCurrentUser(user);
+    setIsLoggedIn(true);
   };
 
   function logout() {
