@@ -1502,3 +1502,171 @@ Completed 201 Created in 217ms (Views: 7.4ms | ActiveRecord: 11.7ms | Allocation
 
 
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:32:55 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "session"=>{"username"=>"acamus"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 200ms (Views: 0.6ms | ActiveRecord: 6.3ms | Allocations: 4606)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:35:54 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]", "session"=>{"username"=>"acamus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 201 Created in 188ms (Views: 4.9ms | ActiveRecord: 0.4ms | Allocations: 4014)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:36:55 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]", "session"=>{"username"=>"acamus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 201 Created in 185ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 1176)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:38:22 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "session"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 16ms (Views: 1.0ms | ActiveRecord: 2.0ms | Allocations: 12316)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:39:08 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]", "session"=>{"username"=>"acamus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 201 Created in 197ms (Views: 5.4ms | ActiveRecord: 3.7ms | Allocations: 8268)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-01-02 13:40:06 -0600
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"", "user"=>{"username"=>"tloughrist", "blurb"=>"", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "tloughrist"], ["password_digest", "$2a$12$McvSNrdIobzv2IxpCC/UfeC/Nrn78REgVrrQT8njg0sA.mBntaUhC"], ["blurb", ""], ["dob", "1982-07-20"], ["pronouns", "he/him"], ["created_at", "2023-01-02 19:40:06.567355"], ["updated_at", "2023-01-02 19:40:06.567355"], ["email", "tim.loughrist@gmail.com"]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 201 Created in 210ms (Views: 1.4ms | ActiveRecord: 15.3ms | Allocations: 7500)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:40:28 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 180ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 705)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:41:36 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 185ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1340)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:41:52 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 180ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 704)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:42:11 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 185ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 957)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:42:22 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 180ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 704)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:42:47 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughris", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 16ms (Views: 0.5ms | ActiveRecord: 6.6ms | Allocations: 4520)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:43:54 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tlough", "password"=>"[FILTERED]", "session"=>{"username"=>"tlough", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tlough"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 684)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:44:00 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 180ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 763)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:44:07 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 184ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 721)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:44:10 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 201 Created in 189ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 910)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-02 13:44:34 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 186ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 979)
+
+

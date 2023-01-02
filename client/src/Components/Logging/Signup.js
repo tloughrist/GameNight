@@ -39,9 +39,9 @@ function Signup({ onLogin }) {
               if (user.errors) {
                 alert(user.errors)
               } else {
-                console.log(user)
+                console.log(user);
+                onLogin(user)
               }
-              //onLogin(user);
         } else {
             alert("Invalid - check entries")
         }

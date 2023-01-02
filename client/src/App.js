@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect } from "react-router-dom";
 import Banner from "./Components/Banner/Banner.js";
 import Friends from "./Components/Friends/Friends.js";
 import GameNights from "./Components/GameNights/GameNights.js";
@@ -19,14 +19,16 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [friends, setFriends] = useState();
   const [gameNights, setGameNights] = useState();
-  const [games, setGames] = useState()
+  const [games, setGames] = useState();
+
+  let history = useHistory();
 
   //useEffect to fetch user, friends, gamenights, games
 
   function onLogin(user) {
-    console.log("Login");
     setCurrentUser(user);
     setIsLoggedIn(true);
+    history.push("/home");
   };
 
   function logout() {
