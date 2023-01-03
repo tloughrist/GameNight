@@ -33,4 +33,8 @@ class AttendancesController < ApplicationController
       params.permit(:game_night_id, :attendee_id, :certainty)
   end
 
+  def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
+
 end

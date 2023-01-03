@@ -8,7 +8,7 @@ function Banner({isLoaded, isLoggedIn, search}) {
 
     if (isLoaded) {
         if (isLoggedIn) {
-            bannerDisplay = <UserNav search={search} />
+            bannerDisplay = <UserNav search={search} isLoggedIn={isLoggedIn} />
         } else {
             bannerDisplay = <VisitorNav />;
         }

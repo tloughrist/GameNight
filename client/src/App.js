@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory, Redirect } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Banner from "./Components/Banner/Banner.js";
 import Friends from "./Components/Friends/Friends.js";
 import GameNights from "./Components/GameNights/GameNights.js";
@@ -23,8 +23,19 @@ function App() {
 
   let history = useHistory();
 
-  //useEffect to fetch user, friends, gamenights, games
-
+  //Check to see if a user is logged in
+  useEffect(() => {
+    async function fetchUser() {
+      const response = await fetch("/me");
+      if (response.ok) {
+        const user = await response.json();
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+      }
+    };
+    fetchUser();
+  }, []);
+  
   function onLogin(user) {
     setCurrentUser(user);
     setIsLoggedIn(true);
@@ -84,7 +95,9 @@ function App() {
           />
         </Route>
         <Route path="/logout">
-          <Logout />
+          <Logout 
+            isLoggedIn={isLoggedIn}
+          />
         </Route>
         <Route path="/signup">
           <Signup 

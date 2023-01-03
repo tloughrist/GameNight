@@ -32,4 +32,8 @@ class MessagesController < ApplicationController
       params.permit(:sender_id, :receiver_id, :topic, :body)
   end
 
+  def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
+
 end

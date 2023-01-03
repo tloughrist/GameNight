@@ -1,7 +1,14 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 
-function UserNav({ search }) {
+function UserNav({ search, isLoggedIn }) {
+
+    let history = useHistory();
+
+    if (!isLoggedIn) {
+        history.push("/home");
+    }
+
     return (
         <div className="navbar">
             <NavLink to="/" exact className={useLocation().pathname === "/" ? "navlink navlink-active" : "navlink"}>Home</NavLink>

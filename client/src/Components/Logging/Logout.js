@@ -1,9 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-function Logout() {
+function Logout({ isLoggedIn }) {
+
+    let history = useHistory();
+
+    if (!isLoggedIn) {
+        history.push("/home");
+    }
+
     return (
         <div className="display-container">
-            <p>Logout</p>
+            <p>You have been logged out!</p>
         </div>
     );
 };

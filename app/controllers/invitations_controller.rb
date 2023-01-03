@@ -32,4 +32,8 @@ class InvitationsController < ApplicationController
       params.permit(:sender_id, :receiver_id, :game_night_id)
   end
 
+  def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
+
 end
