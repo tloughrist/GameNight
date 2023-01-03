@@ -43,9 +43,9 @@ function App() {
   };
 
   function logout() {
-    alert("You have been logged out.");
     setCurrentUser();
     setIsLoggedIn(false);
+    history.push("/home");
   };
 
   function search() {
