@@ -2031,3 +2031,174 @@ Processing by UsersController#show as */*
 Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 5.2ms | Allocations: 4213)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:39:01 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 4.6ms | Allocations: 4118)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:40:23 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 18ms (Views: 1.0ms | ActiveRecord: 6.7ms | Allocations: 4216)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-03 11:43:47 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:43:59 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 5.8ms | Allocations: 4309)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:44:28 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 978)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:44:31 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-03 11:45:59 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:46:07 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:46:24 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.1ms | Allocations: 554)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:46:33 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | Allocations: 302)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 11:46:46 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 201 Created in 193ms (Views: 1.3ms | ActiveRecord: 6.1ms | Allocations: 4058)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:46:53 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (Allocations: 223)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:47:30 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | Allocations: 388)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:47:38 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 383)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 11:47:57 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.45ms)
+Completed 201 Created in 183ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 1360)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:48:02 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (Allocations: 339)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:48:06 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 383)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 11:48:57 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 201 Created in 179ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 904)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:48:59 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (Allocations: 213)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 11:49:11 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 201 Created in 194ms (Views: 1.2ms | ActiveRecord: 6.7ms | Allocations: 4493)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:49:17 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:50:01 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 427)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 11:50:05 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 408)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 11:50:13 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 180ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 977)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-03 11:50:16 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 212)
+
+

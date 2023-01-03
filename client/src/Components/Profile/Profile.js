@@ -9,10 +9,17 @@ function Profile({isLoaded, isLoggedIn, currentUser, logout}) {
         history.push("/home");
     }
 
+    async function handleLogout() {
+        const res = await fetch("/logout", {
+          method: "DELETE"
+        });
+        logout();
+    };
+
     return (
         <div className="display-container">
             <p>Profile</p>
-            <button onClick={e => logout} className="navlink">Logout</button>
+            <button onClick={e => handleLogout()} className="navlink">Logout</button>
         </div>
     );
 };

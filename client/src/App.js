@@ -43,7 +43,9 @@ function App() {
   };
 
   function logout() {
-
+    alert("You have been logged out.");
+    setCurrentUser();
+    setIsLoggedIn(false);
   };
 
   function search() {
@@ -109,6 +111,7 @@ function App() {
             isLoaded={isLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
+            logout={logout}
           />
         </Route>
         <Route path="/users">
