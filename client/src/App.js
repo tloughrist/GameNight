@@ -20,6 +20,7 @@ function App() {
   const [friends, setFriends] = useState();
   const [gameNights, setGameNights] = useState();
   const [games, setGames] = useState();
+  const [searchedUsers, setSearchedUsers] = useState();
 
   let history = useHistory();
 
@@ -51,8 +52,14 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  function search() {
-
+  async function search(string) {
+    const response = await fetch("/search?" + new URLSearchParams({ query: string }).toString());
+    if (response.ok) {
+      const users = await response.json();
+      setSearchedUsers(users);
+      console.log(users);
+    }
+    history.push("/users");
   };
 
 
@@ -124,6 +131,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
+            searchedUsers={searchedUsers}
           />
         </Route>
         <Route path="/">

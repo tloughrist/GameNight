@@ -3337,3 +3337,464 @@ Processing by SessionsController#create as */*
 Completed 201 Created in 179ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 1003)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:15:49 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 15ms (Views: 0.9ms | ActiveRecord: 5.5ms | Allocations: 4240)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:28:06 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 18ms (Views: 1.4ms | ActiveRecord: 7.4ms | Allocations: 4122)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:31:59 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 5.5ms | Allocations: 4124)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:32:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 23ms (Views: 1.2ms | ActiveRecord: 7.9ms | Allocations: 4120)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:32:53 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 19ms (Views: 0.7ms | ActiveRecord: 5.8ms | Allocations: 4124)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:33:10 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 983)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:33:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 975)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:33:42 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 981)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-04 10:51:49 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:51:49 -0600
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...rs = User.where(("name LIKE ?", "%" + params[:q] + "%")||("u...
+...                              ^
+/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...:q] + "%")||("username LIKE ?", "%" + params[:q] + "%")).all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:54:04 -0600
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...rs = User.where(("name LIKE ?", "%" + params[:q] + "%")||("u...
+...                              ^
+/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...:q] + "%")||("username LIKE ?", "%" + params[:q] + "%")).all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:55:03 -0600
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...rs = User.where(("name LIKE ?", "%" + params[:q] + "%")||("u...
+...                              ^
+/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...:q] + "%")||("username LIKE ?", "%" + params[:q] + "%")).all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:55:24 -0600
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...rs = User.where(("name LIKE ?", "%" + params[:q] + "%")||("u...
+...                              ^
+/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+...:q] + "%")||("username LIKE ?", "%" + params[:q] + "%")).all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:22: syntax error, unexpected ',', expecting ')'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:56:50 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 31ms (Views: 2.0ms | ActiveRecord: 6.1ms | Allocations: 14447)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:57:29 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 31ms (Views: 1.8ms | ActiveRecord: 5.7ms | Allocations: 14458)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:57:32 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 200 OK in 30ms (Views: 2.3ms | ActiveRecord: 4.7ms | Allocations: 14443)
+
+
+Started GET "/search?camus" for 127.0.0.1 at 2023-01-04 10:57:36 -0600
+Processing by UsersController#find as */*
+  Parameters: {"camus"=>nil}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 355)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:22:in `+'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?camus" for 127.0.0.1 at 2023-01-04 10:58:27 -0600
+Processing by UsersController#find as */*
+  Parameters: {"camus"=>nil}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 5387)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:22:in `+'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:00:23 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 23ms (Views: 1.8ms | ActiveRecord: 7.0ms | Allocations: 11522)
+
+
+Started GET "/search?query=camus" for 127.0.0.1 at 2023-01-04 11:00:27 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"camus"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 365)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:22:in `+'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:00:56 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 23ms (Views: 7.2ms | ActiveRecord: 5.0ms | Allocations: 7725)
+
+
+Started GET "/search?name=camus" for 127.0.0.1 at 2023-01-04 11:00:58 -0600
+Processing by UsersController#find as */*
+  Parameters: {"name"=>"camus"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 5378)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:22:in `+'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:03:11 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1071)
+
+
+Started GET "/search?username=camus" for 127.0.0.1 at 2023-01-04 11:03:57 -0600
+Processing by UsersController#find as */*
+  Parameters: {"username"=>"camus"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 7132)
+
+
+Started GET "/search?username=acamus" for 127.0.0.1 at 2023-01-04 11:04:03 -0600
+Processing by UsersController#find as */*
+  Parameters: {"username"=>"acamus"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 10ms (Views: 1.8ms | ActiveRecord: 2.7ms | Allocations: 7158)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:04:55 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 18ms (Views: 5.8ms | ActiveRecord: 4.0ms | Allocations: 6793)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:04:58 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 23ms (Views: 1.7ms | ActiveRecord: 6.4ms | Allocations: 10116)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:05:56 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 6786)
+
+
+Started GET "/search?username=acamus" for 127.0.0.1 at 2023-01-04 11:06:20 -0600
+Processing by UsersController#find as */*
+  Parameters: {"username"=>"acamus"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1[0m  [["username", "acamus"]]
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 14ms (Views: 6.8ms | ActiveRecord: 2.4ms | Allocations: 11691)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:07:09 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 22ms (Views: 1.4ms | ActiveRecord: 7.6ms | Allocations: 11531)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:07:12 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1[0m  [["username", "acamus"]]
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 4.0ms | Allocations: 11696)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:10:58 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+Completed 500 Internal Server Error in 5ms (Allocations: 5403)
+
+
+  
+Errno::ENOENT (No such file or directory - %acamus%):
+  
+app/controllers/users_controller.rb:22:in ``'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:11:31 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+Completed 500 Internal Server Error in 5ms (Allocations: 5379)
+
+
+  
+Errno::ENOENT (No such file or directory - %camus%):
+  
+app/controllers/users_controller.rb:22:in ``'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:11:45 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+Completed 500 Internal Server Error in 5ms (Allocations: 5380)
+
+
+  
+Errno::ENOENT (No such file or directory - %camus%):
+  
+app/controllers/users_controller.rb:22:in ``'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:12:48 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+....where(username LIKE ? "camus").all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:13:11 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/timloughrist/Code/flatiron/phase-04/phase-4-project/app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+...where(username: LIKE ? "camus").all
+...                              ^
+):
+  
+app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+app/controllers/users_controller.rb:22: syntax error, unexpected ')', expecting ':'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:13:30 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE 'camus')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 17ms (Views: 3.2ms | ActiveRecord: 2.2ms | Allocations: 11990)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:13:50 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE 'acamus')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 34ms (Views: 15.1ms | ActiveRecord: 8.1ms | Allocations: 17100)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:14:08 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%camus%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 27ms (Views: 11.8ms | ActiveRecord: 5.1ms | Allocations: 17107)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:14:32 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 5394)
+
+
+  
+Errno::ENOENT (No such file or directory - %camus%):
+  
+app/controllers/users_controller.rb:22:in ``'
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:15:14 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%camus%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 17ms (Views: 7.5ms | ActiveRecord: 4.1ms | Allocations: 11675)
+
+
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:15:39 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 7504)
+
+
+  
+NameError (undefined local variable or method `query' for #<UsersController:0x0000000000ade8>
+Did you mean?  to_query):
+  
+app/controllers/users_controller.rb:22:in `find'
+Started GET "/search?query=acamus" for 127.0.0.1 at 2023-01-04 11:16:26 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"acamus"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%acamus%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 17ms (Views: 7.8ms | ActiveRecord: 3.9ms | Allocations: 11692)
+
+
+Started GET "/search?query=camus" for 127.0.0.1 at 2023-01-04 11:16:32 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"camus"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%camus%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 1432)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:16:42 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 22ms (Views: 3.0ms | ActiveRecord: 3.7ms | Allocations: 12074)
+
+
+Started GET "/search?query=ca" for 127.0.0.1 at 2023-01-04 11:16:44 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"ca"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%ca%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1702)
+
+
+Started GET "/search?query=z" for 127.0.0.1 at 2023-01-04 11:17:37 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"z"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%z%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 15ms (Views: 0.9ms | ActiveRecord: 2.1ms | Allocations: 11276)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:18:39 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.9ms)
+Completed 200 OK in 35ms (Views: 3.0ms | ActiveRecord: 5.9ms | Allocations: 11500)
+
+
+Started GET "/search?query=camus" for 127.0.0.1 at 2023-01-04 11:19:33 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"camus"}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%camus%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%camus%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 12ms (Views: 5.8ms | ActiveRecord: 1.8ms | Allocations: 1983)
+
+

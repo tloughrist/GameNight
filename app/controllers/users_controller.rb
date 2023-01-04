@@ -19,11 +19,11 @@ class UsersController < ApplicationController
     end
 
     def find
-        user = User.find_by(id: params[:id])
-        if user
-          render json: user
+        users = User.where('username LIKE ?', '%' + params[:query] + '%').all
+        if users.size > 0
+          render json: users
         else
-          render json: { error: "User not found" }, status: :not_found
+          render json: { error: "No users match search criteria" }, status: :not_found
         end
     end
 

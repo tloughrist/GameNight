@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 
 function UserNav({ search, isLoggedIn }) {
 
+    const [searchString, setSearchString] = useState("");
     let history = useHistory();
 
     if (!isLoggedIn) {
@@ -16,8 +17,13 @@ function UserNav({ search, isLoggedIn }) {
             <NavLink to="/games" exact className={useLocation().pathname === "/games" ? "navlink navlink-active" : "navlink"}>Games</NavLink>
             <NavLink to="/friends" exact className={useLocation().pathname === "/friends" ? "navlink navlink-active" : "navlink"}>Friends</NavLink>
             <NavLink to="/profile" exact className={useLocation().pathname === "/profile" ? "navlink navlink-active" : "navlink"}>Profile</NavLink>
-            <input type="text" placeholder="Search Users.."></input>
-            <button onClick={e => search} className="navlink">Search</button>
+            <input
+                type="text"
+                placeholder="Search by username.."
+                value={searchString}
+                onChange={(e) => setSearchString(e.target.value)}
+            />
+            <button onClick={(e) => search(searchString)} className="navlink">Search</button>
         </div>
     );
 };

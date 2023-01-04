@@ -18,7 +18,6 @@ function Login({ userLoaded, onLogin}) {
         if (user.errors) {
           alert("Incorrect username/password");
         } else {
-          console.log(user);
           onLogin(user);
         }
     };

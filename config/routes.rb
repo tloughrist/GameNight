@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   # Probably not right
   
-  get "/users/[:id]", to: "users#find" 
+  get "/search", to: "users#find" 
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
