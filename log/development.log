@@ -3798,3 +3798,87 @@ Processing by UsersController#find as */*
 Completed 200 OK in 12ms (Views: 5.8ms | ActiveRecord: 1.8ms | Allocations: 1983)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:22:33 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1017)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:22:39 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 975)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-04 11:22:46 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.7ms)
+Completed 200 OK in 36ms (Views: 9.4ms | ActiveRecord: 5.7ms | Allocations: 17580)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:22:52 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+Completed 200 OK in 41ms (Views: 2.7ms | ActiveRecord: 11.8ms | Allocations: 16073)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:31:29 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 24ms (Views: 0.9ms | ActiveRecord: 10.4ms | Allocations: 4272)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:33:08 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 987)
+
+
+Started GET "/search?query=cam" for 127.0.0.1 at 2023-01-04 11:33:15 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"cam"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%cam%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%cam%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 14ms (Views: 1.8ms | ActiveRecord: 5.4ms | Allocations: 5059)
+
+
+Started GET "/search?query=ca" for 127.0.0.1 at 2023-01-04 11:33:19 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"ca"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%ca%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%ca%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 22ms (Views: 2.1ms | ActiveRecord: 6.5ms | Allocations: 5429)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-04 11:33:23 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.15ms)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 1.0ms | Allocations: 4148)
+
+
