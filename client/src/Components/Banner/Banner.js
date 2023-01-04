@@ -4,9 +4,9 @@ import VisitorNav from "./VisitorNav.js";
 
 let bannerDisplay = <p>Loading...</p>
 
-function Banner({isLoaded, isLoggedIn, search}) {
+function Banner({userLoaded, isLoggedIn, search}) {
 
-    if (isLoaded) {
+    if (userLoaded) {
         if (isLoggedIn) {
             bannerDisplay = <UserNav search={search} isLoggedIn={isLoggedIn} />
         } else {

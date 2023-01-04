@@ -2521,3 +2521,819 @@ Processing by UsersController#show as */*
 Completed 401 Unauthorized in 4ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 825)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-03 13:59:25 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 25ms (Views: 1.1ms | ActiveRecord: 7.6ms | Allocations: 3973)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-03 13:59:40 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 19ms (Views: 0.4ms | ActiveRecord: 6.3ms | Allocations: 3872)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:03:46 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 18ms (Views: 0.6ms | ActiveRecord: 6.6ms | Allocations: 4004)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:04:00 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 401 Unauthorized in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 823)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:05:16 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 823)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:05:41 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 815)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-01-03 14:06:32 -0600
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Tim Loughrist", "username"=>"tloughrist", "password"=>"[FILTERED]", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"", "blurb"=>"", "user"=>{"name"=>"Tim Loughrist", "username"=>"tloughrist", "blurb"=>"", "dob"=>"1982-07-20", "pronouns"=>"", "email"=>"tim.loughrist@gmail.com"}}
+[31mUnpermitted parameters: :name, :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "tloughrist"], ["password_digest", "$2a$12$LyIG7dUbkWkAjOHZtWKplutO5F7ZXlqZhvKhEbACjbT5PHudUC5B6"], ["blurb", ""], ["dob", "1982-07-20"], ["pronouns", ""], ["created_at", "2023-01-03 20:06:32.223921"], ["updated_at", "2023-01-03 20:06:32.223921"], ["email", "tim.loughrist@gmail.com"]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 201 Created in 218ms (Views: 0.6ms | ActiveRecord: 17.9ms | Allocations: 8037)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:16:48 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.72ms)
+Completed 200 OK in 17ms (Views: 1.6ms | ActiveRecord: 5.7ms | Allocations: 4109)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:16:53 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 18ms (Views: 1.1ms | ActiveRecord: 6.6ms | Allocations: 4109)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:18:00 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 16ms (Views: 1.5ms | ActiveRecord: 5.1ms | Allocations: 4120)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:18:30 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 958)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:20:00 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 958)
+
+
+Started DELETE "/users/18" for 127.0.0.1 at 2023-01-03 14:22:24 -0600
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (1.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/users_controller.rb:52:in `destroy'
+Completed 204 No Content in 25ms (ActiveRecord: 8.9ms | Allocations: 11161)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:22:41 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 11ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 7257)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-01-03 14:23:35 -0600
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Tim Loughrist", "username"=>"tloughrist", "password"=>"[FILTERED]", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "user"=>{"name"=>"Tim Loughrist", "username"=>"tloughrist", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Tim Loughrist"], ["username", "tloughrist"], ["password_digest", "$2a$12$34L/h3FyqH186NiZmdK4ceUEe1ygRHw31nDzbu.eOwmCy/CmdQBAW"], ["blurb", "Nothing much."], ["dob", "1982-07-20"], ["pronouns", "he/him"], ["created_at", "2023-01-03 20:23:35.198242"], ["updated_at", "2023-01-03 20:23:35.198242"], ["email", "tim.loughrist@gmail.com"]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 201 Created in 221ms (Views: 9.0ms | ActiveRecord: 12.0ms | Allocations: 6811)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:24:52 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 23ms (Views: 7.4ms | ActiveRecord: 4.5ms | Allocations: 6645)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:26:42 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 29ms (Views: 2.5ms | ActiveRecord: 4.7ms | Allocations: 11501)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:30:04 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 37ms (Views: 1.7ms | ActiveRecord: 7.2ms | Allocations: 14408)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:34:40 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 30ms (Views: 1.2ms | ActiveRecord: 6.4ms | Allocations: 14413)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:38:46 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 33ms (Views: 1.4ms | ActiveRecord: 7.9ms | Allocations: 14394)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:38:52 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 5.8ms | Allocations: 4382)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:38:58 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 979)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:39:20 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 19ms (Views: 0.9ms | ActiveRecord: 6.4ms | Allocations: 4387)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:39:24 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 975)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:41:08 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 0.5ms | Allocations: 1133)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:45:52 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 6.1ms | Allocations: 4120)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:46:14 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 6.3ms | Allocations: 4130)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:48:02 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 3.8ms | Allocations: 4378)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:48:07 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 17ms (Views: 0.9ms | ActiveRecord: 6.2ms | Allocations: 4232)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:48:58 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 971)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:49:16 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 971)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:49:35 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 973)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:50:32 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 987)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:53:16 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 975)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:53:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 6.6ms | Allocations: 4136)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 14:54:35 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 983)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:02:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 16ms (Views: 1.1ms | ActiveRecord: 5.3ms | Allocations: 4119)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:02:30 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 18ms (Views: 1.4ms | ActiveRecord: 5.4ms | Allocations: 4132)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:07:01 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 5.7ms | Allocations: 4122)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:07:21 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 7.0ms | Allocations: 4118)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:07:23 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 973)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:11:03 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:11:03 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.6ms | Allocations: 997)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:11:03 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 25ms (Views: 1.0ms | ActiveRecord: 6.3ms | Allocations: 4131)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:11:03 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:12:09 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 981)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:14:21 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 16ms (Views: 1.4ms | ActiveRecord: 6.0ms | Allocations: 4132)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:14:57 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 975)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:15:09 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 987)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-03 15:17:05 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 5.2ms | Allocations: 4124)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:41:32 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 17ms (Views: 1.2ms | ActiveRecord: 4.8ms | Allocations: 4184)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:42:01 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 5.6ms | Allocations: 4193)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:43:08 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 979)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:44:37 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 987)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:48:45 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 977)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:48:45 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 19ms (Views: 1.3ms | ActiveRecord: 6.9ms | Allocations: 4180)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:49:12 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 14ms (Views: 0.9ms | ActiveRecord: 5.1ms | Allocations: 4185)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:49:27 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 977)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:51:24 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 18ms (Views: 1.4ms | ActiveRecord: 5.6ms | Allocations: 4114)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:51:45 -0600
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tim Loughrist", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "id"=>"19", "user"=>{"name"=>"Tim Loughrist", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 202 Accepted in 16ms (Views: 1.4ms | ActiveRecord: 1.9ms | Allocations: 4483)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:51:57 -0600
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tim Loughrist", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "id"=>"19", "user"=>{"name"=>"Tim Loughrist", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 202 Accepted in 12ms (Views: 1.1ms | ActiveRecord: 1.7ms | Allocations: 3852)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:52:24 -0600
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tim Loughrist", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "id"=>"19", "user"=>{"name"=>"Tim Loughrist", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 202 Accepted in 14ms (Views: 0.7ms | ActiveRecord: 2.7ms | Allocations: 4482)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:52:36 -0600
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tim", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "id"=>"19", "user"=>{"name"=>"Tim", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Tim"], ["updated_at", "2023-01-04 15:52:36.302363"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 202 Accepted in 23ms (Views: 1.5ms | ActiveRecord: 10.2ms | Allocations: 4642)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:52:59 -0600
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tim Loughrist", "email"=>"tim.loughrist@gmail.com", "dob"=>"1982-07-20", "pronouns"=>"he/him", "blurb"=>"Nothing much.", "id"=>"19", "user"=>{"name"=>"Tim Loughrist", "blurb"=>"Nothing much.", "dob"=>"1982-07-20", "pronouns"=>"he/him", "email"=>"tim.loughrist@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Tim Loughrist"], ["updated_at", "2023-01-04 15:52:59.156591"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 202 Accepted in 29ms (Views: 1.5ms | ActiveRecord: 11.5ms | Allocations: 4637)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:55:01 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.7ms | Allocations: 973)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 09:55:30 -0600
+Processing by UsersController#update as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"19", "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["password_digest", "$2a$12$ReWfkM7crN5OAwiPIX8dW.3fPIZLdKGrkLA1E/rmOKgKwuAkGD3/2"], ["updated_at", "2023-01-04 15:55:30.566906"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 202 Accepted in 201ms (Views: 1.4ms | ActiveRecord: 10.3ms | Allocations: 5257)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-04 09:55:36 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 331)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:57:03 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | Allocations: 519)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:57:06 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 505)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:57:53 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 549)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:58:02 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | Allocations: 382)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-04 09:58:17 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 201 Created in 196ms (Views: 1.1ms | ActiveRecord: 6.6ms | Allocations: 4707)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:59:12 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 976)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 09:59:40 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 983)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:00:18 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:00:20 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 975)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-04 10:01:15 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 216)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:02:03 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 389)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:02:07 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 383)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:02:14 -0600
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | Allocations: 516)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-04 10:02:22 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 177ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1458)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:02:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 19ms (Views: 1.3ms | ActiveRecord: 7.3ms | Allocations: 4156)
+
+
+Started PATCH "/users/19" for 127.0.0.1 at 2023-01-04 10:02:45 -0600
+Processing by UsersController#update as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"19", "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["password_digest", "$2a$12$0OwhT/Hn8aODRVOFy54jwOe./12Wsz2Be16m8YH4MFYMJ.tb.LnO6"], ["updated_at", "2023-01-04 16:02:45.470905"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:41:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tloughrist"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 202 Accepted in 215ms (Views: 0.7ms | ActiveRecord: 19.5ms | Allocations: 8053)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-04 10:02:50 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 335)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-04 10:03:02 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 201 Created in 186ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1315)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:09:46 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 6.4ms | Allocations: 4228)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:13:16 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 983)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 10:14:04 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 977)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-04 10:14:13 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 216)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-04 10:14:24 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughristproximate", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughristproximate", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughristproximate"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 18ms (Views: 0.4ms | ActiveRecord: 5.6ms | Allocations: 3842)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-04 10:14:32 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"tloughrist", "password"=>"[FILTERED]", "session"=>{"username"=>"tloughrist", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tloughrist"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 201 Created in 179ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 1003)
+
+

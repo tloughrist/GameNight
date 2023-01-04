@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function Friends({isLoaded, isLoggedIn, currentUser, friends, gameNights}) {
+function Friends({userLoaded, isLoggedIn, currentUser, friends, gameNights}) {
     
     let history = useHistory();
 

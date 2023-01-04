@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Users({isLoaded, isLoggedIn, currentUser, friends}) {
+function Users({userLoaded, isLoggedIn, currentUser, friends}) {
 
     const [searchedUsers, setSearchedUsers] = useState(null);
 

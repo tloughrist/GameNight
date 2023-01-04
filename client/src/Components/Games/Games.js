@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function Games({isLoaded, isLoggedIn, currentUser, friends, games}) {
+function Games({userLoaded, isLoggedIn, currentUser, friends, games}) {
 
     let history = useHistory();
 

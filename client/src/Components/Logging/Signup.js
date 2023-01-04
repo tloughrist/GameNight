@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function Signup({ onLogin }) {
 
+    const [name, setName] = useState("")
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -12,7 +13,7 @@ function Signup({ onLogin }) {
     const [validity, setValidity] = useState(false);
 
     function checkValidity() {
-        if (username.length > 5 && password.length > 7 && password === passwordConfirmation && email.length > 4 && blurb.length < 501 && dob.length > 0) {
+        if (name.length > 1 && username.length > 5 && password.length > 7 && password === passwordConfirmation && email.length > 4 && blurb.length < 501 && dob.length > 0) {
             setValidity(true)
         }
     };
@@ -27,6 +28,7 @@ function Signup({ onLogin }) {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ 
+                    name,
                     username,
                     password,
                     email,
@@ -49,6 +51,16 @@ function Signup({ onLogin }) {
 
     return (
         <form onSubmit={handleSubmit}>
+          <label htmlFor="name">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            autoComplete="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <label htmlFor="username">
             Username
           </label>

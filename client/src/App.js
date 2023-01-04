@@ -14,9 +14,9 @@ import Home from "./Components/Home/Home.js";
 
 function App() {
 
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [userLoaded, setUserLoaded] = useState();
   const [currentUser, setCurrentUser] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
   const [friends, setFriends] = useState();
   const [gameNights, setGameNights] = useState();
   const [games, setGames] = useState();
@@ -31,6 +31,9 @@ function App() {
         const user = await response.json();
         setCurrentUser(user);
         setIsLoggedIn(true);
+        setUserLoaded(true);
+      } else {
+        setIsLoggedIn(false);
       }
     };
     fetchUser();
@@ -43,9 +46,9 @@ function App() {
   };
 
   function logout() {
+    history.push("/home");
     setCurrentUser();
     setIsLoggedIn(false);
-    history.push("/home");
   };
 
   function search() {
@@ -56,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <Banner
-        isLoaded={isLoaded}
+        userLoaded={userLoaded}
         isLoggedIn={isLoggedIn}
         logout={logout}
         search={search}
@@ -64,7 +67,7 @@ function App() {
       <Switch>
         <Route path="/friends">
           <Friends 
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -73,7 +76,7 @@ function App() {
         </Route>
         <Route path="/game_nights">
           <GameNights
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -83,7 +86,7 @@ function App() {
         </Route>
         <Route path="/games">
           <Games
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -92,7 +95,7 @@ function App() {
         </Route>
         <Route path="/login">
           <Login 
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             onLogin={onLogin}
           />
         </Route>
@@ -108,15 +111,16 @@ function App() {
         </Route>
         <Route path="/profile">
           <Profile 
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
             logout={logout}
           />
         </Route>
         <Route path="/users">
           <Users 
-            isLoaded={isLoaded}
+            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
