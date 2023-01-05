@@ -10,7 +10,7 @@ function UserCard({ currentUser, user, friends }) {
   }
 
   async function handleFriendRequest(requestor, receiver) {
-    const res = await fetch("/friend_requests", {
+    await fetch("/friend_requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,8 +20,6 @@ function UserCard({ currentUser, user, friends }) {
             receiver_id: receiver.id
         }),
       });
-      const request = await res.json();
-      console.log(request)
   };
 
   return (

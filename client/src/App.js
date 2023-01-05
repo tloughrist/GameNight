@@ -14,10 +14,12 @@ import Home from "./Components/Home/Home.js";
 
 function App() {
 
-  const [userLoaded, setUserLoaded] = useState();
-  const [currentUser, setCurrentUser] = useState();
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  const [userLoaded, setUserLoaded] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [friends, setFriends] = useState([]);
+  const [friendsLoaded, setFriendsLoaded] = useState([]);
   const [gameNights, setGameNights] = useState([]);
   const [games, setGames] = useState([]);
   const [searchedUsers, setSearchedUsers] = useState([]);
@@ -25,20 +27,44 @@ function App() {
   let history = useHistory();
 
   //Check to see if a user is logged in
-  useEffect(() => {
-    async function fetchUser() {
-      const response = await fetch("/me");
-      if (response.ok) {
-        const user = await response.json();
-        setCurrentUser(user);
-        setIsLoggedIn(true);
-        setUserLoaded(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    };
+  useEffect(() => { 
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    if(!isInitialRender) {
+      fetchFriends();
+      fetchGameNights();
+    } else {
+      setIsInitialRender(false);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userLoaded])
+
+  async function fetchUser() {
+    const response = await fetch("/me");
+    if (response.ok) {
+      const user = await response.json();
+      setCurrentUser(user);
+      setIsLoggedIn(true);
+      setUserLoaded(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  };
+
+  async function fetchFriends() {
+    const response = await fetch(`/friends/${currentUser.id}`);
+    if (response.ok) {
+      const frnds = await response.json();
+      setFriends(frnds);
+      setFriendsLoaded(true);
+    }
+  };
+
+  async function fetchGameNights() {
+
+  };
   
   function onLogin(user) {
     setCurrentUser(user);
@@ -79,6 +105,8 @@ function App() {
             currentUser={currentUser}
             friends={friends}
             gameNights={gameNights}
+            friendsLoaded={friendsLoaded}
+            fetchFriends={fetchFriends}
           />
         </Route>
         <Route path="/game_nights">

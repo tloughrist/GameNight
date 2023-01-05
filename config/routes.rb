@@ -4,17 +4,19 @@ Rails.application.routes.draw do
   resources :attendances, only: [:create, :update, :destroy]
   resources :invitations, only: [:create, :show, :destroy]
   resources :game_nights, only: [:create, :update, :destroy, :show]
-  resources :friend_requests, only: [:create, :show, :destroy]
+  resources :friend_requests, only: [:index, :create, :show, :destroy]
   resources :friendships, only: [:create, :show, :destroy]
   resources :user_games, only: [:create, :show, :destroy]
   resources :games, only: [:index, :show, :create, :update, :destroy]
-  resources :users, only: [:index, :update, :destroy]
+  resources :users, only: [:index, :show, :update, :destroy]
 
   post "/signup", to: "users#create"
-  get "/me", to: "users#show"
+  get "/me", to: "users#self"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/search", to: "users#find"
+  get "/friends/:id", to: "users#friends"
+  delete "users/:user_id/friends/:friend_id", to: "friendships#destroy"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

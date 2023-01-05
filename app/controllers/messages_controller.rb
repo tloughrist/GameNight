@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :authorize
 
   def create
-    message = Message.create(messsage_params)
+    message = Message.create(message_params)
     if message.valid?
       render json: message, status: :created
     else

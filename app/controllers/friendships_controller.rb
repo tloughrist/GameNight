@@ -21,7 +21,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-      friendship = Friendship.find_by(id: params[:id])
+      friendship = Friendship.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
       friendship.delete
       head :no_content
   end

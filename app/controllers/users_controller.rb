@@ -27,13 +27,28 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
+    def self
       user = User.find_by(id: session[:user_id])
       if user
         render json: user
       else
         render json: { error: "Not authorized" }, status: :unauthorized
       end
+    end
+
+    def show
+      user = User.find_by(id: params[:id])
+      if user
+        render json: user
+      else
+        render json: { error: "User not found" }, status: :not_found
+      end
+    end
+
+    def friends
+      user = User.find(params[:id])
+      friends = user.friends
+      render json: friends
     end
 
     def update

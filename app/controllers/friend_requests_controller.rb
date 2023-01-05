@@ -12,16 +12,12 @@ class FriendRequestsController < ApplicationController
   end
 
   def show
-    request = FriendRequest.find_by(id: params[:id])
-      if request
-        render json: request
-      else
-        render json: { error: "Request not found" }, status: :not_found
-      end
+    requests = FriendRequest.where(receiver_id: params[:id]).all
+    render json: requests
   end
 
   def destroy
-      request = FriendRequest.find_by(id: params[:id])
+      request = FriendRequest.find(params[:id])
       request.delete
       head :no_content
   end
