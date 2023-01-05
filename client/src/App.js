@@ -101,13 +101,14 @@ function App() {
       <Switch>
         <Route path="/messages">
           <Messages 
-            userLoaded={userLoaded}
+            //userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
-            friends={friends}
-            gameNights={gameNights}
-            friendsLoaded={friendsLoaded}
-            fetchFriends={fetchFriends}
+            userLoaded={userLoaded}
+            //friends={friends}
+            //gameNights={gameNights}
+            //friendsLoaded={friendsLoaded}
+            //fetchFriends={fetchFriends}
           />
         </Route>
         <Route path="/friends">

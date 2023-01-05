@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def friends
+    def get_friends
       user = User.find(params[:id])
       friends = user.friends
       render json: friends

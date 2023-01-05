@@ -25,23 +25,17 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
     let history = useHistory();
 
     useEffect(() => {
-        if (currentUser) {
-            fetchFriendRequests();
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentUser]);
-
-    useEffect(() => {
         if (!isInitialRender) {
             if (!isLoggedIn) {
                 history.push("/home");
+            } else {
+                fetchFriendRequests();
             }
         } else {
             setIsInitialRender(false);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
-
 
     async function fetchFriendRequests() {
         const response = await fetch(`/friend_requests/${currentUser.id}`);

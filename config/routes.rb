@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/search", to: "users#find"
-  get "/friends/:id", to: "users#friends"
+  get "/friends/:id", to: "users#get_friends"
   delete "users/:user_id/friends/:friend_id", to: "friendships#destroy"
+  get "/users/:user_id/messages/", to: "messages#get_messages"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

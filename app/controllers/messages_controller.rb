@@ -20,6 +20,11 @@ class MessagesController < ApplicationController
       end
   end
 
+  def get_messages
+    messages = Message.where(receiver_id: params[:user_id]).all
+    render json: messages
+  end
+
   def destroy
       message = Message.find_by(id: params[:id])
       message.delete
