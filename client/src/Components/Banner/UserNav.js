@@ -17,13 +17,15 @@ function UserNav({ search, isLoggedIn }) {
             <NavLink to="/games" exact className={useLocation().pathname === "/games" ? "navlink navlink-active" : "navlink"}>Games</NavLink>
             <NavLink to="/friends" exact className={useLocation().pathname === "/friends" ? "navlink navlink-active" : "navlink"}>Friends</NavLink>
             <NavLink to="/profile" exact className={useLocation().pathname === "/profile" ? "navlink navlink-active" : "navlink"}>Profile</NavLink>
-            <input
-                type="text"
-                placeholder="Search by username.."
-                value={searchString}
-                onChange={(e) => setSearchString(e.target.value)}
-            />
-            <button onClick={(e) => search(searchString)} className="navlink">Search</button>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search by username.."
+                    value={searchString}
+                    onChange={(e) => setSearchString(e.target.value)}
+                />
+                <button onClick={(e) => search(searchString)} className="navlink">Search</button>
+            </div>
         </div>
     );
 };

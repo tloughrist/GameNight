@@ -3882,3 +3882,675 @@ Processing by UsersController#find as */*
 Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 1.0ms | Allocations: 4148)
 
 
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-04 11:34:47 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-04 11:35:19 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:35:26 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 1193)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:35:38 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 31ms (Views: 3.0ms | ActiveRecord: 7.5ms | Allocations: 12232)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:35:42 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1131)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:36:33 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 3159)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:36:38 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 983)
+
+
+Started GET "/search?query=ca" for 127.0.0.1 at 2023-01-04 11:36:42 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"ca"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%ca%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%ca%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.9ms | Allocations: 2006)
+
+
+Started GET "/search?query=c" for 127.0.0.1 at 2023-01-04 11:36:46 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"c"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%c%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%c%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 1.0ms | Allocations: 2044)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-04 11:36:48 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.09ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 4142)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-04 11:37:14 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.69ms)
+Completed 200 OK in 20ms (Views: 3.1ms | ActiveRecord: 0.6ms | Allocations: 4171)
+
+
+Started GET "/search?query=c" for 127.0.0.1 at 2023-01-04 11:37:22 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"c"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%c%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%c%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.8ms | Allocations: 2057)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:37:40 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 975)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:37:49 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 973)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-04 11:37:53 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.99ms)
+Completed 200 OK in 10ms (Views: 5.7ms | ActiveRecord: 1.0ms | Allocations: 4146)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-04 11:37:59 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 974)
+
+
+Started GET "/search?query=a" for 127.0.0.1 at 2023-01-04 11:38:03 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"a"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%a%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%a%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.62ms)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 1.0ms | Allocations: 3565)
+
+
+Started GET "/search?query=l" for 127.0.0.1 at 2023-01-04 11:38:09 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>"l"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%l%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%l%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.1ms | Allocations: 2609)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:03:28 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 35ms (Views: 2.5ms | ActiveRecord: 6.0ms | Allocations: 14454)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:04:32 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 34ms (Views: 1.8ms | ActiveRecord: 7.0ms | Allocations: 14460)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:17:34 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.94ms)
+Completed 200 OK in 33ms (Views: 9.1ms | ActiveRecord: 4.3ms | Allocations: 17401)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:19:53 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.91ms)
+Completed 200 OK in 19ms (Views: 3.9ms | ActiveRecord: 4.8ms | Allocations: 7485)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:22:45 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 32ms (Views: 1.5ms | ActiveRecord: 6.2ms | Allocations: 14435)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:22:47 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.22ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.6ms | Allocations: 3983)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-05 05:26:23 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:34:43 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 6.0ms | Allocations: 4428)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:34:46 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.89ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.4ms | Allocations: 4147)
+
+
+Started POST "/friends_requests" for 127.0.0.1 at 2023-01-05 05:34:49 -0600
+  
+ActionController::RoutingError (No route matches [POST] "/friends_requests"):
+  
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:35:33 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestObj"=>{"requestor_id"=>19, "receiver_id"=>1}, "friend_request"=>{}}
+[31mUnpermitted parameters: :requestObj, :friend_request[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 18ms (Views: 0.7ms | ActiveRecord: 9.5ms | Allocations: 8494)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:36:46 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.61ms)
+Completed 200 OK in 22ms (Views: 8.2ms | ActiveRecord: 5.0ms | Allocations: 4148)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:36:48 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.67ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 1.6ms | Allocations: 4305)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:36:50 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+[31mUnpermitted parameter: :friend_request[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 31ms (Views: 1.0ms | ActiveRecord: 8.9ms | Allocations: 10344)
+
+
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" ORDER BY "friend_requests"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:40:38 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"friend_request"=>{}}
+[31mUnpermitted parameter: :friend_request[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 14ms (Views: 0.9ms | ActiveRecord: 15.9ms | Allocations: 7683)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:41:01 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+[31mUnpermitted parameter: :friend_request[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 18ms (Views: 0.9ms | ActiveRecord: 9.5ms | Allocations: 10180)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:51:51 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "reciever_id"=>1, "friend_request"=>{"requestor_id"=>19}}
+[31mUnpermitted parameters: :reciever_id, :friend_request[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 23ms (Views: 0.5ms | ActiveRecord: 3.7ms | Allocations: 4584)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:52:59 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+[31mUnpermitted parameter: :friend_request[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 29ms (Views: 0.4ms | ActiveRecord: 6.4ms | Allocations: 8606)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:54:15 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+[31mUnpermitted parameter: :friend_request[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 20ms (Views: 0.5ms | ActiveRecord: 6.1ms | Allocations: 14789)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 05:54:44 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.98ms)
+Completed 200 OK in 26ms (Views: 2.8ms | ActiveRecord: 6.5ms | Allocations: 11700)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 05:54:46 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.82ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 4878)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:54:47 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+[31mUnpermitted parameter: :friend_request[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 17ms (Views: 0.5ms | ActiveRecord: 8.1ms | Allocations: 6386)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 05:56:42 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 19ms (Views: 0.5ms | ActiveRecord: 6.6ms | Allocations: 14730)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 06:02:34 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 30ms (Views: 1.6ms | ActiveRecord: 7.1ms | Allocations: 14360)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 06:02:35 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.2ms)
+Completed 200 OK in 24ms (Views: 9.8ms | ActiveRecord: 7.5ms | Allocations: 14465)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:02:37 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 14ms (Views: 0.6ms | ActiveRecord: 1.7ms | Allocations: 7159)
+
+
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" ORDER BY "friend_requests"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:08:39 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered FriendRequestSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 201 Created in 21ms (Views: 1.4ms | ActiveRecord: 7.8ms | Allocations: 15543)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:09:34 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 3.8ms | Allocations: 2393)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'friend_request' for FriendRequest.):
+  
+app/controllers/friend_requests_controller.rb:6:in `create'
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:11:02 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" IS NULL AND "friend_requests"."requestor_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" IS NULL AND "friend_requests"."requestor_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 18ms (Views: 0.5ms | ActiveRecord: 3.7ms | Allocations: 11325)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:13:01 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+[active_model_serializers] Rendered FriendRequestSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 201 Created in 22ms (Views: 1.1ms | ActiveRecord: 12.8ms | Allocations: 14647)
+
+
+  [1m[36mFriendRequest Load (0.4ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" ORDER BY "friend_requests"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:15:14 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 0.5ms | ActiveRecord: 6.5ms | Allocations: 16251)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:15:55 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 0.6ms | ActiveRecord: 7.7ms | Allocations: 16264)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 06:20:45 -0600
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 28ms (Views: 2.7ms | ActiveRecord: 7.3ms | Allocations: 11502)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 06:20:46 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.9ms | Allocations: 4265)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:20:47 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "friend_requests" ("requestor_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["requestor_id", 19], ["receiver_id", 1], ["created_at", "2023-01-05 12:20:48.010637"], ["updated_at", "2023-01-05 12:20:48.010637"]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."id" != $2 AND "friend_requests"."requestor_id" = $3 LIMIT $4[0m  [["receiver_id", 1], ["id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered FriendRequestSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 201 Created in 28ms (Views: 1.0ms | ActiveRecord: 10.7ms | Allocations: 18148)
+
+
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" ORDER BY "friend_requests"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:21:47 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 14ms (Views: 0.5ms | ActiveRecord: 2.3ms | Allocations: 5133)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:28:01 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 0.5ms | ActiveRecord: 6.2ms | Allocations: 17039)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:28:17 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 26ms (Views: 0.5ms | ActiveRecord: 9.2ms | Allocations: 17512)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:28:29 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>1, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 28ms (Views: 0.5ms | ActiveRecord: 14.1ms | Allocations: 17117)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:28:35 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>2, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>2}}
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 2], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("requestor_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["requestor_id", 19], ["receiver_id", 2], ["created_at", "2023-01-05 12:28:35.247548"], ["updated_at", "2023-01-05 12:28:35.247548"]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."id" != $2 AND "friend_requests"."requestor_id" = $3 LIMIT $4[0m  [["receiver_id", 2], ["id", 2], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered FriendRequestSerializer with ActiveModelSerializers::Adapter::Attributes (1.93ms)
+Completed 201 Created in 102ms (Views: 3.6ms | ActiveRecord: 27.5ms | Allocations: 18075)
+
+
+Started POST "/friend_requests" for 127.0.0.1 at 2023-01-05 06:28:38 -0600
+Processing by FriendRequestsController#create as */*
+  Parameters: {"requestor_id"=>19, "receiver_id"=>2, "friend_request"=>{"requestor_id"=>19, "receiver_id"=>2}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 2], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/friend_requests_controller.rb:6:in `create'
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."requestor_id" = $2 LIMIT $3[0m  [["receiver_id", 2], ["requestor_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/friend_requests_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 12ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 4709)
+
+

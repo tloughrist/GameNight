@@ -39,3 +39,7 @@
 .navlink:hover {
     background: rgb(206, 240, 213);
 }
+
+#banner_img {
+    width: 100%;
+}

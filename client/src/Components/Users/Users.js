@@ -21,21 +21,20 @@ function Users({userLoaded, isLoggedIn, currentUser, friends, searchedUsers}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
 
-
-
-    if (userLoaded) {
+    if (userLoaded && searchedUsers.length > 0) {
         display =
-            <>
-                {searchedUsers.map((user) =>
+        <>
+            {searchedUsers.map((user) =>
                 <UserCard
                     key={`user${user.id}`}
+                    currentUser={currentUser}
                     user={user}
                     friends={friends}
                 />
-                )}
-            </>
+            )}
+        </>
     }
-
+        
     return (
         <div className="display-container">
             {display}

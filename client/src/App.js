@@ -17,10 +17,10 @@ function App() {
   const [userLoaded, setUserLoaded] = useState();
   const [currentUser, setCurrentUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState();
-  const [friends, setFriends] = useState();
-  const [gameNights, setGameNights] = useState();
-  const [games, setGames] = useState();
-  const [searchedUsers, setSearchedUsers] = useState();
+  const [friends, setFriends] = useState([]);
+  const [gameNights, setGameNights] = useState([]);
+  const [games, setGames] = useState([]);
+  const [searchedUsers, setSearchedUsers] = useState([]);
 
   let history = useHistory();
 

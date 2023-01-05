@@ -1,3 +1,4 @@
+import './Banner.css';
 import React from "react";
 import UserNav from "./UserNav.js";
 import VisitorNav from "./VisitorNav.js";
@@ -16,7 +17,7 @@ function Banner({userLoaded, isLoggedIn, search}) {
 
     return (
         <div className="display-container">
-            <img src="./gamenight_logo.png" alt="Gamenight" />
+            <img id="banner_img" src="./gamenight_logo.png" alt="Gamenight" />
             {bannerDisplay}
         </div>
     );

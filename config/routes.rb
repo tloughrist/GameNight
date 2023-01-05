@@ -14,10 +14,7 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  
-  # Probably not right
-  
-  get "/search", to: "users#find" 
+  get "/search", to: "users#find"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
