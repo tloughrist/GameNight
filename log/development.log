@@ -27102,3 +27102,152 @@ Completed 201 Created in 41ms (Views: 1.4ms | ActiveRecord: 20.1ms | Allocations
 
   [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:46:56 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.4ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 2397)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:47:14 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.4ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 24ms (Views: 2.5ms | ActiveRecord: 4.5ms | Allocations: 5891)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:47:57 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1034)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:47:59 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 1032)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:48:05 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 968)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 13:48:13 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 23ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 10914)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:48:13 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-05 13:48:13 -0600
+Processing by UsersController#friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `friends'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 1.2ms | Allocations: 3771)
+
+
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 4.4ms | Allocations: 5937)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:48:24 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1022)
+
+
+Started GET "/search?query=" for 127.0.0.1 at 2023-01-05 13:48:27 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.26ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 1.2ms | Allocations: 4173)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:48:33 -0600
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.4ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 958)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 13:50:56 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 978)
+
+
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-05 13:50:56 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-05 13:50:56 -0600
+Processing by UsersController#friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `friends'
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.9ms | Allocations: 2023)
+
+
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 24ms (Views: 1.8ms | ActiveRecord: 8.9ms | Allocations: 5945)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-05 13:51:01 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.01ms)
+Completed 200 OK in 10ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 1934)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-05 13:51:01 -0600
+Processing by UsersController#friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `friends'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 200 OK in 16ms (Views: 5.7ms | ActiveRecord: 2.9ms | Allocations: 3940)
+
+

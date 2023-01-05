@@ -11,10 +11,10 @@ let requestDisplay =
         <p>None at this time.</p>
     </div>
 let friendDisplay =
-<div>
-    <h3>Friends</h3>
-    <p>None at this time.</p>
-</div>
+    <div>
+        <h3>Friends</h3>
+        <p>None at this time.</p>
+    </div>
 
 function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends, gameNights}) {
     

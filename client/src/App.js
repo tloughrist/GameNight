@@ -11,6 +11,7 @@ import Signup from "./Components/Logging/Signup.js";
 import Profile from "./Components/Profile/Profile.js";
 import Users from "./Components/Users/Users.js";
 import Home from "./Components/Home/Home.js";
+import Messages from "./Components/Messages/Messages.js"
 
 function App() {
 
@@ -98,6 +99,17 @@ function App() {
         search={search}
       />
       <Switch>
+        <Route path="/messages">
+          <Messages 
+            userLoaded={userLoaded}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            gameNights={gameNights}
+            friendsLoaded={friendsLoaded}
+            fetchFriends={fetchFriends}
+          />
+        </Route>
         <Route path="/friends">
           <Friends 
             userLoaded={userLoaded}

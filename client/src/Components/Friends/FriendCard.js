@@ -11,7 +11,7 @@ function FriendCard({ friend, friendsLoaded, fetchFriends, currentUser }) {
 
   async function handleMessage(e) {
     e.preventDefault();
-    await fetch("/messages", {
+    const res = await fetch("/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,10 @@ function FriendCard({ friend, friendsLoaded, fetchFriends, currentUser }) {
         body: body
        }),
     });
-    
+    const message = await res.json();
+    if (message.errors) {
+      alert(message.errors)
+    }
   };
 
   async function handleUnfriend() {
