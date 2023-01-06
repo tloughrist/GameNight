@@ -34984,3 +34984,2273 @@ Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 1534)
 Completed 200 OK in 10ms (Views: 4.7ms | ActiveRecord: 1.7ms | Allocations: 2039)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:36 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 16ms (Views: 1.2ms | ActiveRecord: 5.6ms | Allocations: 4264)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:37 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:37 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+Completed 200 OK in 17ms (Views: 3.0ms | ActiveRecord: 5.5ms | Allocations: 5176)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 6.7ms | Allocations: 4817)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:50 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 995)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:50 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:50 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 1.1ms | Allocations: 2029)
+
+
+  [1m[36mUserGame Load (0.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 4.7ms | Allocations: 4845)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:51 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 995)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:51 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:51 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 1.1ms | Allocations: 1552)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.4ms | Allocations: 2031)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:53 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 961)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:53 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:53 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1534)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.9ms | Allocations: 2015)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:58 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 959)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:58 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:58 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:09:58 -0600
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 1552)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 1.0ms | Allocations: 2033)
+
+
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 2.7ms | Allocations: 2715)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:09:59 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 965)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:09:59 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:09:59 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:09:59 -0600
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 1538)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.6ms | Allocations: 2515)
+
+
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 2.3ms | Allocations: 2739)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:10:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 965)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:10:03 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:10:03 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 1.2ms | Allocations: 1635)
+
+
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 1.0ms | Allocations: 2017)
+
+
+Started GET "/users/19/messages/" for 127.0.0.1 at 2023-01-06 09:10:05 -0600
+Processing by MessagesController#get_messages as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/messages_controller.rb:25:in `get_messages'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 12ms (Views: 1.7ms | ActiveRecord: 0.9ms | Allocations: 2717)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1060)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Started GET "/users/19/messages/" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by MessagesController#get_messages as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/messages_controller.rb:25:in `get_messages'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.08ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 985)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 1.5ms | Allocations: 2165)
+
+
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 29ms (Views: 1.6ms | ActiveRecord: 8.6ms | Allocations: 11049)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 959)
+
+
+Started GET "/users/19/messages/" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:10:07 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+Processing by MessagesController#get_messages as */*
+  Parameters: {"user_id"=>"19"}
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 1547)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.4ms | Allocations: 2309)
+
+
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/messages_controller.rb:25:in `get_messages'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 11ms (Views: 2.6ms | ActiveRecord: 3.4ms | Allocations: 2800)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:04 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:04 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:04 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Processing by UsersController#self as */*
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 976)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.7ms | Allocations: 2076)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.8ms | Allocations: 1637)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:05 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:05 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.7ms | Allocations: 2027)
+
+
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 1546)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:22 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:22 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:22 -0600
+Processing by UsersController#self as */*
+Processing by UserGamesController#get_games as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"user_id"=>"19"}
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 970)
+
+
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1538)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 2019)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:22 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:22 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 1544)
+
+
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 2026)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:33 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:33 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:33 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 994)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 1.0ms | Allocations: 1555)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.29ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 1.2ms | Allocations: 2030)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:33 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:33 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.8ms | Allocations: 1542)
+
+
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 1.0ms | Allocations: 2058)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:38 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:38 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:38 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 962)
+
+
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 1535)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.7ms | Allocations: 2015)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:38 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:38 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.6ms | Allocations: 2010)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 1528)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:42 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 967)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:42 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:42 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (1.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.9ms | Allocations: 2251)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:42 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 1547)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 22ms (Views: 2.7ms | ActiveRecord: 6.6ms | Allocations: 6871)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:42 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 2019)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"id"=>"19"}
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 971)
+
+
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 1544)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.1ms | Allocations: 2025)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1536)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.9ms | Allocations: 2017)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Processing by UsersController#self as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.1ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 971)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1544)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 2025)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:11:57 -0600
+Processing by UsersController#get_friends as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"id"=>"19"}
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 10ms (Views: 4.8ms | ActiveRecord: 1.4ms | Allocations: 3215)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 13ms (Views: 1.7ms | ActiveRecord: 0.8ms | Allocations: 3679)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:12:02 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:12:02 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:12:02 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 1538)
+
+
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 965)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 10ms (Views: 3.5ms | ActiveRecord: 1.4ms | Allocations: 2019)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:12:02 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:12:02 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 1.0ms | Allocations: 2013)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 1532)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:13:32 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 22ms (Views: 2.1ms | ActiveRecord: 5.9ms | Allocations: 11544)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:13:32 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:13:32 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 27ms (Views: 1.6ms | ActiveRecord: 7.3ms | Allocations: 10416)
+
+
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 32ms (Views: 4.3ms | ActiveRecord: 6.7ms | Allocations: 14184)
+
+
+Started GET "/user/search?query=" for 127.0.0.1 at 2023-01-06 09:13:34 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.78ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.8ms | Allocations: 4293)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:15:42 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 19ms (Views: 1.7ms | ActiveRecord: 3.3ms | Allocations: 11521)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:15:42 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:15:42 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 1769)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 14ms (Views: 7.1ms | ActiveRecord: 2.4ms | Allocations: 3990)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:16:16 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 1115)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:16:16 -0600
+Processing by UsersController#get_friends as */*
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:16:16 -0600
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.8ms | Allocations: 2081)
+
+
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 32ms (Views: 1.3ms | ActiveRecord: 6.9ms | Allocations: 10910)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:16:35 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 1041)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:16:35 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:16:35 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 1539)
+
+
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.9ms | Allocations: 2027)
+
+
+Started GET "/user/search?query=" for 127.0.0.1 at 2023-01-06 09:16:41 -0600
+Processing by UsersController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:23:in `find'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username LIKE '%%')[0m
+  ↳ app/controllers/users_controller.rb:24:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.86ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.0ms | Allocations: 4109)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:26:45 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 5.8ms | Allocations: 4254)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:26:45 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:26:45 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 16ms (Views: 2.4ms | ActiveRecord: 5.8ms | Allocations: 5312)
+
+
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 29ms (Views: 1.1ms | ActiveRecord: 9.5ms | Allocations: 10551)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:17 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:27:17 -0600
+Processing by UsersController#get_friends as */*
+Processing by UsersController#self as */*
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:17 -0600
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 1131)
+
+
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 34ms (Views: 4.2ms | ActiveRecord: 10.3ms | Allocations: 8459)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 26ms (Views: 1.7ms | ActiveRecord: 8.6ms | Allocations: 10532)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:17 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:17 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 9ms (Views: 4.7ms | ActiveRecord: 1.3ms | Allocations: 2314)
+
+
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 20ms (Views: 0.7ms | ActiveRecord: 5.5ms | Allocations: 5055)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:33 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:27:33 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:33 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1586)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.8ms | Allocations: 2025)
+
+
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:33 -0600
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 7.1ms | Allocations: 5906)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:33 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 1551)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 29ms (Views: 4.0ms | ActiveRecord: 8.2ms | Allocations: 13949)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:27:39 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:39 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:39 -0600
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 991)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1622)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.9ms | Allocations: 2300)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:39 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:39 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 1546)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 1.1ms | Allocations: 2031)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:27:42 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 974)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:27:43 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:27:43 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 1537)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.7ms | Allocations: 2018)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:28:06 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:28:06 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:28:06 -0600
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 961)
+
+
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 2015)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.9ms | Allocations: 1534)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:28:06 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:28:06 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 1542)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.8ms | Allocations: 2023)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:28:31 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 961)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:28:31 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:28:31 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 1544)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 1.0ms | Allocations: 2025)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:28:32 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.7ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.8ms | Allocations: 3220)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:29:32 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:32 -0600
+Started GET "/games/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:32 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 971)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  
+ActionController::RoutingError (No route matches [GET] "/games/users/19/games"):
+  
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 1.4ms | Allocations: 2121)
+
+
+Started GET "/games/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:32 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/games/users/19/games"):
+  
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 2011)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:29:35 -0600
+Started GET "/games/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:35 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:35 -0600
+Processing by UsersController#get_friends as */*
+Processing by UsersController#self as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1090)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.8ms | Allocations: 2361)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/games/users/19/games"):
+  
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:35 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+Started GET "/games/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/games/users/19/games"):
+  
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.8ms | Allocations: 2039)
+
+
+Started GET "/games/game/search?query=" for 127.0.0.1 at 2023-01-06 09:29:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/games/game/search"):
+  
+Started GET "/game/gamenight_logo.png" for 127.0.0.1 at 2023-01-06 09:29:40 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/gamenight_logo.png"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:29:40 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 1174)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:40 -0600
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:40 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 11ms (Views: 5.5ms | ActiveRecord: 1.3ms | Allocations: 2359)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:29:54 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 1177)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:54 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:54 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 1546)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.8ms | Allocations: 2149)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:29:57 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 973)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:29:58 -0600
+Processing by UsersController#get_friends as */*
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:29:58 -0600
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.8ms | Allocations: 2020)
+
+
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 1540)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 959)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 2015)
+
+
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 1615)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 969)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:02 -0600
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.8ms | Allocations: 2081)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 1551)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 958)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (1.6ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 1.9ms | Allocations: 2281)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 29ms (Views: 4.3ms | ActiveRecord: 9.2ms | Allocations: 6851)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 968)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.7ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.8ms | Allocations: 2025)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 1571)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 975)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#get_friends as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"id"=>"19"}
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 1536)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.7ms | Allocations: 2018)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.7ms)
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 973)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 2.1ms | Allocations: 2896)
+
+
+  [1m[36mUserGame Load (0.6ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 23ms (Views: 1.1ms | ActiveRecord: 9.9ms | Allocations: 6910)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:03 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 2017)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 1536)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 965)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+Processing by FriendRequestsController#show as */*
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  Parameters: {"id"=>"19"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.7ms | Allocations: 2029)
+
+
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 4472)
+
+
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 11ms (Views: 4.4ms | ActiveRecord: 2.0ms | Allocations: 4329)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1049)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 1556)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.0ms | Allocations: 2037)
+
+
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 9ms (Views: 2.4ms | ActiveRecord: 2.9ms | Allocations: 2684)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1086)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:30:05 -0600
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Processing by FriendRequestsController#show as */*
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  Parameters: {"id"=>"19"}
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mFriendRequest Load (0.2ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 970)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.9ms | Allocations: 1545)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.9ms | Allocations: 2017)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:06 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 961)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:06 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:06 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Started GET "/friend_requests/19" for 127.0.0.1 at 2023-01-06 09:30:06 -0600
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 1534)
+
+
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.9ms | Allocations: 2061)
+
+
+Processing by FriendRequestsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mFriendRequest Load (0.3ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/friend_requests_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.09ms)
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 1.2ms | Allocations: 2598)
+
+
+Started GET "/users/19/messages/" for 127.0.0.1 at 2023-01-06 09:30:07 -0600
+Processing by MessagesController#get_messages as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/messages_controller.rb:25:in `get_messages'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 10ms (Views: 3.5ms | ActiveRecord: 1.9ms | Allocations: 2705)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:30:09 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.17ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 1.8ms | Allocations: 3263)
+
+
+Started GET "/game/gamenight_logo.png" for 127.0.0.1 at 2023-01-06 09:30:11 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/gamenight_logo.png"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:30:11 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 968)
+
+
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:30:11 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:30:11 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 1.4ms | Allocations: 2157)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:28 -0600
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:28 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:31:28 -0600
+Processing by UsersController#get_friends as */*
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+  Parameters: {"id"=>"19"}
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 976)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.2ms | Allocations: 2123)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:28 -0600
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:28 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.0ms | Allocations: 2015)
+
+
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:31:34 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:34 -0600
+Processing by UsersController#self as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 1502)
+
+
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:34 -0600
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.43ms)
+Completed 200 OK in 23ms (Views: 7.7ms | ActiveRecord: 5.8ms | Allocations: 6425)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:34 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.9ms | Allocations: 2026)
+
+
+Started GET "/game/gamenight_logo.png" for 127.0.0.1 at 2023-01-06 09:31:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/gamenight_logo.png"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:31:37 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 972)
+
+
+Started GET "/game/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:37 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/game/users/19/games"):
+  
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 8ms (Views: 3.6ms | ActiveRecord: 1.3ms | Allocations: 2031)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:31:41 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 969)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:41 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:41 -0600
+Processing by UserGamesController#get_games as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"user_id"=>"19"}
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.1ms | Allocations: 2017)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 1.0ms | Allocations: 1541)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:31:45 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.8ms)
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.8ms | Allocations: 3265)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:31:46 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 996)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:31:46 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:31:46 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 1539)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.9ms | Allocations: 2088)
+
+
+Started GET "/users/19/messages/" for 127.0.0.1 at 2023-01-06 09:31:52 -0600
+Processing by MessagesController#get_messages as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."receiver_id" = $1[0m  [["receiver_id", 19]]
+  ↳ app/controllers/messages_controller.rb:25:in `get_messages'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 9ms (Views: 2.0ms | ActiveRecord: 3.4ms | Allocations: 2802)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:32:00 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.31ms)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 1.7ms | Allocations: 3249)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:33:26 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.12ms)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 2742)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:34:13 -0600
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:34:13 -0600
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:34:13 -0600
+Processing by UsersController#self as */*
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 1543)
+
+
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 1527)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 2.0ms | Allocations: 3151)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:34:13 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:34:13 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 1550)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 1.2ms | Allocations: 2126)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:34:17 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 981)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:34:18 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:34:18 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1549)
+
+
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.7ms | Allocations: 2023)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-06 09:35:12 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:35:28 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:35:28 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:35:28 -0600
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUserGame Load (0.2ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.8ms | Allocations: 2023)
+
+
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1542)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:35:32 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.81ms)
+Completed 200 OK in 9ms (Views: 3.1ms | ActiveRecord: 1.4ms | Allocations: 2750)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:37:54 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 969)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:37:54 -0600
+Processing by UsersController#get_friends as */*
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:37:54 -0600
+  Parameters: {"id"=>"19"}
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.7ms | Allocations: 1536)
+
+
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.8ms | Allocations: 2016)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:37:55 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.48ms)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 1.2ms | Allocations: 2737)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:38:00 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 963)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:38:00 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:38:00 -0600
+Processing by UsersController#get_friends as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"id"=>"19"}
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.8ms | Allocations: 2687)
+
+
+  [1m[36mUserGame Load (0.5ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 8.4ms | Allocations: 6979)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:38:30 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 961)
+
+
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:38:30 -0600
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:38:30 -0600
+Processing by UserGamesController#get_games as */*
+Processing by UsersController#get_friends as */*
+  Parameters: {"user_id"=>"19"}
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 1546)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.0ms | Allocations: 2028)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-01-06 09:39:22 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:39:27 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 973)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:39:27 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"19"}
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:39:27 -0600
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Processing by UserGamesController#get_games as */*
+  Parameters: {"user_id"=>"19"}
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mUserGame Load (0.4ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 1.2ms | Allocations: 2023)
+
+
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 9ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 1542)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-06 09:39:31 -0600
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 965)
+
+
+Started GET "/friends/19" for 127.0.0.1 at 2023-01-06 09:39:31 -0600
+Started GET "/users/19/games/" for 127.0.0.1 at 2023-01-06 09:39:31 -0600
+Processing by UsersController#get_friends as */*
+Processing by UserGamesController#get_games as */*
+  Parameters: {"id"=>"19"}
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUserGame Load (0.3ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games" WHERE "user_games"."owner_id" = $1[0m  [["owner_id", 19]]
+  ↳ app/controllers/user_games_controller.rb:25:in `map'
+  ↳ app/controllers/users_controller.rb:49:in `get_friends'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_games_controller.rb:25:in `block in get_games'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (user_id = 19 OR friend_id = 19)[0m  [["user_id", 19]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1547)
+
+
+  ↳ app/controllers/users_controller.rb:51:in `get_friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 1.4ms | Allocations: 2042)
+
+
+Started GET "/game/search?query=" for 127.0.0.1 at 2023-01-06 09:39:33 -0600
+Processing by GamesController#find as */*
+  Parameters: {"query"=>""}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:21:in `find'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/games_controller.rb:22:in `find'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 9ms (Views: 3.6ms | ActiveRecord: 1.6ms | Allocations: 2741)
+
+

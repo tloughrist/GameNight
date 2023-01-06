@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   get "/me", to: "users#self"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/search", to: "users#find"
+  get "user/search", to: "users#find"
   get "/friends/:id", to: "users#get_friends"
   delete "users/:user_id/friends/:friend_id", to: "friendships#destroy"
   get "/users/:user_id/messages/", to: "messages#get_messages"
   get "/users/:user_id/games/", to: "user_games#get_games"
-  
+  get "game/search", to: "games#find"
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

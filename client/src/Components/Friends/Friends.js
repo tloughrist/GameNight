@@ -16,11 +16,12 @@ let friendDisplay =
         <p>None at this time.</p>
     </div>
 
-function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends, gameNights}) {
+function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends, gameNights, search}) {
     
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [friendRequests, setFriendRequests] = useState([]);
     const [requestsLoaded, setRequestsLoaded] = useState(false);
+    const [searchString, setSearchString] = useState("");
 
     let history = useHistory();
 
@@ -82,6 +83,15 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
     if (userLoaded) {
         display =
         <div>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search by username.."
+                    value={searchString}
+                    onChange={(e) => setSearchString(e.target.value)}
+                />
+                <button onClick={(e) => search(searchString)} className="navlink">Search for Users</button>
+            </div>
             {requestDisplay}
             {friendDisplay}
         </div>

@@ -16,6 +16,15 @@ class GamesController < ApplicationController
       render json: games, status: :accepted
   end
 
+  def find
+    games = Game.where('title LIKE ?', '%' + params[:query] + '%').all
+    if games.size > 0
+      render json: games
+    else
+      render json: { error: "No games match search criteria" }, status: :not_found
+    end
+  end
+
   def show
       game = Game.find_by(id: params[:id])
       if game

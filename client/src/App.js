@@ -90,16 +90,14 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  async function search(string) {
-    const response = await fetch("/search?" + new URLSearchParams({ query: string }).toString());
+  async function userSearch(string) {
+    const response = await fetch("user/search?" + new URLSearchParams({ query: string }).toString());
     if (response.ok) {
       const users = await response.json();
       setSearchedUsers(users);
-      console.log(users);
     }
     history.push("/users");
   };
-
 
   return (
     <div className="App">
@@ -107,7 +105,6 @@ function App() {
         userLoaded={userLoaded}
         isLoggedIn={isLoggedIn}
         logout={logout}
-        search={search}
       />
       <Switch>
         <Route path="/messages">
@@ -130,6 +127,7 @@ function App() {
             gameNights={gameNights}
             friendsLoaded={friendsLoaded}
             fetchFriends={fetchFriends}
+            search={userSearch}
           />
         </Route>
         <Route path="/game_nights">
