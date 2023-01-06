@@ -17,7 +17,8 @@ class GamesController < ApplicationController
   end
 
   def find
-    games = Game.where('title LIKE ?', '%' + params[:query] + '%').all
+    #note the use of lower() to downcase the title
+    games = Game.where('lower(title) LIKE ?', '%' + params[:query] + '%').all
     if games.size > 0
       render json: games
     else

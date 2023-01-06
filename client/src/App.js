@@ -22,8 +22,9 @@ function App() {
   const [friends, setFriends] = useState([]);
   const [friendsLoaded, setFriendsLoaded] = useState(false);
   const [gameNights, setGameNights] = useState([]);
+  const [gameNightsLoaded, setGameNightsLoaded] = useState([]);
   const [games, setGames] = useState([]);
-  const [gamesLoaded, setGamesLoaded] = useState(false)
+  const [gamesLoaded, setGamesLoaded] = useState(false);
   const [searchedUsers, setSearchedUsers] = useState([]);
 
   let history = useHistory();
@@ -66,7 +67,12 @@ function App() {
   };
 
   async function fetchGameNights() {
-
+    const response = await fetch(`users/game_nights/${currentUser.id}`);
+    if (response.ok) {
+      const ngts = await response.json();
+      setGameNights(ngts);
+      setGameNightsLoaded(true);
+    }
   };
 
   async function fetchGames() {

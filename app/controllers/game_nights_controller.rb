@@ -20,6 +20,11 @@ class GameNightsController < ApplicationController
       end
   end
 
+  def get_nights
+    user_nights = GameNight.where(owner_id: params[:user_id]).all
+    render json: user_nights
+  end
+
   def update
       gameNight = GameNight.find_by(id: params[:id])
       gameNight.update(game_night_params)

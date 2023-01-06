@@ -49,38 +49,36 @@ function Games({isLoggedIn, currentUser, games, setGames, search}) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [games]);
 
-    //Once games load create message component for each message
+    //Once searched games load create message component for each message
     useEffect(() => {
-        if (!isInitialRender) {
-            if (searchedGames.length > 0) {
-                searchedGameDisplay = 
-                    <div>
-                        {searchedGames.map((game) =>
-                            <GameCard
-                                key={`game${game.id}`}
-                                game={game}
-                            />
-                        )}
-                    </div>;
-                setGamesDisplaySwitch(!gamesDisplaySwitch);
-            } else {
-                searchedGameDisplay = 
-                    <div>
-                        <h3>No games match criteria.</h3>
-                    </div>;
-            }
+        if (searchedGames.length > 0) {
+            searchedGameDisplay = 
+                <div>
+                    {searchedGames.map((game) =>
+                        <GameCard
+                            key={`game${game.id}`}
+                            game={game}
+                        />
+                    )}
+                </div>;
+            setGamesDisplaySwitch(!gamesDisplaySwitch);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchedGames]);
 
     async function gameSearch(string) {
-        const response = await fetch("game/search?" + new URLSearchParams({ query: string }).toString());
+        searchedGameDisplay = 
+            <div>
+                <h3>No games match criteria.</h3>
+            </div>;
+        setGamesDisplaySwitch(!gamesDisplaySwitch);
+        const response = await fetch("game/search?" + new URLSearchParams({ query: string}).toString());
         if (response.ok) {
           const gmes = await response.json();
           setSearchedGames(gmes);
           console.log(gmes);
         }
-      };
+    };
 
     return (
         <div className="display-container">
