@@ -20,6 +20,12 @@ class UserGamesController < ApplicationController
       end
   end
 
+  def get_games
+    user_games = UserGame.where(owner_id: params[:user_id]).all
+    games = user_games.map { |usergame| usergame.game }
+    render json: games
+  end
+
   def destroy
       user_game = UserGame.find_by(id: params[:id])
       user_game.delete

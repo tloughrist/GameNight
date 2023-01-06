@@ -1,24 +1,16 @@
 import React from "react";
 
-let messageDisplay = <p>Message loading...</p>
-
-function MessageCard({ message, messagesLoaded }) {
-
-  console.log(message)
+function MessageCard({ message }) {
   
-  if (messagesLoaded) {
-    messageDisplay =
-      <>
-        <p>{message.topic}</p>
-        <p>{message.body}</p>
-      </>
-  }
+  //add delete and responde buttons along with sender info
+  //for sender info, include whether it relates to a specific gamenight
 
   return (
     <div className="card">
-      {messageDisplay}
+      <p>{message.topic}</p>
+      <p>{message.body}</p>
     </div>
-  )
+  );
 }
 
 export default MessageCard;

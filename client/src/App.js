@@ -20,9 +20,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [friends, setFriends] = useState([]);
-  const [friendsLoaded, setFriendsLoaded] = useState([]);
+  const [friendsLoaded, setFriendsLoaded] = useState(false);
   const [gameNights, setGameNights] = useState([]);
   const [games, setGames] = useState([]);
+  const [gamesLoaded, setGamesLoaded] = useState(false)
   const [searchedUsers, setSearchedUsers] = useState([]);
 
   let history = useHistory();
@@ -36,11 +37,12 @@ function App() {
     if(!isInitialRender) {
       fetchFriends();
       fetchGameNights();
+      fetchGames();
     } else {
       setIsInitialRender(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userLoaded])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser])
 
   async function fetchUser() {
     const response = await fetch("/me");
@@ -66,6 +68,15 @@ function App() {
   async function fetchGameNights() {
 
   };
+
+  async function fetchGames() {
+    const response = await fetch(`users/${currentUser.id}/games/`);
+    if (response.ok) {
+        const gmes = await response.json();
+        setGames(gmes);
+        setGamesLoaded(true);
+    }
+};
   
   function onLogin(user) {
     setCurrentUser(user);
@@ -104,7 +115,6 @@ function App() {
             //userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
-            userLoaded={userLoaded}
             //friends={friends}
             //gameNights={gameNights}
             //friendsLoaded={friendsLoaded}

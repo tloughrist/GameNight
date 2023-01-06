@@ -45,7 +45,7 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
           setRequestsLoaded(true);
         }
     };
-
+    
     if (userLoaded && friendRequests.length > 0) {
         requestDisplay =
         <div>

@@ -7,12 +7,10 @@ let bannerDisplay = <p>Loading...</p>
 
 function Banner({userLoaded, isLoggedIn, search}) {
 
-    if (userLoaded) {
-        if (isLoggedIn) {
-            bannerDisplay = <UserNav search={search} isLoggedIn={isLoggedIn} />
-        } else {
-            bannerDisplay = <VisitorNav />;
-        }
+    if (isLoggedIn) {
+        bannerDisplay = <UserNav search={search} isLoggedIn={isLoggedIn} />
+    } else {
+        bannerDisplay = <VisitorNav />;
     }
 
     return (
