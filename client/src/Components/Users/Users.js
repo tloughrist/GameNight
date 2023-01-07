@@ -18,22 +18,25 @@ function Users({userLoaded, isLoggedIn, currentUser, friends, searchedUsers}) {
         } else {
             setIsInitialRender(false);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
 
-    if (userLoaded && searchedUsers.length > 0) {
-        display =
-        <>
-            {searchedUsers.map((user) =>
-                <UserCard
-                    key={`user${user.id}`}
-                    currentUser={currentUser}
-                    user={user}
-                    friends={friends}
-                />
-            )}
-        </>
-    }
+    useEffect(() => {
+        if (searchedUsers.length > 0) {
+            display =
+            <>
+                {searchedUsers.map((user) =>
+                    <UserCard
+                        key={`user${user.id}`}
+                        currentUser={currentUser}
+                        user={user}
+                        friends={friends}
+                    />
+                )}
+            </>;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchedUsers])
         
     return (
         <div className="display-container">

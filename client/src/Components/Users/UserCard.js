@@ -5,8 +5,12 @@ function UserCard({ currentUser, user, friends }) {
 
   let friendRequest = <button onClick={(e) => handleFriendRequest(currentUser, user)}>Send Friend Request</button>
 
-  if (friends.includes(user)) {
-    friendRequest = <h3>A friend!</h3>
+  const hasFriend = friends.filter(obj => {
+    return obj.username === user.username
+  })
+
+  if (hasFriend.length > 0) {
+    friendRequest = <h3>Friend!</h3>
   }
 
   async function handleFriendRequest(requestor, receiver) {

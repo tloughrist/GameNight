@@ -5,7 +5,7 @@ import VisitorNav from "./VisitorNav.js";
 
 let bannerDisplay = <p>Loading...</p>
 
-function Banner({userLoaded, isLoggedIn}) {
+function Banner({isLoggedIn}) {
 
     if (isLoggedIn) {
         bannerDisplay = <UserNav isLoggedIn={isLoggedIn} />

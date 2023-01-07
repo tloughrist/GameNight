@@ -4,19 +4,10 @@ import { useHistory } from "react-router-dom";
 import FriendRequestCard from "./FriendRequestCard.js";
 import FriendCard from "./FriendCard.js";
 
-let display = <p>Loading...</p>;
-let requestDisplay =
-    <div>
-        <h3>Friend Requests</h3>
-        <p>None at this time.</p>
-    </div>
-let friendDisplay =
-    <div>
-        <h3>Friends</h3>
-        <p>None at this time.</p>
-    </div>
+let requestDisplay = <p>Loading...</p>
+let friendDisplay = <p>Loading...</p>
 
-function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends, gameNights, search}) {
+function Friends({isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends, gameNights, search}) {
     
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [friendRequests, setFriendRequests] = useState([]);
@@ -24,19 +15,83 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
     const [searchString, setSearchString] = useState("");
 
     let history = useHistory();
-
+    
+    //Allow only logged-in users access
     useEffect(() => {
         if (!isInitialRender) {
             if (!isLoggedIn) {
                 history.push("/home");
-            } else {
-                fetchFriendRequests();
             }
         } else {
             setIsInitialRender(false);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
+
+    //Handle loading through navigation
+    useEffect(() => {
+        if (currentUser) {
+            fetchFriendRequests();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    //Handle loading through refresh
+    useEffect(() => {
+        if (!isInitialRender) {
+            fetchFriendRequests();
+        } else {
+        setIsInitialRender(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentUser]);
+
+    useEffect(() => {
+        if (friendRequests.length > 0) {
+            requestDisplay =
+                <div>
+                    {friendRequests.map((request) =>
+                        <FriendRequestCard
+                            key={`request${request.id}`}
+                            currentUser={currentUser}
+                            request={request}
+                            requestsLoaded={requestsLoaded}
+                            fetchFriendRequests={fetchFriendRequests}
+                            fetchFriends={fetchFriends}
+                        />
+                    )}
+                </div>;
+        } else {
+            requestDisplay = 
+                <div>
+                    <p>No friend requests at this time.</p>
+                </div>;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [friendRequests]);
+
+    useEffect(() => {
+        if (friends.length > 0) {
+            friendDisplay =
+                <div>
+                    {friends.map((friend) =>
+                        <FriendCard
+                            key={`friend${friend.id}`}
+                            currentUser={currentUser}
+                            friend={friend}
+                            friendsLoaded={friendsLoaded}
+                            fetchFriends={fetchFriends}
+                        />
+                    )}
+                </div>
+        } else {
+            requestDisplay = 
+                <div>
+                    <p>No friends at this time.</p>
+                </div>;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [friendRequests]);
 
     async function fetchFriendRequests() {
         const response = await fetch(`/friend_requests/${currentUser.id}`);
@@ -46,44 +101,11 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
           setRequestsLoaded(true);
         }
     };
-    
-    if (userLoaded && friendRequests.length > 0) {
-        requestDisplay =
-        <div>
-            <h3>Friend Requests</h3>
-            {friendRequests.map((request) =>
-                <FriendRequestCard
-                    key={`request${request.id}`}
-                    currentUser={currentUser}
-                    request={request}
-                    requestsLoaded={requestsLoaded}
-                    fetchFriendRequests={fetchFriendRequests}
-                    fetchFriends={fetchFriends}
-                />
-            )}
-        </div>
-    }
 
-    if (userLoaded && friends.length > 0) {
-        friendDisplay =
-        <div>
-            <h3>Friends</h3>
-            {friends.map((friend) =>
-                <FriendCard
-                    key={`friend${friend.id}`}
-                    currentUser={currentUser}
-                    friend={friend}
-                    friendsLoaded={friendsLoaded}
-                    fetchFriends={fetchFriends}
-                />
-            )}
-        </div>
-    }
-
-    if (userLoaded) {
-        display =
-        <div>
+    return (
+        <div className="display-container">
             <div>
+                <h3>Find Users</h3>
                 <input
                     type="text"
                     placeholder="Search by username.."
@@ -92,16 +114,15 @@ function Friends({userLoaded, isLoggedIn, currentUser, friends, friendsLoaded, f
                 />
                 <button onClick={(e) => search(searchString)} className="navlink">Search for Users</button>
             </div>
-            {requestDisplay}
-            {friendDisplay}
+            <div>
+                <h3>Friend Requests</h3>
+                {requestDisplay}
+            </div>
+            <div>
+                <h3>Friends</h3>
+                {friendDisplay}
+            </div>
         </div>
-    }
-
-    return (
-        <div className="display-container">
-            {display}
-        </div>
-
     );
 };
 

@@ -4,7 +4,7 @@ import GameNightCard from "./GameNightCard.js";
 
 let gameNightsDisplay = <h3>Loading...</h3>
 
-function GameNights({userLoaded, isLoggedIn, currentUser, friends, gameNights, games}) {
+function GameNights({isLoggedIn, currentUser, friends, gameNights, games}) {
 
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [gameNightsDisplaySwitch, setGameNightsDisplaySwitch] = useState(false);

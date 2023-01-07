@@ -22,9 +22,7 @@ function App() {
   const [friends, setFriends] = useState([]);
   const [friendsLoaded, setFriendsLoaded] = useState(false);
   const [gameNights, setGameNights] = useState([]);
-  const [gameNightsLoaded, setGameNightsLoaded] = useState([]);
   const [games, setGames] = useState([]);
-  const [gamesLoaded, setGamesLoaded] = useState(false);
   const [searchedUsers, setSearchedUsers] = useState([]);
 
   let history = useHistory();
@@ -34,8 +32,18 @@ function App() {
     fetchUser();
   }, []);
 
+  //Handle loading through navigation
   useEffect(() => {
-    if(!isInitialRender) {
+    if (currentUser) {
+      fetchFriends();
+      fetchGameNights();
+      fetchGames();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if(!isInitialRender && isLoggedIn) {
       fetchFriends();
       fetchGameNights();
       fetchGames();
@@ -43,7 +51,7 @@ function App() {
       setIsInitialRender(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser])
+  }, [isLoggedIn])
 
   async function fetchUser() {
     const response = await fetch("/me");
@@ -71,7 +79,6 @@ function App() {
     if (response.ok) {
       const ngts = await response.json();
       setGameNights(ngts);
-      setGameNightsLoaded(true);
     }
   };
 
@@ -80,9 +87,8 @@ function App() {
     if (response.ok) {
         const gmes = await response.json();
         setGames(gmes);
-        setGamesLoaded(true);
     }
-};
+  };
   
   function onLogin(user) {
     setCurrentUser(user);
@@ -93,7 +99,13 @@ function App() {
   function logout() {
     history.push("/home");
     setCurrentUser();
+    setFriends([]);
+    setFriendsLoaded(false);
+    setGameNights([]);
+    setGames([]);
+    setSearchedUsers([]);
     setIsLoggedIn(false);
+    setUserLoaded(false);
   };
 
   async function userSearch(string) {
@@ -108,7 +120,6 @@ function App() {
   return (
     <div className="App">
       <Banner
-        userLoaded={userLoaded}
         isLoggedIn={isLoggedIn}
         logout={logout}
       />
@@ -126,7 +137,6 @@ function App() {
         </Route>
         <Route path="/friends">
           <Friends 
-            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -138,7 +148,6 @@ function App() {
         </Route>
         <Route path="/game_nights">
           <GameNights
-            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -148,7 +157,6 @@ function App() {
         </Route>
         <Route path="/games">
           <Games
-            userLoaded={userLoaded}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
             friends={friends}
@@ -157,7 +165,6 @@ function App() {
         </Route>
         <Route path="/login">
           <Login 
-            userLoaded={userLoaded}
             onLogin={onLogin}
           />
         </Route>
