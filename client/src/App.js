@@ -152,6 +152,7 @@ function App() {
             currentUser={currentUser}
             friends={friends}
             gameNights={gameNights}
+            fetchGameNights={fetchGameNights}
             games={games}
           />
         </Route>

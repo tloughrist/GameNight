@@ -44,7 +44,7 @@ class GameNightsController < ApplicationController
   private
 
   def game_night_params
-      params.permit(:date, :time, :location, :owner_id)
+      params.permit(:date, :time, :location, :owner_id, :name)
   end
 
   def authorize

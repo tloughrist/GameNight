@@ -10,18 +10,10 @@ function Signup({ onLogin }) {
     const [blurb, setBlurb] = useState("");
     const [email, setEmail] = useState("");
     const [pronouns, setPronouns] = useState("");
-    const [validity, setValidity] = useState(false);
-
-    function checkValidity() {
-        if (name.length > 1 && username.length > 5 && password.length > 7 && password === passwordConfirmation && email.length > 4 && blurb.length < 501 && dob.length > 0) {
-            setValidity(true)
-        }
-    };
 
     async function handleSubmit(e) {
         e.preventDefault();
-        checkValidity();
-        if (validity) {
+        if (name.length > 1 && username.length > 4 && password.length > 7 && password === passwordConfirmation && email.length > 4 && blurb.length < 501 && dob.length > 0) {
             const res = await fetch("/signup", {
                 method: "POST",
                 headers: {

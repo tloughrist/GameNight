@@ -81,17 +81,18 @@ function Friends({isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends,
                             friend={friend}
                             friendsLoaded={friendsLoaded}
                             fetchFriends={fetchFriends}
+                            gameNights={gameNights}
                         />
                     )}
                 </div>
         } else {
-            requestDisplay = 
+            friendDisplay = 
                 <div>
                     <p>No friends at this time.</p>
                 </div>;
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [friendRequests]);
+    }, [friends]);
 
     async function fetchFriendRequests() {
         const response = await fetch(`/friend_requests/${currentUser.id}`);
