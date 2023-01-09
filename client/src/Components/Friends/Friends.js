@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import FriendRequestCard from "./FriendRequestCard.js";
 import FriendCard from "./FriendCard.js";
+import { useToggle } from "../../CustomHooks/Toggle.js";
 
 let requestDisplay = <p>Loading...</p>
 let friendDisplay = <p>Loading...</p>
@@ -13,6 +14,7 @@ function Friends({isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends,
     const [friendRequests, setFriendRequests] = useState([]);
     const [requestsLoaded, setRequestsLoaded] = useState(false);
     const [searchString, setSearchString] = useState("");
+    const [isToggled, toggle] = useToggle(false);
 
     let history = useHistory();
     
@@ -34,7 +36,7 @@ function Friends({isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends,
             fetchFriendRequests();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [currentUser])
 
     //Handle loading through refresh
     useEffect(() => {
@@ -67,6 +69,7 @@ function Friends({isLoggedIn, currentUser, friends, friendsLoaded, fetchFriends,
                     <p>No friend requests at this time.</p>
                 </div>;
         }
+        toggle();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [friendRequests]);
 

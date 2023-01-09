@@ -59,7 +59,6 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
         await fetch("/logout", {
           method: "DELETE"
         });
-        alert("You have been logged out.");
         logout();
     };
 

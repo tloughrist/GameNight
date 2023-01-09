@@ -52,7 +52,7 @@ function GameNights({isLoggedIn, currentUser, friends, gameNights, fetchGameNigh
         //This forces a rerender...which is useful.
         toggle();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [gameNights]);
+    }, [gameNights, friends]);
 
     async function handleCreateGameNight(e) {
         if (title.length > 1 && date.length > 4 && time.length > 4 && location.length > 2) {

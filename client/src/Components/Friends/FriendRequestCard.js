@@ -1,5 +1,6 @@
 import './Friends.css';
 import React, { useEffect, useState } from "react";
+import { useToggle } from "../../CustomHooks/Toggle.js";
 
 let requestorDisplay = <p>Loading...</p>
 
@@ -8,6 +9,7 @@ function FriendRequestCard({ currentUser, request, requestsLoaded, fetchFriends,
   const [requestor, setRequestor] = useState(null);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isToggled, toggle] = useToggle(false);
 
   useEffect(() => {
     if (!isInitialRender) {
@@ -45,6 +47,7 @@ function FriendRequestCard({ currentUser, request, requestsLoaded, fetchFriends,
           method: "DELETE"
     });
     fetchFriends();
+    toggle();
   };
 
   if (isLoaded) {

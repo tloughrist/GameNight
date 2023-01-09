@@ -25,6 +25,20 @@ class GameNightsController < ApplicationController
     render json: user_nights
   end
 
+  def get_invitees
+    night = GameNight.find(params[:id])
+    invitations = night.invitations.all
+    invitees = invitations.map { |invitation| invitation.receiver_id }
+    render json: invitees
+  end
+
+  def get_attendees
+    night = GameNight.find(params[:id])
+    attendances = night.attendances.all
+    attendees = attendances.map { |attendance| attendance.attendee_id }
+    render json: attendees
+  end
+
   def update
       gameNight = GameNight.find_by(id: params[:id])
       gameNight.update(game_night_params)

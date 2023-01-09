@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useToggle } from "../../CustomHooks/Toggle.js";
 import InviteeOption from "./GameNightInviteeOption.js";
 
@@ -9,6 +9,20 @@ function GameNightCard({ currentUser, night, friends, fetchGameNights }) {
   const [invitees, setInvitees] = useState([]);
   const [isToggled, toggle] = useToggle(false);
   
+  useEffect(async () => {
+  console.log(night)
+  const inviteRes = await fetch(`game_night/${night.id}/invitations`);
+  const invitedUsers = await inviteRes.json();
+  const attendRes = await fetch(`game_night/${night.id}/attendees`);
+  const attendingUsers = await attendRes.json();
+  console.log(invitedUsers);
+  console.log(attendingUsers);
+  
+  //find invitations to this game night that have already been sent
+    //find attendees to this game night
+    //exclude both of these from the friends for InviteeOptions
+  }, []);
+
   async function handleEdit() {
 
   };
