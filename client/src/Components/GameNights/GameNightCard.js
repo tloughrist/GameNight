@@ -11,9 +11,9 @@ function GameNightCard({ currentUser, night, friends, fetchGameNights }) {
   
   useEffect(async () => {
   console.log(night)
-  const inviteRes = await fetch(`game_night/${night.id}/invitations`);
+  const inviteRes = await fetch(`game_nights/${night.id}/invitees`);
   const invitedUsers = await inviteRes.json();
-  const attendRes = await fetch(`game_night/${night.id}/attendees`);
+  const attendRes = await fetch(`game_nights/${night.id}/attendees`);
   const attendingUsers = await attendRes.json();
   console.log(invitedUsers);
   console.log(attendingUsers);
@@ -88,7 +88,7 @@ function GameNightCard({ currentUser, night, friends, fetchGameNights }) {
 
   return (
     <div className="card">
-      <p><b>{night.name}</b></p>
+      <p><b>{night.title}</b></p>
       <p>Date: {night.date}</p>
       <p>Time: {night.time}</p>
       <p>Location: {night.location}</p>

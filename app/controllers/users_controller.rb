@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find_by(id: session[:user_id])
+        user = User.find(params[:id])
         user.update(user_params)
         if user.valid?
           session[:user_id] = user.id

@@ -62,10 +62,10 @@ function GameNights({isLoggedIn, currentUser, friends, gameNights, fetchGameNigh
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ 
-                    name: title,
+                    title: title,
                     date: date,
                     time: time,
-                    owner_id: currentUser.id,
+                    originator_id: currentUser.id,
                     location: location
                  }),
               });

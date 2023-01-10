@@ -21,7 +21,7 @@ class GameNightsController < ApplicationController
   end
 
   def get_nights
-    user_nights = GameNight.where(owner_id: params[:user_id]).all
+    user_nights = GameNight.where(originator_id: params[:user_id]).all
     render json: user_nights
   end
 
@@ -58,7 +58,7 @@ class GameNightsController < ApplicationController
   private
 
   def game_night_params
-      params.permit(:date, :time, :location, :owner_id, :name)
+      params.permit(:date, :time, :location, :originator_id, :title)
   end
 
   def authorize

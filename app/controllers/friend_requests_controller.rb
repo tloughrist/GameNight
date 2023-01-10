@@ -3,7 +3,7 @@ class FriendRequestsController < ApplicationController
   before_action :authorize
 
   def create
-    request = FriendRequest.create(requestor_id: params[:requestor_id], receiver_id: params[:receiver_id])
+    request = FriendRequest.create(sender_id: params[:sender_id], receiver_id: params[:receiver_id])
     if request.valid?
       render json: request, status: :created
     else
@@ -25,7 +25,7 @@ class FriendRequestsController < ApplicationController
   private
 
   def request_params
-      params.permit(:requestor_id, :receiver_id)
+      params.permit(:sender_id, :receiver_id)
   end
 
   def authorize

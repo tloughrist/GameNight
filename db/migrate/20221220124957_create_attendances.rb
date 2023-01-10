@@ -1,8 +1,8 @@
 class CreateAttendances < ActiveRecord::Migration[6.1]
   def change
     create_table :attendances do |t|
-      t.integer :game_night_id
-      t.integer :attendee_id
+      t.references :game_night, foreign_key: { to_table: :game_nights }
+      t.references :attendee, foreign_key: { to_table: :users }
       t.string :certainty
 
       t.timestamps

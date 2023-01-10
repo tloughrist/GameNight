@@ -1,10 +1,11 @@
 import './Profile.css';
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useToggle } from "../../CustomHooks/Toggle.js";
 
 let display = <p>Loading...</p>;
 
-function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) {
+function Profile({isLoggedIn, currentUser, setCurrentUser, logout}) {
     
     const [name, setName] = useState("")
     const [password, setPassword] = useState("");
@@ -13,10 +14,9 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
     const [blurb, setBlurb] = useState("");
     const [email, setEmail] = useState("");
     const [pronouns, setPronouns] = useState("");
-    const [validity, setValidity] = useState(false);
     const [passwordValidity, setPasswordValidity] = useState(false);
     const [isInitialRender, setIsInitialRender] = useState(true);
-    const [displaySwitch, setDisplaySwitch] = useState(false);
+    const [isToggled, toggle] = useToggle(false);
     
     let history = useHistory();
 
@@ -28,15 +28,14 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
         } else {
             setIsInitialRender(false);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
 
     useEffect(() => {
         if (currentUser) {
             setStates();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [currentUser]);
 
     useEffect(() => {
         if (!isInitialRender) {
@@ -72,70 +71,46 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
         }
     };
 
-    function checkValidity() {
-        if (name.length > 1 && email.length > 4 && blurb.length < 501 && dob.length > 0) {
-            setValidity(true)
-        }
-    };
-
     async function handleProfileChange(e) {
         e.preventDefault();
-        checkValidity();
-        console.log(blurb.length)
-        if (validity) {
-            const res = await fetch(`/users/${currentUser.id}`, {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ 
-                    name,
-                    email,
-                    dob,
-                    pronouns,
-                    blurb,
-                 }),
-              });
-              const user = await res.json();
-              if (user.errors) {
-                alert(user.errors)
-              } else {
-                console.log(user);
-                setCurrentUser(user);
-              }
+        const res = await fetch(`/users/${currentUser.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                name,
+                email,
+                dob,
+                pronouns,
+                blurb,
+                }),
+            });
+        const user = await res.json();
+        if (user.errors) {
+            alert(user.errors);
         } else {
-            alert("Invalid - check entries")
-        }
-    };
-
-    function checkPasswordValidity() {
-        if (password.length > 7 && password === passwordConfirmation) {
-            setPasswordValidity(true)
+            console.log(user);
+            setCurrentUser(user);
         }
     };
 
     async function handlePasswordChange(e) {
-        e.preventDefault();
-        checkPasswordValidity();
-        if (passwordValidity) {
-            const res = await fetch(`/users/${currentUser.id}`, {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ 
-                    password
-                 }),
-              });
-              const user = await res.json();
-              if (user.errors) {
-                alert(user.errors)
-              } else {
-                console.log(user);
-                setCurrentUser(user);
-              }
+        const res = await fetch(`/users/${currentUser.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                password
+                }),
+            });
+        const user = await res.json();
+        if (user.errors) {
+            alert(user.errors)
         } else {
-            alert("Invalid - check entries")
+            console.log(user);
+            setCurrentUser(user);
         }
     };
 
@@ -152,8 +127,7 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                             type="text"
                             name="name"
                             autoComplete="name"
-                            value={name}    
-                            placeholder={`${currentUser.name}`}
+                            value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                         <label htmlFor="email">
@@ -163,7 +137,6 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                             type="email"
                             name="email"
                             value={email}
-                            placeholder={`${currentUser.email}`}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <label htmlFor="dob">
@@ -173,7 +146,6 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                             type="date"
                             name="dob"
                             value={dob}
-                            placeholder={`${currentUser.dob}`}
                             onChange={(e) => setDob(e.target.value)}
                         />
                         <label htmlFor="pronouns">
@@ -183,7 +155,6 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                             type="text"
                             name="pronouns"
                             value={pronouns}
-                            placeholder={`${currentUser.pronouns}`}
                             onChange={(e) => setPronouns(e.target.value)}
                         />
                         <label htmlFor="blurb">
@@ -192,7 +163,6 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                         <textarea
                             name="blurb"
                             value={blurb}
-                            placeholder={`${currentUser.blurb}`}
                             onChange={(e) => setBlurb(e.target.value)}
                         />
                         <input
@@ -235,10 +205,9 @@ function Profile({userLoaded, isLoggedIn, currentUser, setCurrentUser, logout}) 
                     <button onClick={e => handleDelete()} className="navlink">Delete Account</button>
                 </>
             );
-            setDisplaySwitch(!displaySwitch);
+            toggle();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [name]);
+    }, [name, email, dob, pronouns, blurb, password, passwordConfirmation]);
     
     return (
         <div className="display-container">

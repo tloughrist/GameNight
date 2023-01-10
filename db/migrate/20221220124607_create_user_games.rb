@@ -1,8 +1,8 @@
 class CreateUserGames < ActiveRecord::Migration[6.1]
   def change
     create_table :user_games do |t|
-      t.integer :owner_id
-      t.integer :game_id
+      t.references :owner, foreign_key: { to_table: :users }
+      t.references :game, foreign_key: { to_table: :games }
 
       t.timestamps
     end

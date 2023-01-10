@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :blurb
       t.date :dob
       t.string :pronouns
+      t.string :email
 
       t.timestamps
     end

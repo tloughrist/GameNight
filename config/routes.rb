@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "user/search", to: "users#find"
-  get "/friends/:id", to: "users#get_friends"
+  get "users/:id/friends", to: "users#get_friends"
   delete "users/:user_id/friends/:friend_id", to: "friendships#destroy"
   get "/users/:user_id/messages/", to: "messages#get_messages"
   get "/users/:user_id/games/", to: "user_games#get_games"
   get "game/search", to: "games#find"
   get "users/game_nights/:user_id", to: "game_nights#get_nights"
   get "game_nights/:id/invitees", to: "game_nights#get_invitees"
-  get "game_nights/:id/attendess", to: "game_nights#get_attendees"
+  get "game_nights/:id/attendees", to: "game_nights#get_attendees"
 
 
   # Routing logic: fallback requests for React Router.

@@ -4,7 +4,7 @@ import UserCard from "./UserCard.js";
 
 let display = <h2>No users loaded.</h2> 
 
-function Users({userLoaded, isLoggedIn, currentUser, friends, searchedUsers}) {
+function Users({isLoggedIn, currentUser, friends, searchedUsers}) {
 
     const [isInitialRender, setIsInitialRender] = useState(true);
 

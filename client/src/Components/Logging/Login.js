@@ -6,20 +6,20 @@ function Login({onLogin}) {
     const [password, setPassword] = useState("");
 
     async function handleSubmit(e) {
-        e.preventDefault();
-        const res = await fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        });
-        const user = await res.json();
-        if (user.errors) {
-          alert("Incorrect username/password");
-        } else {
-          onLogin(user);
-        }
+      e.preventDefault();
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      const user = await res.json();
+      if (user.errors) {
+        alert("Incorrect username/password");
+      } else {
+        onLogin(user);
+      }
     };
     
     return (

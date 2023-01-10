@@ -11,80 +11,53 @@ import Profile from "./Components/Profile/Profile.js";
 import Users from "./Components/Users/Users.js";
 import Home from "./Components/Home/Home.js";
 import Messages from "./Components/Messages/Messages.js"
-import { useToggle } from "./CustomHooks/Toggle.js";
-
-let appDisplay = <h3>Loading...</h3>
 
 function App() {
 
-  const [isInitialRender, setIsInitialRender] = useState(true);
-  const [userLoaded, setUserLoaded] = useState(false);
-  const [currentUser, setCurrentUser] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [currentUser, setCurrentUser] = useState("unchecked");
+  const [isLoggedIn, setIsLoggedIn] = useState("unchecked");
   const [friends, setFriends] = useState([]);
   const [gameNights, setGameNights] = useState([]);
   const [games, setGames] = useState([]);
   const [searchedUsers, setSearchedUsers] = useState([]);
-  const [isToggled, toggle] = useToggle(false);
 
   let history = useHistory();
 
-  //Check to see if a user is logged in
-  useEffect(() => { 
-    fetchUser();
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("/me");
+      if (response.ok) {
+        const user = await response.json();
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+        fetchFriends(user.id);
+        fetchGameNights(user.id);
+        fetchGames(user.id);
+      } else {
+        setIsLoggedIn(false);
+      }
+    }; 
+    fetchData();
   }, []);
 
-  //Handle loading through navigation
-  useEffect(() => {
-    if (currentUser) {
-      fetchFriends();
-      fetchGameNights();
-      fetchGames();
-    }
-    changeDisplay();
-  }, [currentUser])
-
-  useEffect(() => {
-    if(!isInitialRender && isLoggedIn) {
-      fetchFriends();
-      fetchGameNights();
-      fetchGames();
-    } else {
-      setIsInitialRender(false);
-    }
-    changeDisplay();
-  }, [isLoggedIn, isInitialRender])
-
-  async function fetchUser() {
-    const response = await fetch("/me");
-    if (response.ok) {
-      const user = await response.json();
-      setCurrentUser(user);
-      setIsLoggedIn(true);
-      setUserLoaded(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  };
-
-  async function fetchFriends() {
-    const response = await fetch(`/friends/${currentUser.id}`);
+  async function fetchFriends(id) {
+    const response = await fetch(`users/${id}/friends`);
     if (response.ok) {
       const frnds = await response.json();
       setFriends(frnds);
     }
   };
 
-  async function fetchGameNights() {
-    const response = await fetch(`users/game_nights/${currentUser.id}`);
+  async function fetchGameNights(id) {
+    const response = await fetch(`users/game_nights/${id}`);
     if (response.ok) {
       const ngts = await response.json();
       setGameNights(ngts);
     }
   };
 
-  async function fetchGames() {
-    const response = await fetch(`users/${currentUser.id}/games/`);
+  async function fetchGames(id) {
+    const response = await fetch(`users/${id}/games/`);
     if (response.ok) {
         const gmes = await response.json();
         setGames(gmes);
@@ -105,7 +78,6 @@ function App() {
     setGames([]);
     setSearchedUsers([]);
     setIsLoggedIn(false);
-    setUserLoaded(false);
   };
 
   async function userSearch(string) {
@@ -117,87 +89,77 @@ function App() {
     history.push("/users");
   };
 
-  function changeDisplay() {
-    appDisplay = 
-      <div className="App">
-        <Banner
-          isLoggedIn={isLoggedIn}
-          logout={logout}
-        />
-        <Switch>
-          <Route path="/messages">
-            <Messages 
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-            />
-          </Route>
-          <Route path="/friends">
-            <Friends 
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              friends={friends}
-              gameNights={gameNights}
-              fetchFriends={fetchFriends}
-              search={userSearch}
-            />
-          </Route>
-          <Route path="/game_nights">
-            <GameNights
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              friends={friends}
-              gameNights={gameNights}
-              fetchGameNights={fetchGameNights}
-              games={games}
-            />
-          </Route>
-          <Route path="/games">
-            <Games
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              friends={friends}
-              games={games}
-            />
-          </Route>
-          <Route path="/login">
-            <Login 
-              onLogin={onLogin}
-            />
-          </Route>
-          <Route path="/signup">
-            <Signup 
-              onLogin={onLogin}
-            />
-          </Route>
-          <Route path="/profile">
-            <Profile 
-              userLoaded={userLoaded}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              logout={logout}
-            />
-          </Route>
-          <Route path="/users">
-            <Users 
-              userLoaded={userLoaded}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              friends={friends}
-              searchedUsers={searchedUsers}
-            />
-          </Route>
-          <Route path="/">
-              <Home />
-          </Route>
-        </Switch>
-      </div>;
-    toggle();
-  };
-
   return (
-    <div>
-      {appDisplay}
+    <div className="App">
+      <Banner
+        isLoggedIn={isLoggedIn}
+        logout={logout}
+      />
+      <Switch>
+        <Route path="/messages">
+          <Messages 
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+          />
+        </Route>
+        <Route path="/friends">
+          <Friends 
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            gameNights={gameNights}
+            fetchFriends={fetchFriends}
+            search={userSearch}
+          />
+        </Route>
+        <Route path="/game_nights">
+          <GameNights
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            gameNights={gameNights}
+            fetchGameNights={fetchGameNights}
+            games={games}
+          />
+        </Route>
+        <Route path="/games">
+          <Games
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            games={games}
+          />
+        </Route>
+        <Route path="/login">
+          <Login 
+            onLogin={onLogin}
+          />
+        </Route>
+        <Route path="/signup">
+          <Signup 
+            onLogin={onLogin}
+          />
+        </Route>
+        <Route path="/profile">
+          <Profile 
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            logout={logout}
+          />
+        </Route>
+        <Route path="/users">
+          <Users 
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            friends={friends}
+            searchedUsers={searchedUsers}
+          />
+        </Route>
+        <Route path="/">
+            <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
