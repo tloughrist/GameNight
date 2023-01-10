@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useToggle } from "../../CustomHooks/Toggle.js";
 import InviteeOption from "./GameNightInviteeOption.js";
+import { CurrentUserContext, FriendsContext } from "../../App.js";
 
 let friendDisplay = <></>;
 
-function GameNightCard({ currentUser, night, friends, fetchGameNights }) {
+function GameNightCard({ night, fetchGameNights }) {
 
   const [invitees, setInvitees] = useState([]);
+
   const [isToggled, toggle] = useToggle(false);
-  
+
+  const currentUser = useContext(CurrentUserContext);
+  const friends = useContext(FriendsContext);
+
   useEffect(async () => {
   console.log(night)
   const inviteRes = await fetch(`game_nights/${night.id}/invitees`);

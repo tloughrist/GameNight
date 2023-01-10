@@ -1,12 +1,15 @@
 import './Friends.css';
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Popup from 'reactjs-popup';
 import GameNightOption from './FriendsGameNightOption.js';
+import { CurrentUserContext } from '../../App';
 
-function FriendCard({ friend, fetchFriends, currentUser, gameNights }) {
+function FriendCard({ friend, fetchFriends, gameNights }) {
   
   const [topic, setTopic] = useState();
   const [body, setBody] = useState();
+
+  const currentUser = useContext(CurrentUserContext);
 
   async function handleMessage(e) {
     e.preventDefault();

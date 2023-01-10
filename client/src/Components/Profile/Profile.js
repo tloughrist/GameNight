@@ -1,11 +1,12 @@
 import './Profile.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useToggle } from "../../CustomHooks/Toggle.js";
+import { LoggedInContext, CurrentUserContext } from '../../App';
 
 let display = <p>Loading...</p>;
 
-function Profile({isLoggedIn, currentUser, setCurrentUser, logout}) {
+function Profile({ setCurrentUser, logout }) {
     
     const [name, setName] = useState("")
     const [password, setPassword] = useState("");
@@ -17,6 +18,9 @@ function Profile({isLoggedIn, currentUser, setCurrentUser, logout}) {
     const [passwordValidity, setPasswordValidity] = useState(false);
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [isToggled, toggle] = useToggle(false);
+
+    const isLoggedIn = useContext(LoggedInContext);
+    const currentUser = useContext(CurrentUserContext);
     
     let history = useHistory();
 

@@ -1,32 +1,34 @@
 import './Friends.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useToggle } from "../../CustomHooks/Toggle.js";
+import { CurrentUserContext } from '../../App';
 
-let requestorDisplay = <p>Loading...</p>
+let requestDisplay = <p>Loading...</p>
 
-function FriendRequestCard({ currentUser, request, requestsLoaded, fetchFriends, fetchFriendRequests }) {
+function FriendRequestCard({ request, requestsLoaded, fetchFriends, fetchFriendRequests }) {
 
-  const [requestor, setRequestor] = useState(null);
+  const [sender, setSender] = useState(null);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isToggled, toggle] = useToggle(false);
 
+  const currentUser = useContext(CurrentUserContext);
+
   useEffect(() => {
-    if (!isInitialRender) {
-      async function fetchRequestor() {
-        const response = await fetch(`/users/${request.requestor_id}`);
+    if (request) {
+      async function fetchSender() {
+        const response = await fetch(`/friend_requests/${request.id}/sender`);
         if (response.ok) {
-          const requestor = await response.json();
-          setRequestor(requestor);
+          const sendr = await response.json();
+          setSender(sendr);
           setIsLoaded(true);
+        } else {
+          alert(response.error);
         }
       };
-      fetchRequestor();
-    } else {
-      setIsInitialRender(false);
+      fetchSender();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requestsLoaded]);
+  }, []);
 
   function handleAccept() {
     fetch("/friendships", {
@@ -50,19 +52,22 @@ function FriendRequestCard({ currentUser, request, requestsLoaded, fetchFriends,
     toggle();
   };
 
-  if (isLoaded) {
-    requestorDisplay =
-      <>
-        <p>{requestor.name}</p>
-        <p>{requestor.username}</p>
-        <button onClick={(e) => handleAccept()}>Accept Request</button>
-        <button onClick={(e) => handleReject()}>Reject Request</button>
-      </>
-  }
+  useEffect(() => {
+    if (isLoaded) {
+      requestDisplay =
+        <>
+          <p>{sender.name}</p>
+          <p>{sender.username}</p>
+          <button onClick={(e) => handleAccept()}>Accept Request</button>
+          <button onClick={(e) => handleReject()}>Reject Request</button>
+        </>
+    }
+    toggle();
+  }, [isLoaded])
 
   return (
     <div className="card">
-      {requestorDisplay}
+      {requestDisplay}
     </div>
   )
 };

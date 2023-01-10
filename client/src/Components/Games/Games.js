@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import GameCard from "./GameCard.js";
+import GameCard from "./GameCard.js";   
+import { LoggedInContext, CurrentUserContext, GamesContext } from "../../App.js";
 
 let gameDisplay = <h3>Loading...</h3>
 let searchedGameDisplay = <></>
 
-function Games({isLoggedIn, currentUser, games, setGames, search}) {
+function Games({ setGames, search }) {
 
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [gamesDisplaySwitch, setGamesDisplaySwitch] = useState(false);
     const [searchString, setSearchString] = useState("");
     const [searchedGames, setSearchedGames] = useState([]);
+
+    const isLoggedIn = useContext(LoggedInContext);
+    const currentUser = useContext(CurrentUserContext);
+    const games = useContext(GamesContext);
 
     let history = useHistory();
 

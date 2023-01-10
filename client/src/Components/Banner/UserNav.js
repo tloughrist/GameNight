@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
+import { LoggedInContext } from '../../App';
 
-function UserNav({ search, isLoggedIn }) {
+
+function UserNav() {
+
+    const isLoggedIn = useContext(LoggedInContext);
 
     let history = useHistory();
 

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useToggle } from "../../CustomHooks/Toggle.js";
 import GameNightCard from "./GameNightCard.js";
+import { LoggedInContext, CurrentUserContext, GamesContext, FriendsContext } from "../../App.js";
 
 let gameNightsDisplay = <h3>Loading...</h3>
 
-function GameNights({isLoggedIn, currentUser, friends, gameNights, fetchGameNights, games}) {
+function GameNights({ gameNights, fetchGameNights }) {
 
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [title, setTitle] = useState("");
@@ -13,6 +14,11 @@ function GameNights({isLoggedIn, currentUser, friends, gameNights, fetchGameNigh
     const [time, setTime] = useState("");
     const [location, setLocation] = useState("");
     const [isToggled, toggle] = useToggle(false);
+
+    const isLoggedIn = useContext(LoggedInContext);
+    const currentUser = useContext(CurrentUserContext);
+    const games = useContext(GamesContext);
+    const friends = useContext(FriendsContext);
 
     let history = useHistory();
 

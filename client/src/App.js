@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Banner from "./Components/Banner/Banner.js";
 import Friends from "./Components/Friends/Friends.js";
@@ -12,10 +12,18 @@ import Users from "./Components/Users/Users.js";
 import Home from "./Components/Home/Home.js";
 import Messages from "./Components/Messages/Messages.js"
 
+const CurrentUserContext = createContext();
+const FriendsContext = createContext();
+const GamesContext = createContext();
+const LoggedInContext = createContext();
+
+export { CurrentUserContext, FriendsContext, GamesContext, LoggedInContext };
+
 function App() {
 
   const [currentUser, setCurrentUser] = useState("unchecked");
   const [isLoggedIn, setIsLoggedIn] = useState("unchecked");
+  const [logNav, setLogNav] = useState(false);
   const [friends, setFriends] = useState([]);
   const [gameNights, setGameNights] = useState([]);
   const [games, setGames] = useState([]);
@@ -38,7 +46,7 @@ function App() {
       }
     }; 
     fetchData();
-  }, []);
+  }, [logNav]);
 
   async function fetchFriends(id) {
     const response = await fetch(`users/${id}/friends`);
@@ -67,6 +75,7 @@ function App() {
   function onLogin(user) {
     setCurrentUser(user);
     setIsLoggedIn(true);
+    setLogNav(true);
     history.push("/home");
   };
 
@@ -90,77 +99,63 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Banner
-        isLoggedIn={isLoggedIn}
-        logout={logout}
-      />
-      <Switch>
-        <Route path="/messages">
-          <Messages 
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-          />
-        </Route>
-        <Route path="/friends">
-          <Friends 
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            friends={friends}
-            gameNights={gameNights}
-            fetchFriends={fetchFriends}
-            search={userSearch}
-          />
-        </Route>
-        <Route path="/game_nights">
-          <GameNights
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            friends={friends}
-            gameNights={gameNights}
-            fetchGameNights={fetchGameNights}
-            games={games}
-          />
-        </Route>
-        <Route path="/games">
-          <Games
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            friends={friends}
-            games={games}
-          />
-        </Route>
-        <Route path="/login">
-          <Login 
-            onLogin={onLogin}
-          />
-        </Route>
-        <Route path="/signup">
-          <Signup 
-            onLogin={onLogin}
-          />
-        </Route>
-        <Route path="/profile">
-          <Profile 
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-            logout={logout}
-          />
-        </Route>
-        <Route path="/users">
-          <Users 
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            friends={friends}
-            searchedUsers={searchedUsers}
-          />
-        </Route>
-        <Route path="/">
-            <Home />
-        </Route>
-      </Switch>
-    </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      <LoggedInContext.Provider value={isLoggedIn}>
+        <FriendsContext.Provider value={friends}>
+          <GamesContext.Provider value={games}>
+            <div className="App">
+              <Banner />
+              <Switch>
+                <Route path="/messages">
+                  <Messages />
+                </Route>
+                <Route path="/friends">
+                  <Friends 
+                    gameNights={gameNights}
+                    fetchFriends={fetchFriends}
+                    search={userSearch}
+                  />
+                </Route>
+                <Route path="/game_nights">
+                  <GameNights
+                    gameNights={gameNights}
+                    fetchGameNights={fetchGameNights}
+                  />
+                </Route>
+                <Route path="/games">
+                  <Games
+                  />
+                </Route>
+                <Route path="/login">
+                  <Login 
+                    onLogin={onLogin}
+                  />
+                </Route>
+                <Route path="/signup">
+                  <Signup 
+                    onLogin={onLogin}
+                  />
+                </Route>
+                <Route path="/profile">
+                  <Profile 
+                    setCurrentUser={setCurrentUser}
+                    logout={logout}
+                  />
+                </Route>
+                <Route path="/users">
+                  <Users 
+                    searchedUsers={searchedUsers}
+                  />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+              </Switch>
+            </div>
+          </GamesContext.Provider>
+        </FriendsContext.Provider>
+      </LoggedInContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 

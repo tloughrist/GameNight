@@ -1,27 +1,19 @@
-/*A note on the loading method used herein:
-    First, several of the useEffect hooks have an "isInitialRender" clause, allowing them to avoid triggering on the initial render. This is useful for avoiding reference to items that haven't loaded yet.
-
-    Second, I've set up two useEffect hooks to handle fetchMessage. The first is triggered by the initial render BUT only calls fetchMessage if currentUser is already loaded, i.e., if this page is accessed via navigation from another page. The second is NOT triggered by the initial render BUT is triggered when currentUser loads.
-
-    Third, I've set up the deployment of the message components to be triggered by a change in messagesLoaded state. However, in order to rerender after the components deploy, I've had to set up a messagesDisplaySwitch state which is triggered just to ensure rerender.
-
-    *whew*
-
-    Oh, also: // eslint-disable-next-line react-hooks/exhaustive-deps is used to prevent an unnecessary warning in the console.
-*/
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import MessageCard from "./MessageCard.js";
+import { LoggedInContext, CurrentUserContext } from '../../App';
 
 let messageDisplay = <h3>Loading...</h3>
 
-function Messages({ isLoggedIn, currentUser }) {
+function Messages() {
   
   const [isInitialRender, setIsInitialRender] = useState(true);
   const [messages, setMessages] = useState([]);
   const [messagesLoaded, setMessagesLoaded] = useState(false);
   const [messagesDisplaySwitch, setMessagesDisplaySwitch] = useState(false);
+
+  const isLoggedIn = useContext(LoggedInContext);
+  const currentUser = useContext(CurrentUserContext);
 
   let history = useHistory();
 

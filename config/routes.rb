@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get "users/game_nights/:user_id", to: "game_nights#get_nights"
   get "game_nights/:id/invitees", to: "game_nights#get_invitees"
   get "game_nights/:id/attendees", to: "game_nights#get_attendees"
-
+  get "friend_requests/:id/sender", to: "friend_requests#get_sender"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

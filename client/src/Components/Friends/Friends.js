@@ -1,20 +1,25 @@
 import './Friends.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import FriendRequestCard from "./FriendRequestCard.js";
 import FriendCard from "./FriendCard.js";
 import { useToggle } from "../../CustomHooks/Toggle.js";
+import { LoggedInContext, CurrentUserContext, FriendsContext } from '../../App';
 
 let requestDisplay = <p>Loading...</p>
 let friendDisplay = <p>Loading...</p>
 
-function Friends({isLoggedIn, currentUser, friends, fetchFriends, gameNights, search}) {
+function Friends({fetchFriends, gameNights, search}) {
     
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [friendRequests, setFriendRequests] = useState([]);
     const [requestsLoaded, setRequestsLoaded] = useState(false);
     const [searchString, setSearchString] = useState("");
     const [isToggled, toggle] = useToggle(false);
+
+    const isLoggedIn = useContext(LoggedInContext);
+    const friends = useContext(FriendsContext);
+    const currentUser = useContext(CurrentUserContext);
 
     let history = useHistory();
 
@@ -73,7 +78,6 @@ function Friends({isLoggedIn, currentUser, friends, fetchFriends, gameNights, se
     }, [friendRequests]);
 
     useEffect(() => {
-        console.log(friends)
         function switchDisplay(){
             if (friends.length > 0) {
                 friendDisplay =

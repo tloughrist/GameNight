@@ -11,6 +11,12 @@ class FriendRequestsController < ApplicationController
     end
   end
 
+  def get_sender
+    request = FriendRequest.find(params[:id])
+    sender = request.sender
+    render json: sender
+  end
+
   def show
     requests = FriendRequest.where(receiver_id: params[:id]).all
     render json: requests
