@@ -10,11 +10,15 @@ function Banner() {
 
     const isLoggedIn = useContext(LoggedInContext);
 
-    if (isLoggedIn) {
-        bannerDisplay = <UserNav />
-    } else {
-        bannerDisplay = <VisitorNav />;
-    }
+    function displaySwitch() {
+        if (isLoggedIn) {
+            bannerDisplay = <UserNav />;
+        } else {
+            bannerDisplay = <VisitorNav />;
+        }
+    };
+    
+    displaySwitch();
 
     return (
         <div className="display-container">

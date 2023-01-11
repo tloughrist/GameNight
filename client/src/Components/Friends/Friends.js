@@ -8,12 +8,13 @@ import { LoggedInContext, CurrentUserContext, FriendsContext } from '../../App';
 
 let requestDisplay = <p>Loading...</p>
 let friendDisplay = <p>Loading...</p>
-
+ 
 function Friends({fetchFriends, gameNights, search}) {
     
     const [friendRequests, setFriendRequests] = useState([]);
     const [requestsLoaded, setRequestsLoaded] = useState(false);
     const [searchString, setSearchString] = useState("");
+    const [isAuthorized, setIsAuthorized] = useState(false);
     const [isToggled, toggle] = useToggle(false);
 
     const isLoggedIn = useContext(LoggedInContext);
@@ -23,45 +24,45 @@ function Friends({fetchFriends, gameNights, search}) {
     let history = useHistory();
 
     useEffect(() => {
-        function authorize(){
-            if (isLoggedIn !== "unchecked") {
-                if (!isLoggedIn) {
-                    history.push("/home");
-                }
-            }
-        };
         authorize();
-    }, [isLoggedIn, history]);
+    }, [])
 
-    useEffect(() => {
-        if (currentUser !== "unchecked") {
-            if (currentUser) {
-                fetchFriendRequests();
-            }
-        } 
-    }, [currentUser])
-
-    useEffect(() => {
-        if (friendRequests.length > 0) {
-            requestDisplay =
-                <div>
-                    {friendRequests.map((request) =>
-                        <FriendRequestCard
-                            key={`request${request.id}`}
-                            request={request}
-                            requestsLoaded={requestsLoaded}
-                            fetchFriendRequests={fetchFriendRequests}
-                            fetchFriends={fetchFriends}
-                        />
-                    )}
-                </div>;
+    function authorize() {
+        if (!isLoggedIn) {
+            history.push("/home");
         } else {
-            requestDisplay = 
-                <div>
-                    <p>No friend requests at this time.</p>
-                </div>;
+            setIsAuthorized(true);
         }
-        toggle();
+    };
+
+    useEffect(() => {
+        fetchFriendRequests();
+    }, [currentUser, isAuthorized])
+
+    useEffect(() => {
+        function switchDisplay() {
+            if (friendRequests.length > 0) {
+                requestDisplay =
+                    <div>
+                        {friendRequests.map((request) =>
+                            <FriendRequestCard
+                                key={`request${request.id}`}
+                                request={request}
+                                requestsLoaded={requestsLoaded}
+                                fetchFriendRequests={fetchFriendRequests}
+                                fetchFriends={fetchFriends}
+                            />
+                        )}
+                    </div>;
+            } else {
+                requestDisplay = 
+                    <div>
+                        <p>No friend requests at this time.</p>
+                    </div>;
+            }
+            toggle();
+        }
+        switchDisplay();
     }, [friendRequests]);
 
     useEffect(() => {

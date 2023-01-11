@@ -9,9 +9,15 @@ function UserNav() {
 
     let history = useHistory();
 
-    if (!isLoggedIn) {
-        history.push("/home");
-    }
+    function authorize() {
+        if (!isLoggedIn) {
+            history.push("/home");
+        } else {
+            return;
+        }
+    };
+
+    authorize();
 
     return (
         <div className="navbar">

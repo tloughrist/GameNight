@@ -23,9 +23,12 @@ function FriendRequestCard({ request, requestsLoaded, fetchFriends, fetchFriendR
           setIsLoaded(true);
         } else {
           alert(response.error);
+          //needs cleanup function
         }
       };
       fetchSender();
+    } else {
+      return;
     }
   }, []);
 
