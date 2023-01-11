@@ -11,7 +11,6 @@ let friendDisplay = <p>Loading...</p>
 
 function Friends({fetchFriends, gameNights, search}) {
     
-    const [isInitialRender, setIsInitialRender] = useState(true);
     const [friendRequests, setFriendRequests] = useState([]);
     const [requestsLoaded, setRequestsLoaded] = useState(false);
     const [searchString, setSearchString] = useState("");
@@ -23,7 +22,6 @@ function Friends({fetchFriends, gameNights, search}) {
 
     let history = useHistory();
 
-    //Allow only logged-in users access
     useEffect(() => {
         function authorize(){
             if (isLoggedIn !== "unchecked") {
@@ -35,7 +33,6 @@ function Friends({fetchFriends, gameNights, search}) {
         authorize();
     }, [isLoggedIn, history]);
 
-    //Handle loading through navigation
     useEffect(() => {
         if (currentUser !== "unchecked") {
             if (currentUser) {
@@ -44,15 +41,6 @@ function Friends({fetchFriends, gameNights, search}) {
         } 
     }, [currentUser])
 
-    //Handle loading through refresh
-    // useEffect(() => {
-    //     if (!isInitialRender) {
-    //         fetchFriendRequests();
-    //     } else {
-    //         setIsInitialRender(false);
-    //     }
-    // }, [currentUser]);
-
     useEffect(() => {
         if (friendRequests.length > 0) {
             requestDisplay =
@@ -60,7 +48,6 @@ function Friends({fetchFriends, gameNights, search}) {
                     {friendRequests.map((request) =>
                         <FriendRequestCard
                             key={`request${request.id}`}
-                            currentUser={currentUser}
                             request={request}
                             requestsLoaded={requestsLoaded}
                             fetchFriendRequests={fetchFriendRequests}
@@ -85,7 +72,6 @@ function Friends({fetchFriends, gameNights, search}) {
                         {friends.map((friend) =>
                             <FriendCard
                                 key={`friend${friend.id}`}
-                                currentUser={currentUser}
                                 friend={friend}
                                 fetchFriends={fetchFriends}
                                 gameNights={gameNights}

@@ -1,26 +1,30 @@
 import './Users.css';
-import React from "react";
+import React, { useContext } from "react";
+import { CurrentUserContext, FriendsContext } from '../../App';
+ 
+function UserCard({ user }) {
 
-function UserCard({ currentUser, user, friends }) {
+  const friends = useContext(FriendsContext);
+  const currentUser = useContext(CurrentUserContext);
 
   let friendRequest = <button onClick={(e) => handleFriendRequest(currentUser, user)}>Send Friend Request</button>
 
   const hasFriend = friends.filter(obj => {
     return obj.username === user.username
-  })
+  });
 
   if (hasFriend.length > 0) {
     friendRequest = <h3>Friend!</h3>
   }
 
-  async function handleFriendRequest(requestor, receiver) {
+  async function handleFriendRequest(sender, receiver) {
     await fetch("/friend_requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-            requestor_id: requestor.id,
+            sender_id: sender.id,
             receiver_id: receiver.id
         }),
       });

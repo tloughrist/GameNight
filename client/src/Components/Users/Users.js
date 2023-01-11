@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserCard from "./UserCard.js";
+import { LoggedInContext, CurrentUserContext, FriendsContext } from '../../App';
 
 let display = <h2>No users loaded.</h2> 
 
-function Users({isLoggedIn, currentUser, friends, searchedUsers}) {
+function Users({ searchedUsers }) {
 
     const [isInitialRender, setIsInitialRender] = useState(true);
+
+    const isLoggedIn = useContext(LoggedInContext);
+    const friends = useContext(FriendsContext);
+    const currentUser = useContext(CurrentUserContext);
 
     let history = useHistory();
 
@@ -18,7 +23,6 @@ function Users({isLoggedIn, currentUser, friends, searchedUsers}) {
         } else {
             setIsInitialRender(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
 
     useEffect(() => {
@@ -28,14 +32,11 @@ function Users({isLoggedIn, currentUser, friends, searchedUsers}) {
                 {searchedUsers.map((user) =>
                     <UserCard
                         key={`user${user.id}`}
-                        currentUser={currentUser}
                         user={user}
-                        friends={friends}
                     />
                 )}
             </>;
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchedUsers])
         
     return (

@@ -26,7 +26,6 @@ function Messages() {
     } else {
       setIsInitialRender(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
   //Handle loading through navigation
@@ -34,7 +33,6 @@ function Messages() {
     if (currentUser) {
       fetchMessages();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   //Handle loading through refresh
@@ -44,7 +42,6 @@ function Messages() {
     } else {
       setIsInitialRender(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   //Once messages load create message component for each message
@@ -67,7 +64,6 @@ function Messages() {
           <h3>No Messages at this time.</h3>
         </div>;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messagesLoaded]);
 
   //Fetch the messages for currentUser

@@ -51,7 +51,6 @@ function Games({ setGames, search }) {
                     <h3>No games in collection.</h3>
                 </div>;
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [games]);
 
     //Once searched games load create message component for each message
@@ -68,7 +67,6 @@ function Games({ setGames, search }) {
                 </div>;
             setGamesDisplaySwitch(!gamesDisplaySwitch);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchedGames]);
 
     async function gameSearch(string) {

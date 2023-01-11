@@ -11,7 +11,7 @@ function Banner() {
     const isLoggedIn = useContext(LoggedInContext);
 
     if (isLoggedIn) {
-        bannerDisplay = <UserNav isLoggedIn={isLoggedIn} />
+        bannerDisplay = <UserNav />
     } else {
         bannerDisplay = <VisitorNav />;
     }

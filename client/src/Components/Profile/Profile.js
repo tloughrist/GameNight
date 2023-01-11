@@ -15,7 +15,6 @@ function Profile({ setCurrentUser, logout }) {
     const [blurb, setBlurb] = useState("");
     const [email, setEmail] = useState("");
     const [pronouns, setPronouns] = useState("");
-    const [passwordValidity, setPasswordValidity] = useState(false);
     const [isInitialRender, setIsInitialRender] = useState(true);
     const [isToggled, toggle] = useToggle(false);
 
@@ -32,7 +31,6 @@ function Profile({ setCurrentUser, logout }) {
         } else {
             setIsInitialRender(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn]);
 
     useEffect(() => {
@@ -47,7 +45,6 @@ function Profile({ setCurrentUser, logout }) {
         } else {
             setIsInitialRender(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentUser]);
 
     function setStates() {

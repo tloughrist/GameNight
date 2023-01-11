@@ -123,8 +123,7 @@ function App() {
                   />
                 </Route>
                 <Route path="/games">
-                  <Games
-                  />
+                  <Games />
                 </Route>
                 <Route path="/login">
                   <Login 

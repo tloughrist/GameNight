@@ -8,7 +8,6 @@ let requestDisplay = <p>Loading...</p>
 function FriendRequestCard({ request, requestsLoaded, fetchFriends, fetchFriendRequests }) {
 
   const [sender, setSender] = useState(null);
-  const [isInitialRender, setIsInitialRender] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isToggled, toggle] = useToggle(false);
 
