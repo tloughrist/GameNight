@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 import GameNightOption from './FriendsGameNightOption.js';
 import { CurrentUserContext } from '../../App';
 
-function FriendCard({ friend, fetchFriends, gameNights }) {
+function FriendCard({ friend, setFriends, gameNights }) {
   
   const [topic, setTopic] = useState();
   const [body, setBody] = useState();
@@ -31,11 +31,13 @@ function FriendCard({ friend, fetchFriends, gameNights }) {
     }
   };
 
-  async function handleUnfriend() {
-    await fetch(`users/${currentUser.id}/friends/${friend.id}`, {
+  async function handleUnfriend(userId, friendId) {
+    console.log(friend)
+    const response = await fetch(`friendships/${userId}/${friendId}`, {
       method: "DELETE"
     });
-    fetchFriends();
+    const frnds = await response.json();
+    setFriends(frnds);
   };
 
   return (
@@ -77,7 +79,7 @@ function FriendCard({ friend, fetchFriends, gameNights }) {
           </form>
         </Popup>
       </div>
-      <button onClick={(e) => handleUnfriend()}>Unfriend</button>
+      <button onClick={(e) => handleUnfriend(currentUser.id, friend.id)}>Unfriend</button>
     </div>
   )
 }

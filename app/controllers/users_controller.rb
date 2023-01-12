@@ -21,7 +21,19 @@ class UsersController < ApplicationController
     def find
         users = User.where('username LIKE ?', '%' + params[:query] + '%').all
         if users.size > 0
-          render json: users
+          def has_existing_request(receiver, sender_id)
+            requests = receiver.receiver_friend_requests
+            if requests.size > 0
+              matching_request = requests.find_by(sender_id: sender_id)
+              if matching_request
+                true
+              else
+                false
+              end
+            end
+          end
+          users_w_requests = users.map {|user| {user: user, requests: has_existing_request(user, params[:id]) || has_existing_request(User.find_by(id: params[:id]), user.id)}}
+          render json: users_w_requests
         else
           render json: { error: "No users match search criteria" }, status: :not_found
         end
@@ -49,6 +61,13 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       friends = user.friends
       render json: friends
+    end
+
+    def get_friend_requests
+      user = User.find(params[:id])
+      requests = user.receiver_friend_requests
+      package = requests.map {|request| {request_id: request.id, sender_id: request.sender.id, sender_name: request.sender.name, sender_username: request.sender.username}}
+      render json: package
     end
 
     def update

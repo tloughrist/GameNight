@@ -1,10 +1,7 @@
 import './Profile.css';
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useToggle } from "../../CustomHooks/Toggle.js";
 import { LoggedInContext, CurrentUserContext } from '../../App';
-
-let display = <p>Loading...</p>;
 
 function Profile({ setCurrentUser, logout }) {
     
@@ -15,45 +12,26 @@ function Profile({ setCurrentUser, logout }) {
     const [blurb, setBlurb] = useState("");
     const [email, setEmail] = useState("");
     const [pronouns, setPronouns] = useState("");
-    const [isInitialRender, setIsInitialRender] = useState(true);
-    const [isToggled, toggle] = useToggle(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
     
     let history = useHistory();
-
+    
     useEffect(() => {
-        if (!isInitialRender) {
-            if (!isLoggedIn) {
-                history.push("/home");
+        function setStates() {
+            if (currentUser) {
+                setName(currentUser.name);
+                setDob(currentUser.dob);
+                setBlurb(currentUser.blurb);
+                setEmail(currentUser.email);
+                setPronouns(currentUser.pronouns);
+                setIsLoaded(true);
             }
-        } else {
-            setIsInitialRender(false);
-        }
-    }, [isLoggedIn]);
-
-    useEffect(() => {
-        if (currentUser) {
-            setStates();
-        }
-    }, [currentUser]);
-
-    useEffect(() => {
-        if (!isInitialRender) {
-            setStates();
-        } else {
-            setIsInitialRender(false);
-        }
-    }, [currentUser]);
-
-    function setStates() {
-        setName(currentUser.name);
-        setDob(currentUser.dob);
-        setBlurb(currentUser.blurb);
-        setEmail(currentUser.email);
-        setPronouns(currentUser.pronouns);
-    };
+        };
+        setStates();
+    }, [currentUser]) 
 
     async function handleLogout() {
         await fetch("/logout", {
@@ -115,105 +93,104 @@ function Profile({ setCurrentUser, logout }) {
         }
     };
 
-    useEffect(() => {
-        if (name.length > 0) {
-            display = (
-                <>
-                    <form onSubmit={handleProfileChange}>
-                        <h3>Change Profile</h3>
-                        <label htmlFor="name">
-                            Name
-                        </label>
-                        <input
-                            type="text"
-                            name="name"
-                            autoComplete="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <label htmlFor="email">
-                            Email address
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <label htmlFor="dob">
-                            Date of Birth
-                        </label>
-                        <input
-                            type="date"
-                            name="dob"
-                            value={dob}
-                            onChange={(e) => setDob(e.target.value)}
-                        />
-                        <label htmlFor="pronouns">
-                            Preferred pronouns - optional
-                        </label>
-                        <input
-                            type="text"
-                            name="pronouns"
-                            value={pronouns}
-                            onChange={(e) => setPronouns(e.target.value)}
-                        />
-                        <label htmlFor="blurb">
-                            Write something about yourself in 500 characters or less - optional
-                        </label>
-                        <textarea
-                            name="blurb"
-                            value={blurb}
-                            onChange={(e) => setBlurb(e.target.value)}
-                        />
-                        <input
-                            type="submit"
-                        />
-                    </form>
-                    <form onSubmit={handlePasswordChange}>
-                    <h3>Change Password</h3>
-                        <input
-                            type="text"
-                            className="hidden"
-                            autoComplete="username"
-                        />
-                        <label htmlFor="password">
-                            New password - Must be at least eight characters long
-                        </label>
-                        <input
-                            type="password"
-                            name="password"
-                            autoComplete="new-password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <label htmlFor="passwordConfirmation">
-                            Confirm new password
-                        </label>
-                        <input
-                            type="password"
-                            name="passwordConfirmation"
-                            autoComplete="new-password-confirmation"
-                            value={passwordConfirmation}
-                            onChange={(e) => setPasswordConfirmation(e.target.value)}
-                        />
-                        <input
-                            type="submit"
-                        />
-                    </form>
-                    <h3>Manage Account</h3>
-                    <button onClick={e => handleLogout()} className="navlink">Logout</button>
-                    <button onClick={e => handleDelete()} className="navlink">Delete Account</button>
-                </>
-            );
-            toggle();
-        }
-    }, [name, email, dob, pronouns, blurb, password, passwordConfirmation]);
-    
     return (
-        <div className="display-container">
-            {display}
-        </div>
+        isLoggedIn !== false?
+            <div className="display-container">
+                {
+                    isLoaded?
+                        <>
+                            <form onSubmit={handleProfileChange}>
+                                <h3>Change Profile</h3>
+                                <label htmlFor="name">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    autoComplete="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                <label htmlFor="email">
+                                    Email address
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <label htmlFor="dob">
+                                    Date of Birth
+                                </label>
+                                <input
+                                    type="date"
+                                    name="dob"
+                                    value={dob}
+                                    onChange={(e) => setDob(e.target.value)}
+                                />
+                                <label htmlFor="pronouns">
+                                    Preferred pronouns - optional
+                                </label>
+                                <input
+                                    type="text"
+                                    name="pronouns"
+                                    value={pronouns}
+                                    onChange={(e) => setPronouns(e.target.value)}
+                                />
+                                <label htmlFor="blurb">
+                                    Write something about yourself in 500 characters or less - optional
+                                </label>
+                                <textarea
+                                    name="blurb"
+                                    value={blurb}
+                                    onChange={(e) => setBlurb(e.target.value)}
+                                />
+                                <input
+                                    type="submit"
+                                />
+                            </form>
+                            <form onSubmit={handlePasswordChange}>
+                            <h3>Change Password</h3>
+                                <input
+                                    type="text"
+                                    className="hidden"
+                                    autoComplete="username"
+                                />
+                                <label htmlFor="password">
+                                    New password - Must be at least eight characters long
+                                </label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    autoComplete="new-password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <label htmlFor="passwordConfirmation">
+                                    Confirm new password
+                                </label>
+                                <input
+                                    type="password"
+                                    name="passwordConfirmation"
+                                    autoComplete="new-password-confirmation"
+                                    value={passwordConfirmation}
+                                    onChange={(e) => setPasswordConfirmation(e.target.value)}
+                                />
+                                <input
+                                    type="submit"
+                                />
+                            </form>
+                            <h3>Manage Account</h3>
+                            <button onClick={e => handleLogout()} className="navlink">Logout</button>
+                            <button onClick={e => handleDelete()} className="navlink">Delete Account</button>
+                        </>
+                    :   <p>Loading...</p>
+                }
+            </div>
+        :   <div>
+                {history.push("/home")}
+            </div>
     );
 };
 

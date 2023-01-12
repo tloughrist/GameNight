@@ -3,82 +3,54 @@ import { useHistory } from "react-router-dom";
 import MessageCard from "./MessageCard.js";
 import { LoggedInContext, CurrentUserContext } from '../../App';
 
-let messageDisplay = <h3>Loading...</h3>
-
 function Messages() {
   
-  const [isInitialRender, setIsInitialRender] = useState(true);
   const [messages, setMessages] = useState([]);
-  const [messagesLoaded, setMessagesLoaded] = useState(false);
-  const [messagesDisplaySwitch, setMessagesDisplaySwitch] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const isLoggedIn = useContext(LoggedInContext);
   const currentUser = useContext(CurrentUserContext);
 
   let history = useHistory();
 
-  //Allow only logged-in users access
-  useEffect(() => {
-    if (!isInitialRender) {
-      if (!isLoggedIn) {
-        history.push("/home");
-      }
-    } else {
-      setIsInitialRender(false);
-    }
-  }, [isLoggedIn]);
-
-  //Handle loading through navigation
   useEffect(() => {
     if (currentUser) {
-      fetchMessages();
+      fetchMessages(currentUser.id);
     }
-  }, [])
+  }, [currentUser])
 
-  //Handle loading through refresh
-  useEffect(() => {
-    if (!isInitialRender) {
-      fetchMessages();
-    } else {
-      setIsInitialRender(false);
-    }
-  }, [currentUser]);
-
-  //Once messages load create message component for each message
-  useEffect(() => {
-    if (!isInitialRender && messages.length > 0) {
-      messageDisplay = 
-        <div>
-          <h3>Messages</h3>
-            {messages.map((message) =>
-              <MessageCard
-                key={`message${message.id}`}
-                message={message}
-              />
-            )}
-        </div>;
-      setMessagesDisplaySwitch(!messagesDisplaySwitch);
-    } else {
-      messageDisplay =
-        <div>
-          <h3>No Messages at this time.</h3>
-        </div>;
-    }
-  }, [messagesLoaded]);
-
-  //Fetch the messages for currentUser
-  async function fetchMessages() {
-    const response = await fetch(`users/${currentUser.id}/messages/`);
+  async function fetchMessages(id) {
+    const response = await fetch(`users/${id}/messages/`);
     if (response.ok) {
       const msges = await response.json();
       setMessages(msges);
-      setMessagesLoaded(true);
+      setIsLoaded(true);
     }
   };
 
   return (
+    isLoggedIn !== false?
       <div className="display-container">
-          {messageDisplay}
+        {
+          isLoaded?
+              messages.length > 0?
+                <>
+                  <h3>Messages</h3>
+                    {messages.map((message) =>
+                      <MessageCard
+                        key={`message${message.id}`}
+                        message={message}
+                      />
+                    )}
+                </>
+              : <>
+                  <h3>No Messages at this time.</h3>
+                </>
+          : <p>Loading...</p>
+        }
+      </div>
+    : <div>
+          {history.push("/home")}
       </div>
   );
 };

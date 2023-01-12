@@ -24,8 +24,10 @@ class FriendRequestsController < ApplicationController
 
   def destroy
       request = FriendRequest.find(params[:id])
+      user = User.find_by(id: request.receiver_id)
       request.delete
-      head :no_content
+      friends = user.friends
+      render json: friends
   end
 
   private

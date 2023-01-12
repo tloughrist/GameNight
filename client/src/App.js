@@ -21,7 +21,7 @@ export { CurrentUserContext, FriendsContext, GamesContext, LoggedInContext };
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState("unchecked");
+  const [currentUser, setCurrentUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState("unchecked");
   const [logNav, setLogNav] = useState(false);
   const [friends, setFriends] = useState([]);
@@ -89,8 +89,8 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  async function userSearch(string) {
-    const response = await fetch("user/search?" + new URLSearchParams({ query: string }).toString());
+  async function userSearch(id, string) {
+    const response = await fetch(`users/${id}/search?` + new URLSearchParams({ query: string }).toString());
     if (response.ok) {
       const users = await response.json();
       setSearchedUsers(users);
@@ -114,6 +114,7 @@ function App() {
                     gameNights={gameNights}
                     fetchFriends={fetchFriends}
                     search={userSearch}
+                    setFriends={setFriends}
                   />
                 </Route>
                 <Route path="/game_nights">

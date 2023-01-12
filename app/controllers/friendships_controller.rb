@@ -21,15 +21,22 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-      friendship = Friendship.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
-      friendship.delete
-      head :no_content
+    user = User.find_by(id: params[:user_id])
+    friendee_friendship = user.friendee_friendships.find_by(friender_id: params[:friend_id])
+    friender_friendship = user.friender_friendships.find_by(friendee_id: params[:friend_id])
+    if friendee_friendship.nil?
+      friender_friendship.delete
+    else
+      friendee_friendship.delete
+    end
+    friends = user.friends
+    render json: friends
   end
 
   private
 
   def friendship_params
-      params.permit(:user_id, :friend_id)
+      params.permit(:friender_id, :friendee_id)
   end
 
   def authorize

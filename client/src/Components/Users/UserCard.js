@@ -1,40 +1,51 @@
 import './Users.css';
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CurrentUserContext, FriendsContext } from '../../App';
  
 function UserCard({ user }) {
 
+  const [hasRequest, setHasRequest] = useState(user.requests)
+
   const friends = useContext(FriendsContext);
   const currentUser = useContext(CurrentUserContext);
 
-  let friendRequest = <button onClick={(e) => handleFriendRequest(currentUser, user)}>Send Friend Request</button>
+  const hasFriend = friends.filter((friend) => {
+    return friend.id === user.user.id
+  }).length;
 
-  const hasFriend = friends.filter(obj => {
-    return obj.username === user.username
-  });
-
-  if (hasFriend.length > 0) {
-    friendRequest = <h3>Friend!</h3>
-  }
+  const [isFriend, setIsFriend] = useState(hasFriend);
 
   async function handleFriendRequest(sender, receiver) {
-    await fetch("/friend_requests", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-            sender_id: sender.id,
-            receiver_id: receiver.id
-        }),
-      });
+    const response = await fetch("/friend_requests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 
+              sender_id: sender.id,
+              receiver_id: receiver.id
+          }),
+        });
+    if (response.ok) {
+      setHasRequest(true);
+    } else {
+      alert(response.error);
+    }
   };
 
   return (
     <div className="card">
-      <p>{user.name}</p>
-      <p>{user.username}</p>
-      {friendRequest}
+      <p>{user.user.name}</p>
+      <p>{user.user.username}</p>
+      {
+        isFriend > 0?
+          <h3>Friend!</h3>
+        : hasRequest?
+            <h3>Friend request pending.</h3>
+          : currentUser.id === user.user.id?
+              <></>
+            : <button onClick={(e) => handleFriendRequest(currentUser, user.user)}>Send Friend Request</button>
+      }
     </div>
   )
 };

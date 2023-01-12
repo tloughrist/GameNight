@@ -27,7 +27,7 @@ function GameNightCard({ night, fetchGameNights }) {
     //find invitations to this game night that have already been sent
     //find attendees to this game night
     //exclude both of these from the friends for InviteeOptions
-  }, []);
+  }, [night.id]);
 
   async function handleEdit() {
 
