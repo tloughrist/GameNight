@@ -55,6 +55,8 @@ function Friends({gameNights, search, setFriends}) {
                                         <FriendRequestCard
                                             key={`request${request.id}`}
                                             request={request}
+                                            friendRequests={friendRequests}
+                                            setFriendRequests={setFriendRequests}
                                             fetchFriendRequests={fetchFriendRequests}
                                             setFriends={setFriends}
                                         />

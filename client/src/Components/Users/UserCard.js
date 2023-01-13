@@ -9,11 +9,9 @@ function UserCard({ user }) {
   const friends = useContext(FriendsContext);
   const currentUser = useContext(CurrentUserContext);
 
-  const hasFriend = friends.filter((friend) => {
+  const isFriend = friends.filter((friend) => {
     return friend.id === user.user.id
   }).length;
-
-  const [isFriend, setIsFriend] = useState(hasFriend);
 
   async function handleFriendRequest(sender, receiver) {
     const response = await fetch("/friend_requests", {

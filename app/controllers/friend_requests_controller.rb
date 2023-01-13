@@ -26,8 +26,8 @@ class FriendRequestsController < ApplicationController
       request = FriendRequest.find(params[:id])
       user = User.find_by(id: request.receiver_id)
       request.delete
-      friends = user.friends
-      render json: friends
+      requests = user.receiver_friend_requests
+      render json: requests
   end
 
   private

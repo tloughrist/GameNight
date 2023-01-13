@@ -32,7 +32,6 @@ function FriendCard({ friend, setFriends, gameNights }) {
   };
 
   async function handleUnfriend(userId, friendId) {
-    console.log(friend)
     const response = await fetch(`friendships/${userId}/${friendId}`, {
       method: "DELETE"
     });

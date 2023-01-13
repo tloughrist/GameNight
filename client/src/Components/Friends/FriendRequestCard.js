@@ -1,15 +1,14 @@
 import './Friends.css';
 import React, { useContext } from "react";
-import { CurrentUserContext } from '../../App';
+import { CurrentUserContext, FriendsContext } from '../../App';
 
-function FriendRequestCard({ request, setFriends }) {
+function FriendRequestCard({ request, setFriends, setFriendRequests }) {
 
   const currentUser = useContext(CurrentUserContext);
+  const friends = useContext(FriendsContext);
 
-  console.log(request)
-
-  function handleAccept() {
-    fetch("/friendships", {
+  async function handleAccept() {
+    const response = await fetch("/friendships", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,15 +18,21 @@ function FriendRequestCard({ request, setFriends }) {
           friender_id: request.sender_id
        }),
     });
-    handleReject();
+    if (response.ok) {
+      const frnd = await response.json();
+      setFriends([...friends, frnd]);
+      handleReject();
+    } else {
+      alert(response.error);
+    }
   };
 
   async function handleReject() {
     const response = await fetch(`/friend_requests/${request.request_id}`, {
           method: "DELETE"
     });
-    const frnds = await response.json();
-    setFriends(frnds);
+    const reqs = await response.json();
+    setFriendRequests(reqs);
   };
 
   return (

@@ -16,7 +16,7 @@ function Games({ setGames, search }) {
     let history = useHistory();
 
     async function gameSearch(string) {
-        const response = await fetch("game/search?" + new URLSearchParams({ query: string}).toString());
+        const response = await fetch("games/search?" + new URLSearchParams({ query: string}).toString());
         if (response.ok) {
           const gmes = await response.json();
           setSearchedGames(gmes);
@@ -32,7 +32,7 @@ function Games({ setGames, search }) {
                     <div>
                         {games.map((game) =>
                             <GameCard
-                                key={`game${game.id}`}
+                                key={`game${game.game.id}`}
                                 game={game}
                             />
                         )}

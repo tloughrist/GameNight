@@ -5,7 +5,8 @@ class FriendshipsController < ApplicationController
   def create
     friendship = Friendship.create(friendship_params)
     if friendship.valid?
-      render json: friendship, status: :created
+      friend = User.find(friendship.friender_id)
+      render json: friend, status: :created
     else
       render json: { errors: friendship.errors.full_messages }, status: :unprocessable_entity
     end

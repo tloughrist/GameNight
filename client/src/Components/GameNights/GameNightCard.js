@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useToggle } from "../../CustomHooks/Toggle.js";
 import InviteeOption from "./GameNightInviteeOption.js";
 import { CurrentUserContext, FriendsContext } from "../../App.js";
 
@@ -8,8 +7,6 @@ let friendDisplay = <></>;
 function GameNightCard({ night, fetchGameNights }) {
 
   const [invitees, setInvitees] = useState([]);
-
-  const [isToggled, toggle] = useToggle(false);
 
   const currentUser = useContext(CurrentUserContext);
   const friends = useContext(FriendsContext);
@@ -48,7 +45,6 @@ function GameNightCard({ night, fetchGameNights }) {
         <button onClick={(e) => handleSendInvite()}>Send Invitations</button>
         <button onClick={(e) => resetCard()}>Cancel</button>
       </div>;
-    toggle();
   };
 
   function handleInvitee() {
@@ -57,7 +53,6 @@ function GameNightCard({ night, fetchGameNights }) {
 
   function resetCard() {
     friendDisplay = <></>;
-    toggle();
   }
 
   function handleMessage() {

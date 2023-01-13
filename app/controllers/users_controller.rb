@@ -68,6 +68,19 @@ class UsersController < ApplicationController
       requests = user.receiver_friend_requests
       package = requests.map {|request| {request_id: request.id, sender_id: request.sender.id, sender_name: request.sender.name, sender_username: request.sender.username}}
       render json: package
+    end 
+
+    def get_owner_games
+      user = User.find(params[:id])
+      user_games = user.user_games
+      games = user_games.map {|user_game| user_game.game}
+      originator_games = user.originator_games
+      matched_games = games.intersection(originator_games)
+      unmatched_games = games.difference(originator_games)
+      flagged_matched_games = matched_games.map {|game| {game: game, originator: true}}
+      flagged_unmatched_games = unmatched_games.map {|game| {game: game, originator: false}}
+      flaggedGames = flagged_matched_games.union(flagged_unmatched_games) 
+      render json: flaggedGames
     end
 
     def update
