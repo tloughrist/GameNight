@@ -70,17 +70,10 @@ class UsersController < ApplicationController
       render json: package
     end 
 
-    def get_owner_games
-      user = User.find(params[:id])
-      user_games = user.user_games
-      games = user_games.map {|user_game| user_game.game}
-      originator_games = user.originator_games
-      matched_games = games.intersection(originator_games)
-      unmatched_games = games.difference(originator_games)
-      flagged_matched_games = matched_games.map {|game| {game: game, originator: true}}
-      flagged_unmatched_games = unmatched_games.map {|game| {game: game, originator: false}}
-      flaggedGames = flagged_matched_games.union(flagged_unmatched_games) 
-      render json: flaggedGames
+    def get_games
+      packaged_games = Game.all.map {|game| game.package_game(params[:id])}
+      games = packaged_games.select {|game| game[:owned] == true || game[:originated] == true}
+      render json: games
     end
 
     def update

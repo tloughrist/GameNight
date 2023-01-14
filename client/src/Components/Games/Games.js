@@ -24,6 +24,7 @@ function Games({ setGames, search }) {
         }
     };
 
+    console.log(games)
     return (
         isLoggedIn !== false?
             <div className="display-container">
