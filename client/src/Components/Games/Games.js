@@ -15,8 +15,8 @@ function Games({ setGames, search }) {
 
     let history = useHistory();
 
-    async function gameSearch(string) {
-        const response = await fetch("games/search?" + new URLSearchParams({ query: string}).toString());
+    async function gameSearch(id, string) {
+        const response = await fetch(`games/${id}/search?` + new URLSearchParams({ query: string}).toString());
         if (response.ok) {
           const gmes = await response.json();
           setSearchedGames(gmes);
@@ -49,14 +49,14 @@ function Games({ setGames, search }) {
                         value={searchString}
                         onChange={(e) => setSearchString(e.target.value)}
                     />
-                    <button onClick={(e) => gameSearch(searchString)} className="navlink">Search for Games</button>
+                    <button onClick={(e) => gameSearch(currentUser.id, searchString)} className="navlink">Search for Games</button>
                     <div>
                         {isLoaded?
                             searchedGames.length > 0?
                                 <div>
                                     {searchedGames.map((game) =>
                                         <GameCard
-                                            key={`game${game.id}`}
+                                            key={`game${game.game.id}`}
                                             game={game}
                                         />
                                     )}

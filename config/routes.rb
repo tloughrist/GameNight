@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/users/:id/friends", to: "users#get_friends"
   get "/users/:user_id/messages/", to: "messages#get_messages"
   get "/users/:id/games/", to: "users#get_owner_games"
-  get "/games/search", to: "games#find"
+  get "/games/:user_id/search", to: "games#find"
   get "/users/game_nights/:user_id", to: "game_nights#get_nights"
   get "/game_nights/:id/invitees", to: "game_nights#get_invitees"
   get "/game_nights/:id/attendees", to: "game_nights#get_attendees"

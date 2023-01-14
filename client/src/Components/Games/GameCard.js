@@ -9,7 +9,8 @@ function GameCard({ game, originatorGames }) {
   function handleDisown() {
 
   }
-  
+  console.log(game)
+
   return (
     <div className="card">
       <p>{game.game.title}</p>
