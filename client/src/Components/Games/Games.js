@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import GameCard from "./GameCard.js";   
+import GameCard from "./GameCard.js";
 import { LoggedInContext, CurrentUserContext, GamesContext } from "../../App.js";
 
 function Games({ setGames, search }) {
@@ -8,6 +8,10 @@ function Games({ setGames, search }) {
     const [searchString, setSearchString] = useState("");
     const [searchedGames, setSearchedGames] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [title, setTitle] = useState("");
+    const [numberPlayers, setNumberPlayers] = useState("");
+    const [duration, setDuration] = useState("");
+    const [complexity, setComplexity] = useState("");
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
@@ -24,7 +28,29 @@ function Games({ setGames, search }) {
         }
     };
 
-    console.log(games)
+    async function handleCreateGame(e) {
+        e.preventDefault();
+        const res = await fetch("/games", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                originator_id: currentUser.id,
+                title: title,
+                duration_minutes: duration,
+                no_players: numberPlayers,
+                complexity: complexity
+             }),
+          });
+        if (res.ok) {
+            const game = await res.json();
+            setGames([...games, game]);
+        } else {
+            alert(res.errors)
+        } 
+    };
+
     return (
         isLoggedIn !== false?
             <div className="display-container">
@@ -35,6 +61,7 @@ function Games({ setGames, search }) {
                             <GameCard
                                 key={`game${game.game.id}`}
                                 game={game}
+                                setGames={setGames}
                             />
                         )}
                     </div>
@@ -59,6 +86,7 @@ function Games({ setGames, search }) {
                                         <GameCard
                                             key={`game${game.game.id}`}
                                             game={game}
+                                            setGames={setGames}
                                         />
                                     )}
                                 </div>
@@ -69,6 +97,52 @@ function Games({ setGames, search }) {
                         }
                     </div>
                 </div>
+                    <div>
+                        <h3>Submit Game</h3>
+                        <form onSubmit={handleCreateGame}>
+                        <label htmlFor="title">
+                            Title
+                        </label>
+                        <input
+                            type="text"
+                            name="title"
+                            autoComplete="title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <label htmlFor="no_players">
+                            Number of Players
+                        </label>
+                        <input
+                            type="text"
+                            name="no_players"
+                            autoComplete="no_players"
+                            value={numberPlayers}
+                            onChange={(e) => setNumberPlayers(e.target.value)}
+                        />
+                        <label htmlFor="duration">
+                            Typical Duration
+                        </label>
+                        <input
+                            type="text"
+                            name="duration"
+                            autoComplete="number"
+                            value={duration}
+                            onChange={(e) => setDuration(e.target.value)}
+                        />
+                        <label htmlFor="complexity">
+                            Complexity - 1: Tic-Tac-Toe, 5: Old Wargames  
+                        </label>
+                        <input
+                            type="number"
+                            name="complexity"
+                            autoComplete="complexity"
+                            value={complexity}
+                            onChange={(e) => setComplexity(e.target.value)}
+                        />
+                        <button type="submit">Submit</button>
+                        </form>
+                    </div>
             </div>
         :   <div>
                 {history.push("/home")}

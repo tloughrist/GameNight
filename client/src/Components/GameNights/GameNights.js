@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import GameNightCard from "./GameNightCard.js";
+import InvitationCard from "./GameNightInvitations.js"
 import { LoggedInContext, CurrentUserContext, GamesContext, FriendsContext } from "../../App.js";
 
 function GameNights({ gameNights, fetchGameNights }) {
@@ -9,6 +10,7 @@ function GameNights({ gameNights, fetchGameNights }) {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [location, setLocation] = useState("");
+    const [invitations, setInvitations] = useState([]);
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
@@ -107,6 +109,23 @@ function GameNights({ gameNights, fetchGameNights }) {
                             </div>
                         :   <div>
                                 <h3>You've scheduled no game nights.</h3>
+                            </div>
+                    }
+                </div>
+                <div>
+                    <h3>Invitations</h3>
+                    {
+                        invitations.length > 0? 
+                            <div>
+                                {invitations.map((invitation) =>
+                                    <InvitationCard
+                                        key={`invitation${invitations.id}`}
+                                        invitation={invitation}
+                                    />
+                                )}
+                            </div>
+                        :   <div>
+                                <h3>You have no invitations right now.</h3>
                             </div>
                     }
                 </div>

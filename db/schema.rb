@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_12_20_130655) do
     t.string "title"
     t.string "no_players"
     t.integer "duration_minutes"
-    t.integer "complexity"
+    t.float "complexity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["originator_id"], name: "index_games_on_originator_id"

@@ -7,23 +7,21 @@ let friendDisplay = <></>;
 function GameNightCard({ night, fetchGameNights }) {
 
   const [invitees, setInvitees] = useState([]);
+  const [attendees, setAttendees] = useState([]);
 
   const currentUser = useContext(CurrentUserContext);
   const friends = useContext(FriendsContext);
 
   useEffect(() => {
-    async function fetchData() {
-      const inviteRes = await fetch(`game_nights/${night.id}/invitees`);
+    async function fetchData(nightId) {
+      const inviteRes = await fetch(`game_nights/${nightId}/invitees`);
       const invitedUsers = await inviteRes.json();
-      const attendRes = await fetch(`game_nights/${night.id}/attendees`);
+      const attendRes = await fetch(`game_nights/${nightId}/attendees`);
       const attendingUsers = await attendRes.json();
-      console.log(invitedUsers);
-      console.log(attendingUsers);
+      setAttendees(attendingUsers);
+      setInvitees(invitedUsers);
     };
-    fetchData();
-    //find invitations to this game night that have already been sent
-    //find attendees to this game night
-    //exclude both of these from the friends for InviteeOptions
+    fetchData(night.id);
   }, [night.id]);
 
   async function handleEdit() {

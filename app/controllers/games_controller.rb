@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   def create
       game = Game.create(game_params)
       if game.valid?
-        render json: game, status: :created
+        packaged_game = {game: game, originated: true, owned: true}
+        render json: packaged_game, status: :created
       else
         render json: { errors: game.errors.full_messages }, status: :unprocessable_entity
       end
@@ -40,7 +41,8 @@ class GamesController < ApplicationController
       game = Game.find_by(id: params[:id])
       game.update(game_params)
       if game.valid?
-        render json: game, status: :accepted
+        package = game.package_game(game.originator_id)
+        render json: package, status: :accepted
       else
         render json: { errors: game.errors.full_messages }, status: :unprocessable_entity
       end
@@ -55,7 +57,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-      params.permit(:title, :no_players, :duration_minutes, :complexity)
+      params.permit(:originator_id, :title, :no_players, :duration_minutes, :complexity)
   end
 
   def authorize

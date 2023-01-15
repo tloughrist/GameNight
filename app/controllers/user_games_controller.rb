@@ -3,9 +3,10 @@ class UserGamesController < ApplicationController
   before_action :authorize
 
   def create
-    user_game = UserGame.create(user_game_params)
+    user_game = UserGame.create(user_games_params)
     if user_game.valid?
-      render json: user_game, status: :created
+      package = user_game.game.package_game(params[:owner_id])
+      render json: package, status: :created
     else
       render json: { errors: user_game.errors.full_messages }, status: :unprocessable_entity
     end
@@ -21,15 +22,16 @@ class UserGamesController < ApplicationController
   end
 
   def destroy
-      user_game = UserGame.find_by(id: params[:id])
-      user_game.delete
-      head :no_content
+    user = User.find(params[:user_id])
+    user_game = user.user_games.find_by(game_id: params[:game_id])
+    user_game.delete
+    head :no_content
   end
 
   private
 
   def user_games_params
-      params.permit(:owner_id, :game_id)
+    params.permit(:owner_id, :game_id)
   end
 
   def authorize

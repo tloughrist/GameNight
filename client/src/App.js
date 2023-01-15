@@ -124,7 +124,9 @@ function App() {
                   />
                 </Route>
                 <Route path="/games">
-                  <Games />
+                  <Games 
+                    setGames={setGames}
+                  />
                 </Route>
                 <Route path="/login">
                   <Login 

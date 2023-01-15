@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :no_players
       t.integer :duration_minutes
-      t.integer :complexity
+      t.float :complexity
 
       t.timestamps
     end
