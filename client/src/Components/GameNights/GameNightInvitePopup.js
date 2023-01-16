@@ -13,24 +13,17 @@ function GameNightInvitePopup({ night, invitees, setInvitees }) {
     setInviteesHolder(invitees)
   }, [invitees]);
 
-  //this is buggy
-  function handleInvitees(id) {
-    inviteesHolder.indexOf(id) !== -1 ?
-      setInviteesHolder(inviteesHolder.filter((invitee) => invitee !== parseInt(id)))
-    : setInviteesHolder([...inviteesHolder, parseInt((id))]);
+  function handleInvitees(inviteeId) {
+    const inviteeInt = parseInt(inviteeId);
+    const inviteesSans = inviteesHolder.filter((invitee) => invitee !== inviteeInt);
+    inviteesHolder.indexOf(inviteeInt) !== -1 ?
+      setInviteesHolder(inviteesSans) 
+    : setInviteesHolder([...inviteesHolder, inviteeInt])
   };
 
   function handleSendInvites() {
 
   };
-
-
-
-  console.log(night.title)
-  console.log(invitees)
-  console.log(inviteesHolder)
-  console.log(inviteesHolder.indexOf(6))
-  console.log(friends)
   
   return (
     <Popup trigger={<button>Send Invites</button>} position="right center">

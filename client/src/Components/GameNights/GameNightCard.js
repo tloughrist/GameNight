@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { CurrentUserContext, FriendsContext } from "../../App.js";
+import { CurrentUserContext } from "../../App.js";
 import GameNightEditPopup from "./GameNightsEditPopup.js";
 import GameNightInvitePopup from "./GameNightInvitePopup.js"
-
-let friendDisplay = <></>;
 
 function GameNightCard({ night, nights, setGameNights }) {
 
@@ -11,7 +9,6 @@ function GameNightCard({ night, nights, setGameNights }) {
   const [attendees, setAttendees] = useState([]);
 
   const currentUser = useContext(CurrentUserContext);
-  const friends = useContext(FriendsContext);
 
   useEffect(() => {
     async function fetchData(nightId) {
@@ -24,14 +21,6 @@ function GameNightCard({ night, nights, setGameNights }) {
     };
     fetchData(night.id);
   }, [night.id]);
-
-  function handleInvitee() {
-
-  }
-
-  function resetCard() {
-    friendDisplay = <></>;
-  }
 
   function handleMessage(nightId) {
     
