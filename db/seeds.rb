@@ -117,7 +117,7 @@ user_games = UserGame.create([
 ])
 
 GameNight.create ([
-  { title: 'Weekly Meetup' , date: 'Sat, 01 Jan 2000', time: 'Sat, 01 Jan 2000 00:01:00.000000000 UTC +00:00', originator_id: 1, location: 'My house' },
+  { title: 'Weekly Meetup' , date: 'Sat, 01 Jan 2000', time: '08:30', originator_id: 1, location: 'My house' },
   { title: 'Gamefest!', date: 'Sat, 01 Jan 2000', time: 'Sat, 01 Jan 2000 00:01:00.000000000 UTC +00:00', originator_id: 2, location: 'Spielbound' },
   { title: 'Doug Con', date: 'Sat, 01 Jan 2000', time: 'Sat, 01 Jan 2000 00:01:00.000000000 UTC +00:00', originator_id: 3, location: 'Mana Games' },
   { title: 'Wayne Con', date: 'Sat, 01 Jan 2000', time: 'Sat, 01 Jan 2000 00:01:00.000000000 UTC +00:00', originator_id: 4, location: 'My house' },

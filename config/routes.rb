@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :show, :destroy]
   resources :attendances, only: [:create, :update, :destroy]
   resources :invitations, only: [:create, :show, :destroy]
-  resources :game_nights, only: [:create, :update, :destroy, :show]
+  resources :game_nights, only: [:create, :update, :destroy]
   resources :friend_requests, only: [:index, :create, :show, :destroy]
   resources :friendships, only: [:create, :show]
   resources :user_games, only: [:create, :show]

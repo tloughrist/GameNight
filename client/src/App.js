@@ -120,7 +120,7 @@ function App() {
                 <Route path="/game_nights">
                   <GameNights
                     gameNights={gameNights}
-                    fetchGameNights={fetchGameNights}
+                    setGameNights={setGameNights}
                   />
                 </Route>
                 <Route path="/games">

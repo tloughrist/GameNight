@@ -4,11 +4,11 @@ import GameNightCard from "./GameNightCard.js";
 import InvitationCard from "./GameNightInvitations.js"
 import { LoggedInContext, CurrentUserContext, GamesContext, FriendsContext } from "../../App.js";
 
-function GameNights({ gameNights, fetchGameNights }) {
+function GameNights({ gameNights, setGameNights }) {
 
     const [title, setTitle] = useState("");
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
+    const [date, setDate] = useState("2000-01-01");
+    const [time, setTime] = useState("00:00");
     const [location, setLocation] = useState("");
     const [invitations, setInvitations] = useState([]);
 
@@ -20,26 +20,30 @@ function GameNights({ gameNights, fetchGameNights }) {
     let history = useHistory();
 
     async function handleCreateGameNight(e) {
-        if (title.length > 1 && date.length > 4 && time.length > 4 && location.length > 2) {
-            const res = await fetch("/game_nights", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ 
-                    title: title,
-                    date: date,
-                    time: time,
-                    originator_id: currentUser.id,
-                    location: location
-                 }),
-              });
-              const night = await res.json();
-              if (night.errors) {
-                alert(night.errors)
-              }
+        e.preventDefault();
+        const res = await fetch("/game_nights", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                title: title,
+                date: date,
+                time: time,
+                originator_id: currentUser.id,
+                location: location
+                }),
+            });
+        if (res.ok) {
+            const night = await res.json();
+            console.log(night)
+            setGameNights([...gameNights, night]);
+            setTitle("");
+            setDate("2000-01-01");
+            setTime("00:00");
+            setLocation("");
         } else {
-            alert("Invalid - check entries")
+            alert(res.errors)
         }
     }
 
@@ -101,9 +105,8 @@ function GameNights({ gameNights, fetchGameNights }) {
                                     <GameNightCard
                                         key={`night${night.id}`}
                                         night={night}
-                                        fetchGameNights={fetchGameNights}
-                                        friends={friends}
-                                        currentUser={currentUser}
+                                        nights={gameNights}
+                                        setGameNights={setGameNights}
                                     />
                                 )}
                             </div>

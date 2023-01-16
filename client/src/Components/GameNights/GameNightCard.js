@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import InviteeOption from "./GameNightInviteeOption.js";
 import { CurrentUserContext, FriendsContext } from "../../App.js";
+import GameNightEditPopup from "./GameNightsEditPopup.js";
+import GameNightInvitePopup from "./GameNightInvitePopup.js"
 
 let friendDisplay = <></>;
 
-function GameNightCard({ night, fetchGameNights }) {
+function GameNightCard({ night, nights, setGameNights }) {
 
   const [invitees, setInvitees] = useState([]);
   const [attendees, setAttendees] = useState([]);
@@ -24,27 +25,6 @@ function GameNightCard({ night, fetchGameNights }) {
     fetchData(night.id);
   }, [night.id]);
 
-  async function handleEdit() {
-
-  };
-
-  async function handleInvite() {
-    friendDisplay =
-      <div>
-        <h3>Invite...</h3>
-        {friends.map((friend) =>
-          <InviteeOption
-            key={`friend${friend.id}`}
-            friend={friend}
-            invitees={invitees}
-            setInvitees={setInvitees}
-          />
-        )}
-        <button onClick={(e) => handleSendInvite()}>Send Invitations</button>
-        <button onClick={(e) => resetCard()}>Cancel</button>
-      </div>;
-  };
-
   function handleInvitee() {
 
   }
@@ -53,19 +33,12 @@ function GameNightCard({ night, fetchGameNights }) {
     friendDisplay = <></>;
   }
 
-  function handleMessage() {
+  function handleMessage(nightId) {
     
   };
 
   function handleGameSelect() {
 
-  };
-
-  async function handleDelete() {
-    await fetch(`game_nights/${night.id}`, {
-      method: "DELETE"
-    });
-    fetchGameNights();
   };
 
   function handleSendInvite() {
@@ -94,12 +67,18 @@ function GameNightCard({ night, fetchGameNights }) {
       <p>Attendees: </p>
       <p>Invitees: </p>
       <p>Games: </p>
-      <button onClick={(e) => handleEdit()}>Edit</button>
-      <button onClick={(e) => handleInvite()}>Send Invites</button>
-      {friendDisplay}
-      <button onClick={(e) => handleMessage()}>Send Message to Attendees</button>
+      <GameNightEditPopup 
+        nights={nights}
+        night={night}
+        setGameNights={setGameNights} 
+      />
+      <GameNightInvitePopup
+        night={night}
+        invitees={invitees}
+        setInvitees={setInvitees}
+       />
+      <button onClick={(e) => handleMessage(night.id)}>Send Message to Attendees</button>
       <button onClick={(e) => handleGameSelect()}>Select Games to Bring</button>
-      <button onClick={(e) => handleDelete()}>Delete</button>
     </div>
   );
 }
