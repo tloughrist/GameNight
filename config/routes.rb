@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "/users/:id/friend_requests", to: "users#get_friend_requests"
   delete "/friendships/:user_id/:friend_id", to: "friendships#destroy"
   delete "/users/:user_id/games/:game_id/user_games", to: "user_games#destroy"
+  delete "/uninvite/:invitee_id/:game_night_id", to: "invitations#destroy"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

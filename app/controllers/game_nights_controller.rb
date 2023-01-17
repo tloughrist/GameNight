@@ -28,14 +28,14 @@ class GameNightsController < ApplicationController
   def get_invitees
     night = GameNight.find(params[:id])
     invitations = night.invitations.all
-    invitees = invitations.map { |invitation| invitation.receiver_id }
+    invitees = invitations.map { |invitation| invitation.receiver }
     render json: invitees
   end
 
   def get_attendees
     night = GameNight.find(params[:id])
     attendances = night.attendances.all
-    attendees = attendances.map { |attendance| attendance.attendee_id }
+    attendees = attendances.map { |attendance| attendance.attendee }
     render json: attendees
   end
 

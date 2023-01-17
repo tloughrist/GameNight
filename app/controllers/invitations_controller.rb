@@ -3,11 +3,16 @@ class InvitationsController < ApplicationController
   before_action :authorize
 
   def create
-    invitation = Invitation.create(invitation_params)
-    if invitation.valid?
-      render json: invitation, status: :created
-    else
-      render json: { errors: invitation.errors.full_messages }, status: :unprocessable_entity
+    existing_invitation = Invitation.find_by(receiver_id: params[:receiver_id], game_night_id: params[:game_night_id])
+    if !existing_invitation
+      invitation = Invitation.create(invitation_params)
+      if invitation.valid?
+        invitations = Invitation.where(game_night_id: params[:game_night_id]).all
+        invitees = invitations.map {|invitation| invitation.receiver}
+        render json: invitees, status: :created
+      else
+        render json: { errors: invitation.errors.full_messages }, status: :unprocessable_entity
+      end
     end
   end
 
@@ -21,9 +26,11 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
-      invitation = Invitation.find_by(id: params[:id])
+      invitation = Invitation.find_by(receiver_id: params[:invitee_id], game_night_id: params[:game_night_id])
       invitation.delete
-      head :no_content
+      invitations = Invitation.where(game_night_id: params[:game_night_id]).all
+      invitees = invitations.map {|invitation| invitation.receiver}
+      render json: invitees, status: :created
   end
 
   private

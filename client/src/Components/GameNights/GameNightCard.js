@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CurrentUserContext } from "../../App.js";
 import GameNightEditPopup from "./GameNightsEditPopup.js";
-import GameNightInvitePopup from "./GameNightInvitePopup.js"
+import GameNightInvitePopup from "./GameNightInvitePopup.js";
+import InvitationCard from "./GameNightInvitations.js";
 
 function GameNightCard({ night, nights, setGameNights }) {
 
@@ -30,23 +31,6 @@ function GameNightCard({ night, nights, setGameNights }) {
 
   };
 
-  function handleSendInvite() {
-    invitees.map(async (invitee) => {
-      const res = await fetch("/invitations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          game_night_id: night.id,
-          receiver_id: invitee,
-          sender_id: currentUser.id
-        }),
-      });
-    })
-    
-  };
-
   return (
     <div className="card">
       <p><b>{night.title}</b></p>
@@ -54,7 +38,23 @@ function GameNightCard({ night, nights, setGameNights }) {
       <p>Time: {night.time}</p>
       <p>Location: {night.location}</p>
       <p>Attendees: </p>
-      <p>Invitees: </p>
+      <div>
+        <h3>Invitees</h3>
+        {
+          invitees.length > 0 ?
+            <div>
+              {invitees.map((invitee) => 
+                <InvitationCard
+                  key={`invitee${invitee.id}`}
+                  invitee={invitee}
+                  night={night}
+                  setInvitees={setInvitees}
+                />
+              )}
+            </div>
+          : <p>No invitations yet.</p>
+        }
+      </div>
       <p>Games: </p>
       <GameNightEditPopup 
         nights={nights}
