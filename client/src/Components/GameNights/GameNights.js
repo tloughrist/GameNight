@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import GameNightCard from "./GameNightCard.js";
-import InvitationCard from "./GameNightInvitations.js"
+import InvitationCard from "./GameNightInvitationCard.js";
+import AttendanceCard from "./GameNightAttendanceCard.js"
 import { LoggedInContext, CurrentUserContext, GamesContext, FriendsContext } from "../../App.js";
 
 function GameNights({ gameNights, setGameNights }) {
@@ -11,6 +12,7 @@ function GameNights({ gameNights, setGameNights }) {
     const [time, setTime] = useState("00:00");
     const [location, setLocation] = useState("");
     const [invitations, setInvitations] = useState([]);
+    const [attendances, setAttendances] = useState([]);
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
@@ -18,6 +20,31 @@ function GameNights({ gameNights, setGameNights }) {
     const friends = useContext(FriendsContext);
 
     let history = useHistory();
+
+    useEffect(() => {
+        async function fetchInvitations(userId) {
+            const res = await fetch(`invitations/${userId}`);
+            if (res.ok) {
+                const invites = await res.json();
+                setInvitations(invites);
+            } else {
+                alert(res.errors);
+            }
+        };
+        async function fetchAttendances(userId) {
+            const res = await fetch(`attendances/${userId}`);
+            if (res.ok) {
+                const attends = await res.json();
+                setAttendances(attends);
+            } else {
+                alert(res.errors);
+            }
+        };
+        if(currentUser){
+            fetchInvitations(currentUser.id);
+            fetchAttendances(currentUser.id);
+        }
+    }, [currentUser])
 
     async function handleCreateGameNight(e) {
         e.preventDefault();
@@ -116,14 +143,33 @@ function GameNights({ gameNights, setGameNights }) {
                     }
                 </div>
                 <div>
+                    <h3>Game Nights You're Attending</h3>
+                    {
+                        attendances.length > 0? 
+                            <div>
+                                {attendances.map((attendance) =>
+                                    <AttendanceCard
+                                        key={`attendance${attendance.night.id}`}
+                                        attendance={attendance}
+                                    />
+                                )}
+                            </div>
+                        :   <div>
+                                <h3>You're not attending anyone else's game nights.</h3>
+                            </div>
+                    }
+                </div>
+                <div>
                     <h3>Invitations</h3>
                     {
                         invitations.length > 0? 
                             <div>
                                 {invitations.map((invitation) =>
                                     <InvitationCard
-                                        key={`invitation${invitations.id}`}
+                                        key={`invitation${invitation.night.id}`}
                                         invitation={invitation}
+                                        setInvitations={setInvitations}
+                                        setAttendances={setAttendances}
                                     />
                                 )}
                             </div>

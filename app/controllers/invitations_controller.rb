@@ -25,6 +25,13 @@ class InvitationsController < ApplicationController
       end
   end
 
+  def fetch
+    user = User.find(params[:user_id])
+    invitations = user.receiver_invitations
+    packages = invitations.map {|invitation| {night: invitation.game_night, sender: invitation.sender.name}} 
+    render json: packages, status: :ok
+  end
+
   def destroy
       invitation = Invitation.find_by(receiver_id: params[:invitee_id], game_night_id: params[:game_night_id])
       invitation.delete

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :messages, only: [:create, :show, :destroy]
   resources :attendances, only: [:create, :update, :destroy]
-  resources :invitations, only: [:create, :show, :destroy]
+  resources :invitations, only: [:create, :destroy]
   resources :game_nights, only: [:create, :update, :destroy]
   resources :friend_requests, only: [:index, :create, :show, :destroy]
   resources :friendships, only: [:create, :show]
@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   delete "/friendships/:user_id/:friend_id", to: "friendships#destroy"
   delete "/users/:user_id/games/:game_id/user_games", to: "user_games#destroy"
   delete "/uninvite/:invitee_id/:game_night_id", to: "invitations#destroy"
+  get "/invitations/:user_id", to: "invitations#fetch"
+  get "/attendances/:user_id", to: "attendances#fetch"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

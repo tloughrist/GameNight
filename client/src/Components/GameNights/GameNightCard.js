@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { CurrentUserContext } from "../../App.js";
 import GameNightEditPopup from "./GameNightsEditPopup.js";
 import GameNightInvitePopup from "./GameNightInvitePopup.js";
-import InvitationCard from "./GameNightInvitations.js";
+import InviteeCard from "./GameNightInvitees.js";
+import AttendeeCard from "./GameNightAttendee.js";
 
 function GameNightCard({ night, nights, setGameNights }) {
 
@@ -37,14 +38,30 @@ function GameNightCard({ night, nights, setGameNights }) {
       <p>Date: {night.date}</p>
       <p>Time: {night.time}</p>
       <p>Location: {night.location}</p>
-      <p>Attendees: </p>
+      <div>
+        <h3>Attendees</h3>
+        {
+          attendees.length > 0 ?
+            <div>
+              {attendees.map((attendee) => 
+                <AttendeeCard
+                  key={`attendee${attendee.id}`}
+                  attendee={attendee}
+                  night={night}
+                  setAttendees={setAttendees}
+                />
+              )}
+            </div>
+          : <p>No invitations yet.</p>
+        }
+      </div>
       <div>
         <h3>Invitees</h3>
         {
           invitees.length > 0 ?
             <div>
               {invitees.map((invitee) => 
-                <InvitationCard
+                <InviteeCard
                   key={`invitee${invitee.id}`}
                   invitee={invitee}
                   night={night}
