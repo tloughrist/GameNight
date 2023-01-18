@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { CurrentUserContext, GamesContext } from "../../App.js";
+import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js"
 
-function InvitationCard({ invitation, setInvitations, setAttendances }) {
+function InvitationCard({ invitation, setInvitations, setinvitations }) {
+
+  async function handleDelete() {
+
+  };
 
   return(
-    <div>
-      <p>{invitation.night.title}</p>
+    <div className="card">
+      <h3>{invitation.night.title}</h3>
+      <p><b>Date: </b>{invitation.night.date}</p>
+      <p><b>Time: </b>{invitation.night.time}</p>
+      <p><b>Location: </b>{invitation.night.location}</p>
+      <p><b>Host: </b>{invitation.sender}</p>
+      <GameNightAcceptPopUp />
+      <button onClick={e => handleDelete()}>Regretfully Decline</button>
     </div>
   );
 }
