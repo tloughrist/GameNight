@@ -3,11 +3,14 @@ class AttendancesController < ApplicationController
   before_action :authorize
 
   def create
-    attendance = Attendance.create(attendance_params)
-    if attendance.valid?
-      render json: attendance, status: :created
+    attend = Attendance.create(attendance_params)
+    if attend.valid?
+      user = User.find(params[:attendee_id])
+      attendances = user.attendances
+      packages = attendances.map {|attendance| {night: attendance.game_night, originator: attendance.game_night.originator}}
+      render json: packages, status: :ok
     else
-      render json: { errors: attendance.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: attend.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

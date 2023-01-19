@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :user_games, only: [:create, :show]
   resources :games, only: [:index, :create, :update, :destroy]
   resources :users, only: [:index, :update, :destroy]
+  resources :game_night_games, only: [:create, :destroy]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#self"

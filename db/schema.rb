@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_130655) do
+ActiveRecord::Schema.define(version: 2023_01_19_113110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 2022_12_20_130655) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friendee_id"], name: "index_friendships_on_friendee_id"
     t.index ["friender_id"], name: "index_friendships_on_friender_id"
+  end
+
+  create_table "game_night_games", force: :cascade do |t|
+    t.bigint "attendee_id"
+    t.bigint "game_id"
+    t.bigint "game_night_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attendee_id"], name: "index_game_night_games_on_attendee_id"
+    t.index ["game_id"], name: "index_game_night_games_on_game_id"
+    t.index ["game_night_id"], name: "index_game_night_games_on_game_night_id"
   end
 
   create_table "game_nights", force: :cascade do |t|
@@ -116,6 +127,9 @@ ActiveRecord::Schema.define(version: 2022_12_20_130655) do
   add_foreign_key "friend_requests", "users", column: "sender_id"
   add_foreign_key "friendships", "users", column: "friendee_id"
   add_foreign_key "friendships", "users", column: "friender_id"
+  add_foreign_key "game_night_games", "game_nights"
+  add_foreign_key "game_night_games", "games"
+  add_foreign_key "game_night_games", "users", column: "attendee_id"
   add_foreign_key "game_nights", "users", column: "originator_id"
   add_foreign_key "games", "users", column: "originator_id"
   add_foreign_key "invitations", "game_nights"

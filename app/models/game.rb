@@ -1,6 +1,8 @@
 class Game < ApplicationRecord
     has_many :user_games, foreign_key: 'game_id'
     has_many :owners, class_name: 'User', through: :user_games
+    has_many :game_night_games
+    has_many :game_nights, through: :game_night_games
     belongs_to :originator, class_name: :User
 
     validates :title, presence: true

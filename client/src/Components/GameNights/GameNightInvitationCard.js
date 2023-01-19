@@ -4,7 +4,7 @@ import 'reactjs-popup/dist/index.css';
 import { CurrentUserContext, GamesContext } from "../../App.js";
 import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js"
 
-function InvitationCard({ invitation, setInvitations, setinvitations }) {
+function InvitationCard({ invitation, setInvitations, setAttendances }) {
 
   async function handleDelete() {
 
@@ -17,7 +17,9 @@ function InvitationCard({ invitation, setInvitations, setinvitations }) {
       <p><b>Time: </b>{invitation.night.time}</p>
       <p><b>Location: </b>{invitation.night.location}</p>
       <p><b>Host: </b>{invitation.sender}</p>
-      <GameNightAcceptPopUp />
+      <GameNightAcceptPopUp 
+        setAttendances={setAttendances}
+      />
       <button onClick={e => handleDelete()}>Regretfully Decline</button>
     </div>
   );
