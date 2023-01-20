@@ -25,6 +25,19 @@ class GameNightsController < ApplicationController
     render json: user_nights
   end
 
+  def get_packages
+    user = User.find(params[:user_id])
+    #originating = user.originator_game_nights.map {|night| {game_night: night, role: "originator"}}
+    #attending = user.attendee_game_nights.map {|night| {game_night: night, role: "attendee"}}
+    #invited = user.invitee_game_nights.map {|night| {game_night: night, role: "invitee"}}
+    #nights = originating + attending + invited
+    originating = user.originator_game_nights
+    attending = user.attendee_game_nights
+    invited = user.invitee_game_nights
+    nights = originating + attending + invited
+    render json: nights, option_user_id: params[:user_id], status: :ok
+  end
+
   def get_invitees
     night = GameNight.find(params[:id])
     invitations = night.invitations.all

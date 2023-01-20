@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2023_01_19_113110) do
   create_table "game_nights", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.time "time"
+    t.string "time"
     t.bigint "originator_id"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false

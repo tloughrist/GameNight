@@ -13,6 +13,9 @@ function GameNights({ gameNights, setGameNights }) {
     const [location, setLocation] = useState("");
     const [invitations, setInvitations] = useState([]);
     const [attendances, setAttendances] = useState([]);
+    const [originatedNights, setOriginatedNights] = useState([]);
+    const [attendingNights, setAttendingNights] = useState([]);
+    const [invitedNights, setInvitedNights] = useState([]);
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
@@ -45,6 +48,26 @@ function GameNights({ gameNights, setGameNights }) {
             fetchAttendances(currentUser.id);
         }
     }, [currentUser])
+
+    useEffect(() => {
+        function originNights(nights) {
+            const originated = nights.filter((night) => night.role === "originator");
+            return originated;
+        };
+        function attendNights(nights) {
+            const attending = nights.filter((night) => night.role === "attendee");
+            return attending;
+        };
+        function inviteNights(nights) {
+            const invited = nights.filter((night) => night.role === "invitee");
+            return invited;
+        };
+        if (gameNights.length > 0) {
+            setOriginatedNights(originNights(gameNights));
+            setAttendingNights(attendNights(gameNights));
+            setInvitedNights(inviteNights(gameNights));
+        }
+    }, [gameNights])
 
     async function handleCreateGameNight(e) {
         e.preventDefault();
@@ -126,14 +149,14 @@ function GameNights({ gameNights, setGameNights }) {
                 <div>
                     <h3>Your Game Nights</h3>
                     {
-                        gameNights.length > 0? 
+                        originatedNights.length > 0? 
                             <div>
-                                {gameNights.map((night) =>
+                                {originatedNights.map((night) =>
                                     <GameNightCard
                                         key={`night${night.id}`}
                                         night={night}
-                                        nights={gameNights}
-                                        setGameNights={setGameNights}
+                                        nights={originatedNights}
+                                        setOriginatedNights={setOriginatedNights}
                                     />
                                 )}
                             </div>
@@ -145,12 +168,12 @@ function GameNights({ gameNights, setGameNights }) {
                 <div>
                     <h3>Game Nights You're Attending</h3>
                     {
-                        attendances.length > 0? 
+                        attendingNights.length > 0? 
                             <div>
-                                {attendances.map((attendance) =>
+                                {attendingNights.map((night) =>
                                     <AttendanceCard
-                                        key={`attendance${attendance.night.id}`}
-                                        attendance={attendance}
+                                        key={`attendance${night.id}`}
+                                        night={night}
                                     />
                                 )}
                             </div>
@@ -162,12 +185,12 @@ function GameNights({ gameNights, setGameNights }) {
                 <div>
                     <h3>Invitations</h3>
                     {
-                        invitations.length > 0? 
+                        invitedNights.length > 0? 
                             <div>
-                                {invitations.map((invitation) =>
+                                {invitedNights.map((night) =>
                                     <InvitationCard
-                                        key={`invitation${invitation.night.id}`}
-                                        invitation={invitation}
+                                        key={`invitation${night.id}`}
+                                        night={night}
                                         setInvitations={setInvitations}
                                         setAttendances={setAttendances}
                                     />

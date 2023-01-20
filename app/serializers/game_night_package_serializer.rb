@@ -1,3 +1,4 @@
 class GameNightPackageSerializer < ActiveModel::Serializer
-  attributes :name, :username
+  attributes :id, :date, :time, :originator_id, :location, :title
+
 end

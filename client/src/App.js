@@ -56,11 +56,15 @@ function App() {
     }
   };
 
-  async function fetchGameNights(id) {
-    const response = await fetch(`users/game_nights/${id}`);
+  async function fetchGameNights(userId) {
+    const response = await fetch(`/game_nights/${userId}`);
     if (response.ok) {
       const ngts = await response.json();
+      console.log("GameNight Package:")
+      console.log(ngts);
       setGameNights(ngts);
+    } else {
+      alert(response.errors);
     }
   };
 

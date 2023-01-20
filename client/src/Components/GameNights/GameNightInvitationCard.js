@@ -4,7 +4,7 @@ import 'reactjs-popup/dist/index.css';
 import { CurrentUserContext, GamesContext } from "../../App.js";
 import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js"
 
-function InvitationCard({ invitation, setInvitations, setAttendances }) {
+function InvitationCard({ night, setInvitations, setAttendances }) {
 
   async function handleDelete() {
 
@@ -12,11 +12,11 @@ function InvitationCard({ invitation, setInvitations, setAttendances }) {
 
   return(
     <div className="card">
-      <h3>{invitation.night.title}</h3>
-      <p><b>Date: </b>{invitation.night.date}</p>
-      <p><b>Time: </b>{invitation.night.time}</p>
-      <p><b>Location: </b>{invitation.night.location}</p>
-      <p><b>Host: </b>{invitation.sender}</p>
+      <h3>{night.title}</h3>
+      <p><b>Date: </b>{night.date}</p>
+      <p><b>Time: </b>{night.time}</p>
+      <p><b>Location: </b>{night.location}</p>
+      <p><b>Host: </b>{night.originator.name}/{night.originator.username}</p>
       <GameNightAcceptPopUp 
         setAttendances={setAttendances}
       />

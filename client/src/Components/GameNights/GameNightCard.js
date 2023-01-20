@@ -4,8 +4,9 @@ import GameNightEditPopup from "./GameNightsEditPopup.js";
 import GameNightInvitePopup from "./GameNightInvitePopup.js";
 import InviteeCard from "./GameNightInvitees.js";
 import AttendeeCard from "./GameNightAttendee.js";
+import moment from 'moment';
 
-function GameNightCard({ night, nights, setGameNights }) {
+function GameNightCard({ night, nights, setOriginatedNights }) {
 
   const [invitees, setInvitees] = useState([]);
   const [attendees, setAttendees] = useState([]);
@@ -34,10 +35,9 @@ function GameNightCard({ night, nights, setGameNights }) {
 
   return (
     <div className="card">
-      <p><b>{night.title}</b></p>
-      <p>Date: {night.date}</p>
-      <p>Time: {night.time}</p>
-      <p>Location: {night.location}</p>
+      <h2>{night.title}</h2>
+      <p><b>When:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
+      <p><b>Where:</b> {night.location}</p>
       <div>
         <h3>Attendees</h3>
         {
@@ -72,11 +72,14 @@ function GameNightCard({ night, nights, setGameNights }) {
           : <p>No invitations yet.</p>
         }
       </div>
-      <p>Games: </p>
+      <div>
+        <h3>Games</h3>
+        <p>No games yet.</p>
+      </div>
       <GameNightEditPopup 
         nights={nights}
         night={night}
-        setGameNights={setGameNights} 
+        setOriginatedNights={setOriginatedNights} 
       />
       <GameNightInvitePopup
         night={night}
