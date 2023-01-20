@@ -14,19 +14,6 @@ users = User.create([
   { name: 'Jacques Derrida', dob: '1930-07-15', pronouns: 'he/him', blurb: 'Any text contains implicit hierarchies, by which an order is imposed on reality and by which a subtle repression is exercised, as these hierarchies exclude, subordinate, and hide the various potential meanings.', username: 'jderrida', password_digest: User.digest('proxy'), email: 'tim.loughrist@gmail.com' }
   ])
 
-games = Game.create([
-  { title: 'Settlers of Catan', no_players: '3-4', duration_minutes: 90, complexity: 2.31, originator_id: 1 },
-  { title: 'Carcassonne', no_players: '2-5', duration_minutes: 40, complexity: 1.9, originator_id: 6 },
-  { title: 'RoboRally', no_players: '2-8', duration_minutes: 60, complexity: 2.43, originator_id: 11 },
-  { title: 'Dominion', no_players: '2-4', duration_minutes: 30, complexity: 2.35, originator_id: 3 },
-  { title: 'The Red Dragon Inn', no_players: '2-4', duration_minutes: 45, complexity: 1.66, originator_id: 11 },
-  { title: 'Betrayal at House on the Hill', no_players: '3-6', duration_minutes: 60, complexity: 2.39, originator_id: 1 },
-  { title: 'Racoon Tycoon', no_players: '2-5', duration_minutes: 75, complexity: 2.1, originator_id: 8 },
-  { title: 'Love Letter', no_players: '2-6', duration_minutes: 20, complexity: 1.12, originator_id: 11 },
-  { title: 'Root', no_players: '2-4', duration_minutes: 75, complexity: 3.76, originator_id: 2 },
-  { title: 'Zombicide: Black Plague', no_players: '1-6', duration_minutes: 120, complexity: 2.49, originator_id: 11 }
-  ])
-
 friendships = Friendship.create([
   { friender_id: 1, friendee_id: 2 },
   { friender_id: 1, friendee_id: 3 },
@@ -61,59 +48,6 @@ friendships = Friendship.create([
   { friender_id: 5, friendee_id: 10 },
   { friender_id: 6, friendee_id: 11 },
   { friender_id: 7, friendee_id: 12 }
-])
-
-user_games = UserGame.create([
-  { owner_id: 1, game_id: 1 },
-  { owner_id: 2, game_id: 1 },
-  { owner_id: 3, game_id: 1 },
-  { owner_id: 4, game_id: 1 },
-  { owner_id: 5, game_id: 1 },
-  { owner_id: 6, game_id: 2 },
-  { owner_id: 7, game_id: 2 },
-  { owner_id: 8, game_id: 2 },
-  { owner_id: 9, game_id: 2 },
-  { owner_id: 10, game_id: 2 },
-  { owner_id: 11, game_id: 3 },
-  { owner_id: 12, game_id: 3 },
-  { owner_id: 13, game_id: 3 },
-  { owner_id: 1, game_id: 3 },
-  { owner_id: 2, game_id: 3 },
-  { owner_id: 3, game_id: 4 },
-  { owner_id: 4, game_id: 4 },
-  { owner_id: 5, game_id: 4 },
-  { owner_id: 6, game_id: 4 },
-  { owner_id: 7, game_id: 4 },
-  { owner_id: 8, game_id: 5 },
-  { owner_id: 9, game_id: 5 },
-  { owner_id: 10, game_id: 5 },
-  { owner_id: 11, game_id: 5 },
-  { owner_id: 12, game_id: 5 },
-  { owner_id: 13, game_id: 6 },
-  { owner_id: 1, game_id: 6 },
-  { owner_id: 2, game_id: 6 },
-  { owner_id: 3, game_id: 6 },
-  { owner_id: 4, game_id: 6 },
-  { owner_id: 5, game_id: 7 },
-  { owner_id: 6, game_id: 7 },
-  { owner_id: 7, game_id: 7 },
-  { owner_id: 8, game_id: 7 },
-  { owner_id: 9, game_id: 7 },
-  { owner_id: 10, game_id: 8 },
-  { owner_id: 11, game_id: 8 },
-  { owner_id: 12, game_id: 8 },
-  { owner_id: 13, game_id: 8 },
-  { owner_id: 1, game_id: 8 },
-  { owner_id: 2, game_id: 9 },
-  { owner_id: 3, game_id: 9 },
-  { owner_id: 4, game_id: 9 },
-  { owner_id: 5, game_id: 9 },
-  { owner_id: 6, game_id: 9 },
-  { owner_id: 7, game_id: 10 },
-  { owner_id: 8, game_id: 10 },
-  { owner_id: 9, game_id: 10 },
-  { owner_id: 10, game_id: 10 },
-  { owner_id: 11, game_id: 10 }
 ])
 
 GameNight.create ([
@@ -164,19 +98,6 @@ attendances = Attendance.create([
 invitations = Invitation.create([
   { game_night_id: 11, receiver_id: 6, sender_id: 1 },
   { game_night_id: 7, receiver_id: 12, sender_id: 7 }
-])
-
-messages = Message.create([
-  { sender_id: 1, receiver_id: 2, game_night_id: 1, topic: 'Time', body: 'No worries' },
-  { sender_id: 2, receiver_id: 1, game_night_id: 1, topic: 'Time', body: 'Might be a bit late' },
-  { sender_id: 3, receiver_id: 1, topic: 'What is up?', body: 'Hey, friend!' },
-  { sender_id: 4, receiver_id: 6, topic: 'Howdy', body: 'Hey, friend!' },
-  { sender_id: 5, receiver_id: 7, topic: 'Snacks?', body: 'Should I bring snacks?' },
-  { sender_id: 1, receiver_id: 3, topic: 'What is up?', body: 'Hey, friend!' },
-  { sender_id: 2, receiver_id: 4, topic: 'Howdy', body: 'Hey, friend!' },
-  { sender_id: 3, receiver_id: 4, topic: 'Drinks?', body: 'Should I bring drinks?' },
-  { sender_id: 4, receiver_id: 5, topic: 'What is up?', body: 'Hey, friend!' },
-  { sender_id: 5, receiver_id: 6, topic: 'Howdy', body: 'Hey, friend!' }
 ])
 
 friend_requests = FriendRequest.create([

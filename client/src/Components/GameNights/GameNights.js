@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import GameNightCard from "./GameNightCard.js";
 import InvitationCard from "./GameNightInvitationCard.js";
 import AttendanceCard from "./GameNightAttendanceCard.js"
-import { LoggedInContext, CurrentUserContext, GamesContext, FriendsContext } from "../../App.js";
+import { LoggedInContext, CurrentUserContext, FriendsContext } from "../../App.js";
 
 function GameNights({ gameNights, setGameNights }) {
 
@@ -19,7 +19,6 @@ function GameNights({ gameNights, setGameNights }) {
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
-    const games = useContext(GamesContext);
     const friends = useContext(FriendsContext);
 
     let history = useHistory();

@@ -25,14 +25,6 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
     fetchData(night.id);
   }, [night.id]);
 
-  function handleMessage(nightId) {
-    
-  };
-
-  function handleGameSelect() {
-
-  };
-
   return (
     <div className="card">
       <h2>{night.title}</h2>
@@ -72,10 +64,6 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
           : <p>No invitations yet.</p>
         }
       </div>
-      <div>
-        <h3>Games</h3>
-        <p>No games yet.</p>
-      </div>
       <GameNightEditPopup 
         nights={nights}
         night={night}
@@ -86,8 +74,6 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
         invitees={invitees}
         setInvitees={setInvitees}
        />
-      <button onClick={(e) => handleMessage(night.id)}>Send Message to Attendees</button>
-      <button onClick={(e) => handleGameSelect()}>Select Games to Bring</button>
     </div>
   );
 }

@@ -4,20 +4,17 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Banner from "./Components/Banner/Banner.js";
 import Friends from "./Components/Friends/Friends.js";
 import GameNights from "./Components/GameNights/GameNights.js";
-import Games from "./Components/Games/Games.js";
 import Login from "./Components/Logging/Login.js";
 import Signup from "./Components/Logging/Signup.js";
 import Profile from "./Components/Profile/Profile.js";
 import Users from "./Components/Users/Users.js";
 import Home from "./Components/Home/Home.js";
-import Messages from "./Components/Messages/Messages.js"
 
 const CurrentUserContext = createContext();
 const FriendsContext = createContext();
-const GamesContext = createContext();
 const LoggedInContext = createContext();
 
-export { CurrentUserContext, FriendsContext, GamesContext, LoggedInContext };
+export { CurrentUserContext, FriendsContext, LoggedInContext };
 
 function App() {
 
@@ -26,7 +23,6 @@ function App() {
   const [logNav, setLogNav] = useState(false);
   const [friends, setFriends] = useState([]);
   const [gameNights, setGameNights] = useState([]);
-  const [games, setGames] = useState([]);
   const [searchedUsers, setSearchedUsers] = useState([]);
 
   let history = useHistory();
@@ -40,7 +36,6 @@ function App() {
         setIsLoggedIn(true);
         fetchFriends(user.id);
         fetchGameNights(user.id);
-        fetchGames(user.id);
       } else {
         setIsLoggedIn(false);
       }
@@ -67,14 +62,6 @@ function App() {
       alert(response.errors);
     }
   };
-
-  async function fetchGames(id) {
-    const response = await fetch(`users/${id}/games/`);
-    if (response.ok) {
-        const gmes = await response.json();
-        setGames(gmes);
-    }
-  };
   
   function onLogin(user) {
     setCurrentUser(user);
@@ -88,7 +75,6 @@ function App() {
     setCurrentUser();
     setFriends([]);
     setGameNights([]);
-    setGames([]);
     setSearchedUsers([]);
     setIsLoggedIn(false);
   };
@@ -106,13 +92,9 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <FriendsContext.Provider value={friends}>
-          <GamesContext.Provider value={games}>
             <div className="App">
               <Banner />
               <Switch>
-                <Route path="/messages">
-                  <Messages />
-                </Route>
                 <Route path="/friends">
                   <Friends 
                     gameNights={gameNights}
@@ -125,11 +107,6 @@ function App() {
                   <GameNights
                     gameNights={gameNights}
                     setGameNights={setGameNights}
-                  />
-                </Route>
-                <Route path="/games">
-                  <Games 
-                    setGames={setGames}
                   />
                 </Route>
                 <Route path="/login">
@@ -158,7 +135,6 @@ function App() {
                 </Route>
               </Switch>
             </div>
-          </GamesContext.Provider>
         </FriendsContext.Provider>
       </LoggedInContext.Provider>
     </CurrentUserContext.Provider>

@@ -45,7 +45,7 @@ function GameNightEditPopup({ night, nights, setOriginatedNights }){
   };
 
   return( 
-    <Popup trigger={<button>Edit Game</button>} position="right center">
+    <Popup trigger={<button>Edit Event</button>} position="right center">
       <form onSubmit={(e) => handleEditGameNight(e, night.id)}>
         <label htmlFor="title">
             Title

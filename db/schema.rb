@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_19_113110) do
+ActiveRecord::Schema.define(version: 2022_12_20_124957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +43,6 @@ ActiveRecord::Schema.define(version: 2023_01_19_113110) do
     t.index ["friender_id"], name: "index_friendships_on_friender_id"
   end
 
-  create_table "game_night_games", force: :cascade do |t|
-    t.bigint "attendee_id"
-    t.bigint "game_id"
-    t.bigint "game_night_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["attendee_id"], name: "index_game_night_games_on_attendee_id"
-    t.index ["game_id"], name: "index_game_night_games_on_game_id"
-    t.index ["game_night_id"], name: "index_game_night_games_on_game_night_id"
-  end
-
   create_table "game_nights", force: :cascade do |t|
     t.string "title"
     t.date "date"
@@ -65,17 +54,6 @@ ActiveRecord::Schema.define(version: 2023_01_19_113110) do
     t.index ["originator_id"], name: "index_game_nights_on_originator_id"
   end
 
-  create_table "games", force: :cascade do |t|
-    t.bigint "originator_id"
-    t.string "title"
-    t.string "no_players"
-    t.integer "duration_minutes"
-    t.float "complexity"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["originator_id"], name: "index_games_on_originator_id"
-  end
-
   create_table "invitations", force: :cascade do |t|
     t.bigint "game_night_id"
     t.bigint "receiver_id"
@@ -85,28 +63,6 @@ ActiveRecord::Schema.define(version: 2023_01_19_113110) do
     t.index ["game_night_id"], name: "index_invitations_on_game_night_id"
     t.index ["receiver_id"], name: "index_invitations_on_receiver_id"
     t.index ["sender_id"], name: "index_invitations_on_sender_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.bigint "sender_id"
-    t.bigint "receiver_id"
-    t.bigint "game_night_id"
-    t.string "topic"
-    t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_night_id"], name: "index_messages_on_game_night_id"
-    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
-    t.index ["sender_id"], name: "index_messages_on_sender_id"
-  end
-
-  create_table "user_games", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.bigint "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_user_games_on_game_id"
-    t.index ["owner_id"], name: "index_user_games_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -127,17 +83,8 @@ ActiveRecord::Schema.define(version: 2023_01_19_113110) do
   add_foreign_key "friend_requests", "users", column: "sender_id"
   add_foreign_key "friendships", "users", column: "friendee_id"
   add_foreign_key "friendships", "users", column: "friender_id"
-  add_foreign_key "game_night_games", "game_nights"
-  add_foreign_key "game_night_games", "games"
-  add_foreign_key "game_night_games", "users", column: "attendee_id"
   add_foreign_key "game_nights", "users", column: "originator_id"
-  add_foreign_key "games", "users", column: "originator_id"
   add_foreign_key "invitations", "game_nights"
   add_foreign_key "invitations", "users", column: "receiver_id"
   add_foreign_key "invitations", "users", column: "sender_id"
-  add_foreign_key "messages", "game_nights"
-  add_foreign_key "messages", "users", column: "receiver_id"
-  add_foreign_key "messages", "users", column: "sender_id"
-  add_foreign_key "user_games", "games"
-  add_foreign_key "user_games", "users", column: "owner_id"
 end

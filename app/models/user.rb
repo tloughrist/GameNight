@@ -16,10 +16,6 @@ class User < ApplicationRecord
     has_many :invitee_game_nights, class_name: 'GameNight', through: :receiver_invitations, foreign_key: 'receiver_id', source: :game_night
     has_many :sender_messages, class_name: 'Message', foreign_key: 'sender_id'
     has_many :receiver_messages, class_name: 'Message', foreign_key: 'receiver_id'
-    has_many :user_games, class_name: 'UserGame', foreign_key: 'owner_id'
-    has_many :owner_games, class_name: 'Game', through: :user_games, :source => 'owner'
-    has_many :originator_games, class_name: 'Game', foreign_key: 'originator_id'
-    has_many :game_night_games, foreign_key: 'attendee_id'
 
     validates :username, uniqueness: true
     validates :username, length: { minimum: 5 }, allow_blank: true
