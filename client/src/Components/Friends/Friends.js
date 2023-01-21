@@ -5,7 +5,7 @@ import FriendRequestCard from "./FriendRequestCard.js";
 import FriendCard from "./FriendCard.js";
 import { LoggedInContext, CurrentUserContext, FriendsContext } from '../../App';
  
-function Friends({gameNights, search, setFriends}) {
+function Friends({search, setFriends}) {
     
     const [friendRequests, setFriendRequests] = useState([]);
     const [searchString, setSearchString] = useState("");
@@ -21,7 +21,7 @@ function Friends({gameNights, search, setFriends}) {
         if (currentUser) {
             fetchFriendRequests(currentUser.id);
         }
-    }, [currentUser])
+    }, [currentUser, isLoggedIn, friends])
 
     async function fetchFriendRequests(id) {
         const response = await fetch(`/users/${id}/friend_requests`);
@@ -57,7 +57,6 @@ function Friends({gameNights, search, setFriends}) {
                                             request={request}
                                             friendRequests={friendRequests}
                                             setFriendRequests={setFriendRequests}
-                                            fetchFriendRequests={fetchFriendRequests}
                                             setFriends={setFriends}
                                         />
                                     )}
@@ -80,7 +79,6 @@ function Friends({gameNights, search, setFriends}) {
                                         key={`friend${friend.id}`}
                                         friend={friend}
                                         setFriends={setFriends}
-                                        gameNights={gameNights}
                                     />
                                 )}
                             </div>

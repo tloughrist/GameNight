@@ -1,17 +1,17 @@
+import './GameNights.css';
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import GameNightCard from "./GameNightCard.js";
 import InvitationCard from "./GameNightInvitationCard.js";
 import AttendanceCard from "./GameNightAttendanceCard.js"
-import { LoggedInContext, CurrentUserContext, FriendsContext } from "../../App.js";
+import { LoggedInContext, CurrentUserContext } from "../../App.js";
 
-function GameNights({ gameNights, setGameNights }) {
+function GameNights({ gameNights }) {
 
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("2000-01-01");
     const [time, setTime] = useState("00:00");
     const [location, setLocation] = useState("");
-    const [invitations, setInvitations] = useState([]);
     const [attendances, setAttendances] = useState([]);
     const [originatedNights, setOriginatedNights] = useState([]);
     const [attendingNights, setAttendingNights] = useState([]);
@@ -19,20 +19,10 @@ function GameNights({ gameNights, setGameNights }) {
 
     const isLoggedIn = useContext(LoggedInContext);
     const currentUser = useContext(CurrentUserContext);
-    const friends = useContext(FriendsContext);
 
     let history = useHistory();
 
     useEffect(() => {
-        async function fetchInvitations(userId) {
-            const res = await fetch(`invitations/${userId}`);
-            if (res.ok) {
-                const invites = await res.json();
-                setInvitations(invites);
-            } else {
-                alert(res.errors);
-            }
-        };
         async function fetchAttendances(userId) {
             const res = await fetch(`attendances/${userId}`);
             if (res.ok) {
@@ -43,10 +33,9 @@ function GameNights({ gameNights, setGameNights }) {
             }
         };
         if(currentUser){
-            fetchInvitations(currentUser.id);
             fetchAttendances(currentUser.id);
         }
-    }, [currentUser])
+    }, [currentUser, isLoggedIn])
 
     useEffect(() => {
         function originNights(nights) {
@@ -85,16 +74,15 @@ function GameNights({ gameNights, setGameNights }) {
             });
         if (res.ok) {
             const night = await res.json();
-            console.log(night)
-            setGameNights([...gameNights, night]);
-            setTitle("");
-            setDate("2000-01-01");
-            setTime("00:00");
-            setLocation("");
+            setOriginatedNights([...originatedNights, night]);
         } else {
             alert(res.errors)
         }
-    }
+        setTitle("");
+        setDate("2000-01-01");
+        setTime("00:00");
+        setLocation("");
+    };
 
     return (
         isLoggedIn !== false?
@@ -154,7 +142,7 @@ function GameNights({ gameNights, setGameNights }) {
                                     <GameNightCard
                                         key={`night${night.id}`}
                                         night={night}
-                                        nights={originatedNights}
+                                        originatedNights={originatedNights}
                                         setOriginatedNights={setOriginatedNights}
                                     />
                                 )}
@@ -173,6 +161,9 @@ function GameNights({ gameNights, setGameNights }) {
                                     <AttendanceCard
                                         key={`attendance${night.id}`}
                                         night={night}
+                                        attendances={attendances}
+                                        attendingNights={attendingNights}
+                                        setAttendingNights={setAttendingNights}
                                     />
                                 )}
                             </div>
@@ -190,8 +181,10 @@ function GameNights({ gameNights, setGameNights }) {
                                     <InvitationCard
                                         key={`invitation${night.id}`}
                                         night={night}
-                                        setInvitations={setInvitations}
+                                        invitedNights={invitedNights}
+                                        setInvitedNights={setInvitedNights}
                                         setAttendances={setAttendances}
+                                        setAttendingNights={setAttendingNights}
                                     />
                                 )}
                             </div>

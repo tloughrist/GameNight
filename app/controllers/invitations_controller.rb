@@ -28,7 +28,7 @@ class InvitationsController < ApplicationController
   def fetch
     user = User.find(params[:user_id])
     invitations = user.receiver_invitations
-    packages = invitations.map {|invitation| {night: invitation.game_night, sender: invitation.sender.name}} 
+    packages = invitations.map {|invitation| {id: invitation.id, night: invitation.game_night, sender: invitation.sender.name}} 
     render json: packages, status: :ok
   end
 

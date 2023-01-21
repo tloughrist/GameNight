@@ -2,7 +2,7 @@ import './Friends.css';
 import React, { useContext } from "react";
 import { CurrentUserContext, FriendsContext } from '../../App';
 
-function FriendRequestCard({ request, setFriends, setFriendRequests }) {
+function FriendRequestCard({ request, friendRequests, setFriends, setFriendRequests }) {
 
   const currentUser = useContext(CurrentUserContext);
   const friends = useContext(FriendsContext);
@@ -28,11 +28,11 @@ function FriendRequestCard({ request, setFriends, setFriendRequests }) {
   };
 
   async function handleReject() {
-    const response = await fetch(`/friend_requests/${request.request_id}`, {
+    await fetch(`/friend_requests/${request.request_id}`, {
           method: "DELETE"
     });
-    const reqs = await response.json();
-    setFriendRequests(reqs);
+    const friendRequestsSans = friendRequests.filter((friendRequest) => friendRequest.sender_id !== request.sender_id);
+    setFriendRequests(friendRequestsSans);
   };
 
   return (

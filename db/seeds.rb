@@ -65,6 +65,7 @@ GameNight.create ([
 ])
 
 attendances = Attendance.create([
+  { game_night_id: 2, attendee_id: 1, certainty: "certain" },
   { game_night_id: 1, attendee_id: 2, certainty: "certain" },
   { game_night_id: 1, attendee_id: 3, certainty: "high" },
   { game_night_id: 2, attendee_id: 3, certainty: "50/50" },
@@ -97,7 +98,8 @@ attendances = Attendance.create([
 
 invitations = Invitation.create([
   { game_night_id: 11, receiver_id: 6, sender_id: 1 },
-  { game_night_id: 7, receiver_id: 12, sender_id: 7 }
+  { game_night_id: 7, receiver_id: 12, sender_id: 7 },
+  { game_night_id: 7, receiver_id: 1, sender_id: 7 }
 ])
 
 friend_requests = FriendRequest.create([
@@ -111,5 +113,6 @@ friend_requests = FriendRequest.create([
   { sender_id: 8, receiver_id: 13 },
   { sender_id: 9, receiver_id: 13 },
   { sender_id: 10, receiver_id: 13 },
-  { sender_id: 11, receiver_id: 4 }
+  { sender_id: 11, receiver_id: 4 },
+  { sender_id: 11, receiver_id: 1 }
 ])

@@ -55,8 +55,6 @@ function App() {
     const response = await fetch(`/game_nights/${userId}`);
     if (response.ok) {
       const ngts = await response.json();
-      console.log("GameNight Package:")
-      console.log(ngts);
       setGameNights(ngts);
     } else {
       alert(response.errors);
@@ -97,8 +95,6 @@ function App() {
               <Switch>
                 <Route path="/friends">
                   <Friends 
-                    gameNights={gameNights}
-                    fetchFriends={fetchFriends}
                     search={userSearch}
                     setFriends={setFriends}
                   />
@@ -106,7 +102,6 @@ function App() {
                 <Route path="/game_nights">
                   <GameNights
                     gameNights={gameNights}
-                    setGameNights={setGameNights}
                   />
                 </Route>
                 <Route path="/login">

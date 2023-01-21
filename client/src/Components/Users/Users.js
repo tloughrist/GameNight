@@ -1,3 +1,4 @@
+import './Users.css';
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserCard from "./UserCard.js";

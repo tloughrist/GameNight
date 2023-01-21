@@ -1,5 +1,5 @@
 class GameNightSerializer < ActiveModel::Serializer
-  attributes :id, :date, :time, :originator_id, :location, :title, :role
+  attributes :id, :date, :time, :location, :title, :role
 
   belongs_to :originator
 

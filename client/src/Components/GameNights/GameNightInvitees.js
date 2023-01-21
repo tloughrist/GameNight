@@ -1,14 +1,15 @@
+import './GameNights.css';
 import React from "react";
 
-function InviteeCard({ invitee, night, setInvitees }) {
+function InviteeCard({ invitee, invitees, night, setInvitees }) {
 
   async function handleDelete(inviteeId, gameNightId) {
     if (window.confirm(`Are you sure you want to uninvite ${invitee.name}?`)) {
-      const res = await fetch(`/uninvite/${inviteeId}/${gameNightId}`, {
+      await fetch(`/uninvite/${inviteeId}/${gameNightId}`, {
           method: "DELETE"
       });
-      const invitees = await res.json();
-      setInvitees(invitees);
+      const inviteesSans = invitees.filter((invite) => invite.id !== invitee.id);
+      setInvitees(inviteesSans);
     };
   };
 

@@ -23,13 +23,21 @@ class FriendshipsController < ApplicationController
 
   def destroy
     user = User.find_by(id: params[:user_id])
-    friendee_friendship = user.friendee_friendships.find_by(friender_id: params[:friend_id])
-    friender_friendship = user.friender_friendships.find_by(friendee_id: params[:friend_id])
-    if friendee_friendship.nil?
-      friender_friendship.delete
-    else
-      friendee_friendship.delete
-    end
+    friend = User.find_by(id: params[:friend_id])
+    friendee_friendship = user.friendee_friendships.where(friender_id: friend.id)
+    friender_friendship = user.friender_friendships.where(friendee_id: friend.id)
+    sender_invitations = user.sender_invitations.where(receiver_id: friend.id)
+    receiver_invitations = user.receiver_invitations.where(sender_id: friend.id)
+    originator_game_nights = friend.attendee_game_nights.where(originator_id: user.id).all
+    originator_attendances = originator_game_nights.map {|game_night| friend.attendances.where(game_night_id: game_night.id)}
+    attendee_game_nights = user.attendee_game_nights.where(originator_id: friend.id)
+    attendee_attendances = attendee_game_nights.map {|game_night| user.attendances.where(game_night_id: game_night.id)}
+    friender_friendship.destroy_all
+    friender_friendship.destroy_all
+    sender_invitations.destroy_all
+    receiver_invitations.destroy_all
+    originator_attendances.each {|e| e.destroy_all}
+    attendee_attendances.each {|e| e.destroy_all}
     friends = user.friends
     render json: friends
   end

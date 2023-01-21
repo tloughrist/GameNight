@@ -1,21 +1,23 @@
+import './GameNights.css';
 import React from "react";
 
-function AttendeeCard({ attendee, night, setAttendees }) {
+function AttendeeCard({ attendee, attendees, night, setAttendees }) {
 
   async function handleDelete(attendeeId, gameNightId) {
-    if (window.confirm(`Are you sure you want to uninvite ${attendee.name}?`)) {
-      const res = await fetch(`/unattend/${attendeeId}/${gameNightId}`, {
+    if (window.confirm(`Are you sure you want to uninvite ${attendee.attendee.name}?`)) {
+      await fetch(`/unattend/${attendeeId}/${gameNightId}`, {
           method: "DELETE"
       });
-      const attendees = await res.json();
-      setAttendees(attendees);
+      const attendeesSans = attendees.filter((attend) => attend.attendee.id !== attendee.attendee.id);
+      setAttendees(attendeesSans);
     };
   };
 
   return(
     <div>
-      <p>{attendee.name}!</p>
-      <button onClick={e => handleDelete(attendee.id, night.id)}>Uninvite</button>
+      <p>{attendee.attendee.name}/{attendee.attendee.username}</p>
+      <p>Certainty Level: {attendee.certainty}</p>
+      <button onClick={e => handleDelete(attendee.attendee.id, night.id)}>Uninvite</button>
     </div>
   );
 }

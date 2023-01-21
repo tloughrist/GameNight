@@ -1,13 +1,9 @@
-import React, {useState, useEffect} from "react";
+import './GameNights.css';
+import React, {useState} from "react";
 
-function InviteeOption({ friend, inviteeIds, inviteesHolder, setInviteesHolder }) {
+function InviteeOption({ friend, inviteesHolder, setInviteesHolder }) {
 
   const [checked, setChecked] = useState(false);
-
-
-  useEffect(() => {
-    setChecked(inviteeIds.indexOf(friend.id) !== -1 ? true : false)
-  }, [inviteeIds, friend.id]);
 
   function handleInvitees() {
     if (checked === false) {
@@ -16,7 +12,7 @@ function InviteeOption({ friend, inviteeIds, inviteesHolder, setInviteesHolder }
       const inviteesHolderSans = inviteesHolder.filter((invitee) => invitee.id !== friend.id);
       setInviteesHolder(inviteesHolderSans);
     }
-    setChecked(inviteeIds.indexOf(friend.id) !== -1 ? true : !checked);
+    setChecked(!checked);
   };
 
   return(

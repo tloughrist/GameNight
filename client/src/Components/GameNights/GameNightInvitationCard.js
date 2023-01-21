@@ -1,31 +1,40 @@
-import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
+import './GameNights.css';
+import React, { useContext } from 'react';
 import 'reactjs-popup/dist/index.css';
-import { CurrentUserContext, GamesContext } from "../../App.js";
-import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js"
+import { CurrentUserContext } from "../../App.js";
+import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js";
+import moment from 'moment';
 
-function InvitationCard({ night, setInvitations, setAttendances }) {
+function InvitationCard({ night, invitedNights, setInvitedNights, setAttendances, setAttendingNights}) {
+
+  const currentUser = useContext(CurrentUserContext);
 
   async function handleDelete() {
-
+    await fetch(`/uninvite/${currentUser.id}/${night.id}`, {
+      method: "DELETE"
+    });
+    const invitedNightsSans = invitedNights.filter((invitedNight) => invitedNight.id !== night.id);
+    setInvitedNights(invitedNightsSans);
   };
 
   return(
     <div className="card">
       <h3>{night.title}</h3>
-      <p><b>Date: </b>{night.date}</p>
-      <p><b>Time: </b>{night.time}</p>
+      <p><b>When:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
       <p><b>Location: </b>{night.location}</p>
       <p><b>Host: </b>{night.originator.name}/{night.originator.username}</p>
-      <GameNightAcceptPopUp 
+      <GameNightAcceptPopUp
+        night={night}
+        invitedNights={invitedNights}
+        setInvitedNights={setInvitedNights}
         setAttendances={setAttendances}
+        setAttendingNights={setAttendingNights}
+        handleDelete={handleDelete}
+
       />
-      <button onClick={e => handleDelete()}>Regretfully Decline</button>
+      <button onClick={e => handleDelete(night.id)}>Regretfully Decline</button>
     </div>
   );
 }
-
-//      <button onClick={e => handleDelete(attendee.id, night.id)}>Uninvite</button>
-
 
 export default InvitationCard;

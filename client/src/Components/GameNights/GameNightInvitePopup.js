@@ -1,13 +1,16 @@
+import './GameNights.css';
 import React, { useState, useContext, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { FriendsContext } from "../../App.js";
 import InviteeOption from "./GameNightInviteeOption.js";
 
-function GameNightInvitePopup({ night, invitees, setInvitees }) {
+function GameNightInvitePopup({ night, invitees, setInvitees, attendees }) {
 
   const [inviteesHolder, setInviteesHolder] = useState([]);
   const [inviteeIds, setInviteeIds] = useState([]);
+  const [attendeeIds, setAttendeeIds] = useState([]);
+  const [friendsFiltered, setFriendsFiltered] = useState([]);
 
   const friends = useContext(FriendsContext);
 
@@ -16,12 +19,29 @@ function GameNightInvitePopup({ night, invitees, setInvitees }) {
       setInviteesHolder(invitees)
       setInviteeIds(invitees.map((invitee) => invitee.id))
     }
-  }, [invitees]);
+    if (Array.isArray(attendees)) {
+      setAttendeeIds(attendees.map((attendee) => attendee.id))
+    }
+  }, [invitees, attendees]);
+
+  useEffect(() => {
+    if (friends.length > 0) {
+      const filtered = friends.filter((friend) => {
+        function checkIds(array, friendId) {
+          return array.indexOf(friendId) === -1;
+        };
+        const inviteeExists = !checkIds(inviteeIds, friend.id);
+        const attendeeExists = !checkIds(attendeeIds, friend.id);
+        return !inviteeExists && !attendeeExists; 
+      });
+      setFriendsFiltered(filtered);
+    }
+  }, [friends, inviteeIds, attendeeIds])
 
   function handleSendInvites(e) {
     e.preventDefault();
+    console.log(night)
     const newInvitees = inviteesHolder.filter((invitee) => inviteeIds.indexOf(invitee.id) === -1);
-    console.log(newInvitees);
     newInvitees.map(async (invitee) => {
       const res = await fetch("/invitations", {
         method: "POST",
@@ -31,7 +51,7 @@ function GameNightInvitePopup({ night, invitees, setInvitees }) {
         body: JSON.stringify({ 
           game_night_id: night.id,
           receiver_id: invitee.id,
-          sender_id: night.originator_id
+          sender_id: night.originator.id
         }),
       });
       if (res.ok) {
@@ -47,13 +67,12 @@ function GameNightInvitePopup({ night, invitees, setInvitees }) {
     <Popup trigger={<button>Send Invites</button>} position="right center">
       <form onSubmit={(e) => handleSendInvites(e, night.id)}>
         {
-          friends.length > 0 ?
+          friendsFiltered.length > 0 ?
             <div>
-              {friends.map((friend) =>
+              {friendsFiltered.map((friend) =>
                 <div key={`friend${friend.id}`}>
                   <InviteeOption 
                     friend={friend}
-                    inviteeIds={inviteeIds}
                     inviteesHolder={inviteesHolder}
                     setInviteesHolder={setInviteesHolder}
                   />

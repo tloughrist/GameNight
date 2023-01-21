@@ -1,9 +1,9 @@
+import './GameNights.css';
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
-import moment from 'moment';
 import 'reactjs-popup/dist/index.css';
 
-function GameNightEditPopup({ night, nights, setOriginatedNights }){
+function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
   
   const [title, setTitle] = useState(night.title);
   const [date, setDate] = useState(night.date);
@@ -25,9 +25,8 @@ function GameNightEditPopup({ night, nights, setOriginatedNights }){
             }),
         });
     if (res.ok) {
-      console.log("fire")
       const gameNight = await res.json();
-      const gameNightsSans = nights.filter((night) => night.id !== nightId);
+      const gameNightsSans = originatedNights.filter((night) => night.id !== nightId);
       setOriginatedNights([...gameNightsSans, gameNight]);
     } else {
       alert(res.errors);
@@ -39,7 +38,7 @@ function GameNightEditPopup({ night, nights, setOriginatedNights }){
       await fetch(`/game_nights/${nightId}`, {
         method: "DELETE"
       });
-    const nightsSans = nights.filter((night) => night.id !== nightId);
+    const nightsSans = originatedNights.filter((night) => night.id !== nightId);
     setOriginatedNights(nightsSans);
     }
   };

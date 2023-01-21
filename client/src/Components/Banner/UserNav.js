@@ -1,3 +1,4 @@
+import './Banner.css';
 import React, { useContext } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import { LoggedInContext } from '../../App';

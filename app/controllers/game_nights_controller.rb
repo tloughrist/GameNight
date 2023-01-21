@@ -27,10 +27,6 @@ class GameNightsController < ApplicationController
 
   def get_packages
     user = User.find(params[:user_id])
-    #originating = user.originator_game_nights.map {|night| {game_night: night, role: "originator"}}
-    #attending = user.attendee_game_nights.map {|night| {game_night: night, role: "attendee"}}
-    #invited = user.invitee_game_nights.map {|night| {game_night: night, role: "invitee"}}
-    #nights = originating + attending + invited
     originating = user.originator_game_nights
     attending = user.attendee_game_nights
     invited = user.invitee_game_nights
@@ -42,14 +38,22 @@ class GameNightsController < ApplicationController
     night = GameNight.find(params[:id])
     invitations = night.invitations.all
     invitees = invitations.map { |invitation| invitation.receiver }
-    render json: invitees
+    if invitees.size > 0
+      render json: invitees
+    else
+      render json: { errors: "No invitees" }
+    end
   end
 
   def get_attendees
     night = GameNight.find(params[:id])
     attendances = night.attendances.all
-    attendees = attendances.map { |attendance| attendance.attendee }
-    render json: attendees
+    attendees = attendances.map { |attendance| {attendee: attendance.attendee, certainty: attendance.certainty} }
+    if attendees.size > 0
+      render json: attendees
+    else
+      render json: { errors: "No attendees" }
+    end
   end
 
   def update
@@ -64,7 +68,7 @@ class GameNightsController < ApplicationController
 
   def destroy
       gameNight = GameNight.find_by(id: params[:id])
-      gameNight.delete
+      gameNight.destroy
       head :no_content
   end
 

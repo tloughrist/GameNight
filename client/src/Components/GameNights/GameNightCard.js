@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import { CurrentUserContext } from "../../App.js";
+import './GameNights.css';
+import React, { useState, useEffect } from "react";
 import GameNightEditPopup from "./GameNightsEditPopup.js";
 import GameNightInvitePopup from "./GameNightInvitePopup.js";
 import InviteeCard from "./GameNightInvitees.js";
 import AttendeeCard from "./GameNightAttendee.js";
 import moment from 'moment';
 
-function GameNightCard({ night, nights, setOriginatedNights }) {
+function GameNightCard({ night, originatedNights, setOriginatedNights }) {
 
   const [invitees, setInvitees] = useState([]);
   const [attendees, setAttendees] = useState([]);
-
-  const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
     async function fetchData(nightId) {
@@ -37,8 +35,9 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
             <div>
               {attendees.map((attendee) => 
                 <AttendeeCard
-                  key={`attendee${attendee.id}`}
+                  key={`attendee${attendee.attendee.id}`}
                   attendee={attendee}
+                  attendees={attendees}
                   night={night}
                   setAttendees={setAttendees}
                 />
@@ -56,6 +55,7 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
                 <InviteeCard
                   key={`invitee${invitee.id}`}
                   invitee={invitee}
+                  invitees={invitees}
                   night={night}
                   setInvitees={setInvitees}
                 />
@@ -65,7 +65,7 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
         }
       </div>
       <GameNightEditPopup 
-        nights={nights}
+        originatedNights={originatedNights}
         night={night}
         setOriginatedNights={setOriginatedNights} 
       />
@@ -73,6 +73,7 @@ function GameNightCard({ night, nights, setOriginatedNights }) {
         night={night}
         invitees={invitees}
         setInvitees={setInvitees}
+        attendees={attendees}
        />
     </div>
   );
