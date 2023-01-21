@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-function AttendanceEditPopup({ attendance, certainty, setCertainty, attendingNights, setAttendingNights }){
+function AttendanceEditPopup({ attendance, setCertainty, attendingNights, setAttendingNights }){
 
   const [certaintyHolder, setCertaintyHolder] = useState("");
 

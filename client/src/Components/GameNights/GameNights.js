@@ -1,9 +1,9 @@
 import './GameNights.css';
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import GameNightCard from "./GameNightCard.js";
-import InvitationCard from "./GameNightInvitationCard.js";
-import AttendanceCard from "./GameNightAttendanceCard.js"
+import GameNightCard from "./GNCard.js";
+import InvitationCard from "./InviteCard.js";
+import AttendanceCard from "./AttendCard.js"
 import { LoggedInContext, CurrentUserContext } from "../../App.js";
 
 function GameNights({ gameNights }) {

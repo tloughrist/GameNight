@@ -2,7 +2,7 @@ import './GameNights.css';
 import React, { useContext } from 'react';
 import 'reactjs-popup/dist/index.css';
 import { CurrentUserContext } from "../../App.js";
-import GameNightAcceptPopUp from "./GameNightAcceptPopUp.js";
+import GameNightAcceptPopUp from "./InviteAcceptPU.js";
 import moment from 'moment';
 
 function InvitationCard({ night, invitedNights, setInvitedNights, setAttendances, setAttendingNights}) {
