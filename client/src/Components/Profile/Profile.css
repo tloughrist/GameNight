@@ -7,9 +7,9 @@ input {
 .container {
   position: relative;
   margin: auto;;
-  margin-top: 150px;
+  margin-top: 20px;
   width: 50%;
-  height: auto;
+  height: 1000px;
   border-radius: 20px;
   padding: 40px;
   background: #ecf0f3;

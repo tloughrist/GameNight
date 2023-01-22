@@ -1,28 +1,40 @@
-.display-containter {
+.display-container {
     position: sticky;
-    display: flex;
-    flex-direction: row;
     top: 0;
     z-index: 999;
-    height: 200px;
+    background-image: linear-gradient(  #F2DEBA 70%, rgba(255,0,0,0));
+}
+
+#banner_img_container {
+    height: 100px;
+    position: relative;
+    top: 20px;
+}
+
+#banner_img {
+    width: auto;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .navbar {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
+    position: relative;
+    top: 15px;
     height: 50px;
-    width: 100%;
 }
 
 .navlink {
+    position: relative;
     display: inline; 
     border: solid;
     width: auto;
     padding-left: 10px;
     padding-right: 10px;
     border-width: 1px 1px 1 1px;
-    border-radius: 15px;
+    border-radius: 10px;
     color: rgb(42, 42, 42);
     background: rgb(255, 255, 255);
     font-size: larger;  
@@ -35,24 +47,9 @@
 }
 
 .navlink-active {
-    background: rgb(117, 175, 130);
+    background: #a2e0a6;
 }
 
 .navlink:hover {
-    background: rgb(206, 240, 213);
-}
-
-#banner_img_container {
-    position: sticky;
-    padding: 15px;
-    background: #ecf0f3;
-    color: white;
-    height: auto;
-    margin: auto;
-}
-  
-#banner_img {
-    width: auto;
-    height: 70px;
-    margin: auto;
+    background: #a2e0a6;
 }
