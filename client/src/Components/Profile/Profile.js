@@ -95,95 +95,114 @@ function Profile({ setCurrentUser, logout }) {
 
     return (
         isLoggedIn !== false?
-            <div className="display-container">
+            <div className="container">
                 {
                     isLoaded?
                         <>
-                            <form onSubmit={handleProfileChange}>
-                                <h3>Change Profile</h3>
-                                <label htmlFor="name">
-                                    Name
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    autoComplete="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                />
-                                <label htmlFor="email">
-                                    Email address
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                                <label htmlFor="dob">
-                                    Date of Birth
-                                </label>
-                                <input
-                                    type="date"
-                                    name="dob"
-                                    value={dob}
-                                    onChange={(e) => setDob(e.target.value)}
-                                />
-                                <label htmlFor="pronouns">
-                                    Preferred pronouns - optional
-                                </label>
-                                <input
-                                    type="text"
-                                    name="pronouns"
-                                    value={pronouns}
-                                    onChange={(e) => setPronouns(e.target.value)}
-                                />
-                                <label htmlFor="blurb">
-                                    Write something about yourself in 500 characters or less - optional
-                                </label>
-                                <textarea
-                                    name="blurb"
-                                    value={blurb}
-                                    onChange={(e) => setBlurb(e.target.value)}
-                                />
-                                <input
-                                    type="submit"
-                                />
-                            </form>
-                            <form onSubmit={handlePasswordChange}>
-                            <h3>Change Password</h3>
-                                <input
-                                    type="text"
-                                    className="hidden"
-                                    autoComplete="username"
-                                />
-                                <label htmlFor="password">
-                                    New password - Must be at least eight characters long
-                                </label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    autoComplete="new-password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                                <label htmlFor="passwordConfirmation">
-                                    Confirm new password
-                                </label>
-                                <input
-                                    type="password"
-                                    name="passwordConfirmation"
-                                    autoComplete="new-password-confirmation"
-                                    value={passwordConfirmation}
-                                    onChange={(e) => setPasswordConfirmation(e.target.value)}
-                                />
-                                <input
-                                    type="submit"
-                                />
-                            </form>
-                            <h3>Manage Account</h3>
-                            <button onClick={e => handleLogout()} className="navlink">Logout</button>
-                            <button onClick={e => handleDelete()} className="navlink">Delete Account</button>
+                            <div className="brand-logo"></div>
+                            <div className="side-by-side_container">
+                                <div className="side-by-side_element">
+                                    <form onSubmit={handleProfileChange}>
+                                        <h3>change profile</h3>
+                                        <label htmlFor="name">
+                                            name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            autoComplete="name"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                        />
+                                        <label htmlFor="email">
+                                            email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                        <div className="side-by-side_container">
+                                            <div className="side-by-side_element">
+                                                <label htmlFor="dob">
+                                                    dob
+                                                </label>
+                                                <input
+                                                    type="date"
+                                                    name="dob"
+                                                    value={dob}
+                                                    onChange={(e) => setDob(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="side-by-side_element">
+                                                <label htmlFor="pronouns">
+                                                    pronouns
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="pronouns"
+                                                    value={pronouns}
+                                                    onChange={(e) => setPronouns(e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+                                        <label htmlFor="blurb">
+                                            <p>blurb</p>
+                                            <p className="subtext">(500 character maximum)</p>
+                                        </label>
+                                        <textarea
+                                            name="blurb"
+                                            value={blurb}
+                                            onChange={(e) => setBlurb(e.target.value)}
+                                        />
+                                        <input
+                                            type="submit"
+                                            value="submit profile"
+                                        />
+                                    </form>
+                                </div>
+                                <div className="side-by-side_element">
+                                    <form onSubmit={handlePasswordChange}>
+                                    <h3>change password</h3>
+                                        <input
+                                            type="text"
+                                            className="hidden"
+                                            autoComplete="username"
+                                        />
+                                        <label htmlFor="password">
+                                            <p>new password</p>
+                                            <p className="subtext">(eight character minimum)</p>
+                                        </label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            autoComplete="new-password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <label htmlFor="passwordConfirmation">
+                                            confirm new password
+                                        </label>
+                                        <input
+                                            type="password"
+                                            name="passwordConfirmation"
+                                            autoComplete="new-password-confirmation"
+                                            value={passwordConfirmation}
+                                            onChange={(e) => setPasswordConfirmation(e.target.value)}
+                                        />
+                                        <input
+                                            type="submit"
+                                            value="submit password"
+                                        />
+                                    </form>
+                                    <div>
+                                        <h3>manage account</h3>
+                                        <button onClick={e => handleLogout()} className="navlink">logout</button>
+                                        <button onClick={e => handleDelete()} className="navlink">delete account</button>
+                                    </div>
+                                </div>
+                            </div>
                         </>
                     :   <p>Loading...</p>
                 }

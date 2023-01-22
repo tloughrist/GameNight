@@ -10,7 +10,9 @@ function Banner() {
 
     return (
         <div className="display-container">
-            <img id="banner_img" src="./gamenight_logo.png" alt="Gamenight" />
+            <div id="banner_img_container">
+                <img id="banner_img" src="./gamenight_logo.png" alt="Gamenight" />
+            </div>
             {
                 isLoggedIn !== false?
                     <UserNav />

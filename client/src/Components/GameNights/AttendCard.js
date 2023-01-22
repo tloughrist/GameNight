@@ -1,6 +1,6 @@
 import './GameNights.css';
 import React, {useState, useEffect} from "react";
-import AttendanceEditPopup from "./GameNightAttendanceEditPopup.js";
+import AttendanceEditPopup from "./AttendEditPU.js";
 import moment from 'moment';
 
 function AttendanceCard({ night, attendances, attendingNights, setAttendingNights }) {

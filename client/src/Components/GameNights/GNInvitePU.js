@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { FriendsContext } from "../../App.js";
-import InviteeOption from "./GameNightInviteeOption.js";
+import InviteeOption from "./GNInviteeOption.js";
 
 function GameNightInvitePopup({ night, invitees, setInvitees, attendees }) {
 

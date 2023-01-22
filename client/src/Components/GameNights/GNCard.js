@@ -1,7 +1,7 @@
 import './GameNights.css';
 import React, { useState, useEffect } from "react";
 import GameNightEditPopup from "./GNEditPU.js";
-import GameNightInvitePopup from "./GameNightInvitePopup.js";
+import GameNightInvitePopup from "./GNInvitePU.js";
 import InviteeCard from "./GNInvitees.js";
 import AttendeeCard from "./GNAttendees.js";
 import moment from 'moment';

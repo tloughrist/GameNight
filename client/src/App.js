@@ -92,43 +92,45 @@ function App() {
         <FriendsContext.Provider value={friends}>
             <div className="App">
               <Banner />
-              <Switch>
-                <Route path="/friends">
-                  <Friends 
-                    search={userSearch}
-                    setFriends={setFriends}
-                  />
-                </Route>
-                <Route path="/game_nights">
-                  <GameNights
-                    gameNights={gameNights}
-                  />
-                </Route>
-                <Route path="/login">
-                  <Login 
-                    onLogin={onLogin}
-                  />
-                </Route>
-                <Route path="/signup">
-                  <Signup 
-                    onLogin={onLogin}
-                  />
-                </Route>
-                <Route path="/profile">
-                  <Profile 
-                    setCurrentUser={setCurrentUser}
-                    logout={logout}
-                  />
-                </Route>
-                <Route path="/users">
-                  <Users 
-                    searchedUsers={searchedUsers}
-                  />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-              </Switch>
+              <div id="content_panel">
+                <Switch>
+                  <Route path="/friends">
+                    <Friends 
+                      search={userSearch}
+                      setFriends={setFriends}
+                    />
+                  </Route>
+                  <Route path="/game_nights">
+                    <GameNights
+                      gameNights={gameNights}
+                    />
+                  </Route>
+                  <Route path="/login">
+                    <Login 
+                      onLogin={onLogin}
+                    />
+                  </Route>
+                  <Route path="/signup">
+                    <Signup 
+                      onLogin={onLogin}
+                    />
+                  </Route>
+                  <Route path="/profile">
+                    <Profile 
+                      setCurrentUser={setCurrentUser}
+                      logout={logout}
+                    />
+                  </Route>
+                  <Route path="/users">
+                    <Users 
+                      searchedUsers={searchedUsers}
+                    />
+                  </Route>
+                  <Route path="/">
+                      <Home />
+                  </Route>
+                </Switch>
+              </div>
             </div>
         </FriendsContext.Provider>
       </LoggedInContext.Provider>

@@ -1,16 +1,18 @@
-.navbar {
+.display-containter {
+    position: sticky;
     display: flex;
     flex-direction: row;
-    align-content: center;
-    justify-content: center;
+    top: 0;
+    z-index: 999;
+    height: 200px;
 }
 
-.navbar-container {
+.navbar {
     display: flex;
-    flex-direction: row;
-    margin: 1rem;
-    align-content: center;
-    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    height: 50px;
+    width: 100%;
 }
 
 .navlink {
@@ -40,6 +42,17 @@
     background: rgb(206, 240, 213);
 }
 
+#banner_img_container {
+    position: sticky;
+    padding: 15px;
+    background: #ecf0f3;
+    color: white;
+    height: auto;
+    margin: auto;
+}
+  
 #banner_img {
-    width: 100%;
+    width: auto;
+    height: 70px;
+    margin: auto;
 }
