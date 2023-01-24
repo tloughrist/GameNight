@@ -1,17 +1,18 @@
 import './Friends.css';
 import React, { useContext } from "react";
-import { CurrentUserContext } from '../../App';
+import { CurrentUserContext, FriendsContext } from '../../App';
 
 function FriendCard({ friend, setFriends }) {
   
   const currentUser = useContext(CurrentUserContext);
+  const friends = useContext(FriendsContext);
 
   async function handleUnfriend(userId, friendId) {
-    const response = await fetch(`friendships/${userId}/${friendId}`, {
+    await fetch(`friendships/${userId}/${friendId}`, {
       method: "DELETE"
     });
-    const frnds = await response.json();
-    setFriends(frnds);
+    const friendsSans = friends.filter ((frnd) => frnd.id !== friendId);
+    setFriends(friendsSans);
   };
 
   return (

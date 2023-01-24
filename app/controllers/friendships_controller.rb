@@ -26,18 +26,27 @@ class FriendshipsController < ApplicationController
     friend = User.find_by(id: params[:friend_id])
     friendee_friendship = user.friendee_friendships.where(friender_id: friend.id)
     friender_friendship = user.friender_friendships.where(friendee_id: friend.id)
-    sender_invitations = user.sender_invitations.where(receiver_id: friend.id)
-    receiver_invitations = user.receiver_invitations.where(sender_id: friend.id)
-    originator_game_nights = friend.attendee_game_nights.where(originator_id: user.id).all
-    originator_attendances = originator_game_nights.map {|game_night| friend.attendances.where(game_night_id: game_night.id)}
-    attendee_game_nights = user.attendee_game_nights.where(originator_id: friend.id)
-    attendee_attendances = attendee_game_nights.map {|game_night| user.attendances.where(game_night_id: game_night.id)}
-    friender_friendship.destroy_all
-    friender_friendship.destroy_all
-    sender_invitations.destroy_all
-    receiver_invitations.destroy_all
-    originator_attendances.each {|e| e.destroy_all}
-    attendee_attendances.each {|e| e.destroy_all}
+    if friendee_friendship.size > 0
+      friendee_invitations = friendee_friendship.first().get_invitations
+      friendee_attendances = friendee_friendship.first().get_attendances
+      friendee_friendship.each {|el| el.destroy}
+      if friendee_invitations.size > 0
+        friendee_invitations.first.destroy_all
+      end
+      if friendee_attendances.size > 0
+        friendee_attendances.first.destroy_all
+      end
+    elsif friender_friendship.size > 0
+      friender_invitations = friender_friendship.first().get_invitations
+      friender_attendances = friender_friendship.first().get_attendances
+      friender_friendship.each {|el| el.destroy}
+      if friender_invitations.size > 0
+        friender_invitations.first.destroy_all
+      end
+      if friender_attendances.size > 0
+        friender_attendances.first.destroy_all
+      end
+    end
     friends = user.friends
     render json: friends
   end

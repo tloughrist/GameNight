@@ -7,7 +7,7 @@ import AttendanceCard from "./AttendCard.js"
 import CreatePopup from "./CreateNightPU.js";
 import { LoggedInContext, CurrentUserContext } from "../../App.js";
 
-function GameNights({ gameNights }) {
+function GameNights({ gameNights, fetchGameNights }) {
 
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("2000-01-01");
@@ -35,6 +35,7 @@ function GameNights({ gameNights }) {
         };
         if(currentUser){
             fetchAttendances(currentUser.id);
+            fetchGameNights(currentUser.id)
         }
     }, [currentUser, isLoggedIn])
 

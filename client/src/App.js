@@ -117,6 +117,7 @@ function App() {
                   <Route path="/game_nights">
                     <GameNights
                       gameNights={gameNights}
+                      fetchGameNights={fetchGameNights}
                     />
                   </Route>
                   <Route path="/login">
