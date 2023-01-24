@@ -36,7 +36,7 @@ function Friends({search, setFriends}) {
         isLoggedIn !== false?
             <div className="friend-container">
                 <div>
-                    <h3>Find Users</h3>
+                    <h2>find users</h2>
                     <input
                         type="text"
                         placeholder="Search by username.."
@@ -44,10 +44,10 @@ function Friends({search, setFriends}) {
                         className="search"
                         onChange={(e) => setSearchString(e.target.value)}
                     />
-                    <button onClick={(e) => search(currentUser.id,searchString)} className="navlink">Search for Users</button>
+                    <button onClick={(e) => search(currentUser.id,searchString)} className="navlink">search for users</button>
                 </div>
                 <div>
-                    <h3>Friend Requests</h3>
+                    <h2>friend requests</h2>
                     {
                         isLoaded?
                             friendRequests.length > 0 ?
@@ -63,15 +63,15 @@ function Friends({search, setFriends}) {
                                     )}
                                 </div>
                             :   <div>
-                                    <p>No friend requests at this time.</p>
+                                    <p>no friend requests at this time</p>
                                 </div>
                         :   <div>
-                                <p>Loading...</p>
+                                <p>loading...</p>
                             </div>
                     }
                 </div>
                 <div>
-                    <h3>Friends</h3>
+                    <h2>friends</h2>
                     {
                         friends.length > 0 ?
                             <div id="friends">
@@ -84,7 +84,7 @@ function Friends({search, setFriends}) {
                                 )}
                             </div>
                         : <div>
-                            <p>No friends at this time.</p>
+                            <p>no friends at this time</p>
                         </div>
                     }
                 </div>

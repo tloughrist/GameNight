@@ -24,7 +24,7 @@ function Login({ onLogin }) {
     };
     
     return (
-      <div className="login_container">
+      <div className="card" id="login">
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">
             Username
@@ -33,6 +33,7 @@ function Login({ onLogin }) {
             type="text"
             name="username"
             value={username}
+            className="non_card_input"
             onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="password">
@@ -43,9 +44,10 @@ function Login({ onLogin }) {
             name="password"
             autoComplete="password"
             value={password}
+            className="non_card_input"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button className="navlink" type="submit">Login</button>
         </form>
       </div>
     );

@@ -76,7 +76,7 @@ function GameNights({ gameNights }) {
                     />
                 </div>
                 <div>
-                    <h3>Your Game Nights</h3>
+                    <h2>your nights</h2>
                     {
                         originatedNights.length > 0? 
                             <div id="origin_nights">
@@ -90,12 +90,12 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h3>You've scheduled no game nights.</h3>
+                                <h2>you've scheduled no game nights</h2>
                             </div>
                     }
                 </div>
                 <div>
-                    <h3>Game Nights You're Attending</h3>
+                    <h2>nights you're attending</h2>
                     {
                         attendingNights.length > 0? 
                             <div id="attend_nights">
@@ -110,12 +110,12 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h3>You're not attending anyone else's game nights.</h3>
+                                <h2>you're not attending anyone else's game nights</h2>
                             </div>
                     }
                 </div>
                 <div>
-                    <h3>Invitations</h3>
+                    <h2>invitations</h2>
                     {
                         invitedNights.length > 0? 
                             <div id="invite_nights">
@@ -131,7 +131,7 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h3>You have no invitations right now.</h3>
+                                <h2>you have no invitations right now</h2>
                             </div>
                     }
                 </div>

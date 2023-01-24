@@ -26,10 +26,10 @@ function GameNightCard({ night, originatedNights, setOriginatedNights }) {
   return (
     <div className="card">
       <h2>{night.title}</h2>
-      <p><b>When:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
-      <p><b>Where:</b> {night.location}</p>
+      <p><b>when:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
+      <p><b>where:</b> {night.location}</p>
       <div>
-        <h3>Attendees</h3>
+        <h3>attendees</h3>
         {
           attendees.length > 0 ?
             <div>
@@ -43,11 +43,11 @@ function GameNightCard({ night, originatedNights, setOriginatedNights }) {
                 />
               )}
             </div>
-          : <p>No invitations yet.</p>
+          : <p>no invitations yet</p>
         }
       </div>
       <div>
-        <h3>Invitees</h3>
+        <h3>invitees</h3>
         {
           invitees.length > 0 ?
             <div>
@@ -61,7 +61,7 @@ function GameNightCard({ night, originatedNights, setOriginatedNights }) {
                 />
               )}
             </div>
-          : <p>No invitations yet.</p>
+          : <p>no invitations yet</p>
         }
       </div>
       <GameNightEditPopup 

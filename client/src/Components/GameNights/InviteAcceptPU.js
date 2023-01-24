@@ -36,10 +36,10 @@ function GameNightAcceptPopup({ night, setAttendingNights, setAttendances, invit
   };
 
   return( 
-    <Popup trigger={<button className="navlink card_button">Gladly Accept</button>} position="right center">
+    <Popup trigger={<button className="navlink card_button">gladly accept</button>} position="right center">
       <form onSubmit={handleAcceptance}>
         <label htmlFor="title">
-            How Certain are You?
+            how certain are you?
         </label>
         <input
             type="text"
@@ -48,7 +48,7 @@ function GameNightAcceptPopup({ night, setAttendingNights, setAttendances, invit
             value={certainty}
             onChange={(e) => setCertainty(e.target.value)}
         />
-        <button className="navlink card_button" type="submit">Send Acceptance</button>
+        <button className="navlink card_button" id="popup_button3" type="submit">send acceptance</button>
       </form>
     </Popup>
   );

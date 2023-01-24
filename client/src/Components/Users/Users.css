@@ -1,12 +1,12 @@
 .card {
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
   transition: 0.3s;
   border-radius: 5px;
   width: 300px;
   margin: 1rem;
-  background: white;
+  background: #D6E4E5;
 }
 
 .users {

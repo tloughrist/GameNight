@@ -45,14 +45,14 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
 
   return( 
     <Popup
-      trigger={<button className="navlink card_button center_contents">Edit Event</button>}
+      trigger={<button className="navlink card_button center_contents">edit event</button>}
       position="right center"
       contentStyle={{width: "250px"}}
     >
       <div>
         <form onSubmit={(e) => handleEditGameNight(e, night.id)}>
           <label htmlFor="title">
-              Title
+              title
           </label>
           <input
               type="text"
@@ -62,7 +62,7 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
               onChange={(e) => setTitle(e.target.value)}
           />
           <label htmlFor="date">
-              Date
+              date
           </label>
           <input
               type="date"
@@ -72,7 +72,7 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
               onChange={(e) => setDate(e.target.value)}
           />
           <label htmlFor="time">
-              Time  
+              time  
           </label>
           <input
               type="time"
@@ -82,7 +82,7 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
               onChange={(e) => setTime(e.target.value)}
           />
           <label htmlFor="location">
-              Location  
+              location  
           </label>
           <input
               type="text"
@@ -91,9 +91,9 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
               value={location}
               onChange={(e) => setLocation(e.target.value)}
           />
-          <button className="navlink card_button" type="submit">Submit</button>
+          <button className="navlink card_button" id="popup_button1" type="submit">submit</button>
         </form>
-        <button className="navlink card_button" onClick={e => handleDelete(night.id)}>Cancel Game Night</button>
+        <button className="navlink card_button" id="popup_button2" onClick={e => handleDelete(night.id)}>cancel night</button>
       </div>
     </Popup>
   );

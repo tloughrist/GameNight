@@ -20,9 +20,9 @@ function InvitationCard({ night, invitedNights, setInvitedNights, setAttendances
   return(
     <div className="card">
       <h3>{night.title}</h3>
-      <p><b>When:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
-      <p><b>Location: </b>{night.location}</p>
-      <p><b>Host: </b>{night.originator.name}/{night.originator.username}</p>
+      <p><b>when:</b> {moment(night.date, "YYYY:MM:DD").format("MM/DD/YYYY")} at {moment(night.time, "hh:mm").format("hh:mm a")}</p>
+      <p><b>where: </b>{night.location}</p>
+      <p><b>host: </b>{night.originator.name}/{night.originator.username}</p>
       <GameNightAcceptPopUp
         night={night}
         invitedNights={invitedNights}
@@ -32,7 +32,7 @@ function InvitationCard({ night, invitedNights, setInvitedNights, setAttendances
         handleDelete={handleDelete}
 
       />
-      <button className="navlink card_button"  onClick={e => handleDelete(night.id)}>Regretfully Decline</button>
+      <button className="navlink card_button"  onClick={e => handleDelete(night.id)}>regretfully decline</button>
     </div>
   );
 }

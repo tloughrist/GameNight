@@ -16,8 +16,8 @@ function AttendeeCard({ attendee, attendees, night, setAttendees }) {
   return(
     <div>
       <p>{attendee.attendee.name} / {attendee.attendee.username}</p>
-      <p>Certainty Level: {attendee.certainty}</p>
-      <button className="navlink card_button" onClick={e => handleDelete(attendee.attendee.id, night.id)}>Uninvite</button>
+      <p>certainty: {attendee.certainty}</p>
+      <button className="navlink card_button" onClick={e => handleDelete(attendee.attendee.id, night.id)}>uninvite</button>
     </div>
   );
 }

@@ -20,7 +20,7 @@ function FriendCard({ friend, setFriends }) {
       <p>{friend.username}</p>
       <p>{friend.pronouns}</p>
       <p>{friend.blurb}</p>
-      <button className="navlink" onClick={(e) => handleUnfriend(currentUser.id, friend.id)}>Unfriend</button>
+      <button className="navlink" onClick={(e) => handleUnfriend(currentUser.id, friend.id)}>unfriend</button>
     </div>
   )
 }

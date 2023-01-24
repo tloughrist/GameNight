@@ -39,8 +39,8 @@ function FriendRequestCard({ request, friendRequests, setFriends, setFriendReque
     <div className="card">
       <p><b>{request.sender_name}</b></p>
       <p>{request.sender_username}</p>
-      <button className="navlink"  onClick={(e) => handleAccept()}>Accept Request</button>
-      <button className="navlink"  onClick={(e) => handleReject()}>Reject Request</button>
+      <button className="navlink"  onClick={(e) => handleAccept()}>accept request</button>
+      <button className="navlink"  onClick={(e) => handleReject()}>reject request</button>
     </div>
   );
 };

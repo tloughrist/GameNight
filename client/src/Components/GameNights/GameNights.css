@@ -43,3 +43,45 @@ input[type=checkbox] {
 .invitee_option {
   display: flex;
 }
+
+#popup_button1 {
+  width: 75%;
+  margin-left: 15%; 
+  margin-top: 15px;
+  height: auto;
+}
+
+#popup_button2 {
+  width: 75%;
+  margin-left: 15%;
+  margin-top: 15px;
+  height: auto;
+}
+
+#popup_button3 {
+  width: 75%;
+  margin-left: 15%;
+  margin-top: 15px;
+  height: auto;
+}
+
+#popup_button4 {
+  margin-left: 15%;
+  width: 75%;
+  margin-top: 15px;
+  height: auto;
+}
+
+#popup_button5 {
+  width: 75%;
+  margin-left: 15%;
+  margin-top: 15px;
+  height: auto;
+}
+
+#popup_button6 {
+  width: 75%;
+  margin-left: 15%;
+  margin-top: 15px;
+  height: auto;
+}

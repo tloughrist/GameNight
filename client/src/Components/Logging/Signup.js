@@ -43,7 +43,7 @@ function Signup({ onLogin }) {
     }
 
     return (
-      <div className="login_container">
+      <div className="card" id="signup">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">
             Name
@@ -53,6 +53,7 @@ function Signup({ onLogin }) {
             name="name"
             autoComplete="name"
             value={name}
+            className="non_card_input"
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="username">
@@ -63,6 +64,7 @@ function Signup({ onLogin }) {
             name="username"
             autoComplete="username"
             value={username}
+            className="non_card_input"
             onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="password">
@@ -73,6 +75,7 @@ function Signup({ onLogin }) {
             name="password"
             autoComplete="new-password"
             value={password}
+            className="non_card_input"
             onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="passwordConfirmation">
@@ -83,6 +86,7 @@ function Signup({ onLogin }) {
             name="passwordConfirmation"
             autoComplete="password-confirmation"
             value={passwordConfirmation}
+            className="non_card_input"
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
           <label htmlFor="email">
@@ -92,6 +96,7 @@ function Signup({ onLogin }) {
             type="email"
             name="email"
             value={email}
+            className="non_card_input"
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="dob">
@@ -101,6 +106,7 @@ function Signup({ onLogin }) {
             type="date"
             name="dob"
             value={dob}
+            className="non_card_input"
             onChange={(e) => setDob(e.target.value)}
           />
           <label htmlFor="pronouns">
@@ -110,6 +116,7 @@ function Signup({ onLogin }) {
             type="text"
             name="pronouns"
             value={pronouns}
+            className="non_card_input"
             onChange={(e) => setPronouns(e.target.value)}
           />
           <label htmlFor="blurb">
@@ -118,9 +125,10 @@ function Signup({ onLogin }) {
           <textarea
             name="blurb"
             value={blurb}
+            className="non_card_input"
             onChange={(e) => setBlurb(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button className="navlink" type="submit">Submit</button>
         </form>
       </div>
     );

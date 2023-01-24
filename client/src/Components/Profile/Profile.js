@@ -102,7 +102,7 @@ function Profile({ setCurrentUser, logout }) {
                             <div className="brand-logo"></div>
                             <div className="side-by-side_container">
                                 <div className="side-by-side_element">
-                                    <h3>change profile</h3>
+                                    <h2>change profile</h2>
                                     <form onSubmit={handleProfileChange}>
                                         <label htmlFor="name">
                                             name
@@ -164,7 +164,7 @@ function Profile({ setCurrentUser, logout }) {
                                     </form>
                                 </div>
                                 <div className="side-by-side_element">
-                                    <h3>change password</h3>
+                                    <h2>change password</h2>
                                     <form onSubmit={handlePasswordChange}>
                                         <input
                                             type="text"
@@ -199,7 +199,7 @@ function Profile({ setCurrentUser, logout }) {
                                         />
                                     </form>
                                     <div>
-                                        <h3>manage account</h3>
+                                        <h2>manage account</h2>
                                         <button onClick={e => handleLogout()} className="navlink">logout</button>
                                         <button onClick={e => handleDelete()} className="navlink">delete account</button>
                                     </div>

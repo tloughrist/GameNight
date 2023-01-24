@@ -36,10 +36,10 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
   };
 
   return( 
-    <Popup trigger={<button className="navlink card_button">Create Game Night</button>} position="bottom center">
+    <Popup trigger={<button className="navlink card_button">create game night</button>} position="bottom center">
       <form onSubmit={handleCreateGameNight}>
         <label htmlFor="title">
-            Title
+            title
         </label>
         <input
             type="text"
@@ -49,7 +49,7 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
             onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="date">
-            Date
+            date
         </label>
         <input
             type="date"
@@ -59,7 +59,7 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
             onChange={(e) => setDate(e.target.value)}
         />
         <label htmlFor="time">
-            Time
+            time
         </label>
         <input
             type="time"
@@ -69,7 +69,7 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
             onChange={(e) => setTime(e.target.value)}
         />
         <label htmlFor="location">
-            Location - this will be visible to all invitees
+            location
         </label>
         <input
             type="text"

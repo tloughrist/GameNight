@@ -64,7 +64,7 @@ function GameNightInvitePopup({ night, invitees, setInvitees, attendees }) {
   };
 
   return (
-    <Popup trigger={<button className="navlink card_button">Send Invites</button>} position="right center" contentStyle={{width: "250px"}}>
+    <Popup trigger={<button className="navlink card_button">send invites</button>} position="right center" contentStyle={{width: "250px"}}>
       <form onSubmit={(e) => handleSendInvites(e, night.id)}>
         {
           friendsFiltered.length > 0 ?
@@ -79,9 +79,9 @@ function GameNightInvitePopup({ night, invitees, setInvitees, attendees }) {
                 </div>
               )}
             </div>
-          : <>No friends...sorry!</>
+          : <>no friends...sorry!</>
         }
-        <button className="navlink card_button" type="submit">Submit</button>
+        <button className="navlink card_button" id="popup_button4" type="submit">submit</button>
       </form>
     </Popup>
   );
