@@ -24,13 +24,12 @@ function GameNightAcceptPopup({ night, setAttendingNights, setAttendances, invit
     });
     if (attendRes.ok) {
       const nights = await attendRes.json();
-      console.log(nights);
       setAttendingNights(nights.nights);
       setAttendances(nights.attendances);
       const invitedNightsSans = invitedNights.filter((invitedNight) => invitedNight.id !== night.id);
       setInvitedNights(invitedNightsSans);
       handleDelete();
-      } else {
+    } else {
       alert(attendRes.errors);
     }
   };

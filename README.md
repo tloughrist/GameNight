@@ -5,7 +5,7 @@ An application to organize your game nights.
 I like to host board game nights and I have several groups of friends I game with. Who is attending which games what nights can sometimes get confusing. This app is designed as a way of organizing these game nights, keeping track of who is attending, how certain they are that they will attend, who has been invited to game nights, etc.
 
 ## Demo
-[![A link to a demo video](https://timloughrist.files.wordpress.com/2023/01/ksnip_20230124-095256.png)](...)
+[![A link to a demo video](https://timloughrist.files.wordpress.com/2023/01/ksnip_20230124-095256.png)](https://youtu.be/GsSZgSAJLoU)
 
 Click the image above to watch a video demonstrating the app.
 

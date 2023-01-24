@@ -21,6 +21,8 @@ function FriendRequestCard({ request, friendRequests, setFriends, setFriendReque
     if (response.ok) {
       const frnd = await response.json();
       setFriends([...friends, frnd]);
+      const friendRequestsSans = friendRequests.filter((friendRequest) => friendRequest.sender_id !== frnd.id);
+      setFriendRequests(friendRequestsSans);
       handleReject();
     } else {
       alert(response.error);

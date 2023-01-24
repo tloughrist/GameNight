@@ -79,7 +79,7 @@ function GameNightInvitePopup({ night, invitees, setInvitees, attendees }) {
                 </div>
               )}
             </div>
-          : <>no friends...sorry!</>
+          : <>no uninvited friends</>
         }
         <button className="navlink card_button" id="popup_button4" type="submit">submit</button>
       </form>

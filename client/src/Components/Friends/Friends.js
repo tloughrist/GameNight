@@ -54,7 +54,7 @@ function Friends({search, setFriends}) {
                                 <div id="requests">
                                     {friendRequests.map((request) =>
                                         <FriendRequestCard
-                                            key={`request${request.id}`}
+                                            key={`request${request.request_id}`}
                                             request={request}
                                             friendRequests={friendRequests}
                                             setFriendRequests={setFriendRequests}
