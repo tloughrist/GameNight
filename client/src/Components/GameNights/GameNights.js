@@ -58,6 +58,8 @@ function GameNights({ gameNights }) {
         }
     }, [gameNights]);
 
+    console.log(gameNights)
+
     return (
         isLoggedIn !== false?
             <div className="request-container">
@@ -90,7 +92,7 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h2>you've scheduled no game nights</h2>
+                                <h3>you've scheduled no game nights</h3>
                             </div>
                     }
                 </div>
@@ -110,7 +112,7 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h2>you're not attending anyone else's game nights</h2>
+                                <h3>you're not attending anyone else's game nights</h3>
                             </div>
                     }
                 </div>
@@ -131,7 +133,7 @@ function GameNights({ gameNights }) {
                                 )}
                             </div>
                         :   <div>
-                                <h2>you have no invitations right now</h2>
+                                <h3>you have no invitations right now</h3>
                             </div>
                     }
                 </div>

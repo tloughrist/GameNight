@@ -46,7 +46,7 @@ function Signup({ onLogin }) {
       <div className="card" id="signup">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">
-            Name
+            name
           </label>
           <input
             type="text"
@@ -57,7 +57,7 @@ function Signup({ onLogin }) {
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="username">
-            Username
+            username
           </label>
           <input
             type="text"
@@ -68,7 +68,8 @@ function Signup({ onLogin }) {
             onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="password">
-            Password - Must be at least eight characters long
+            <p>password</p>
+            <p className="subtext">must be at least eight characters long</p>
           </label>
           <input
             type="password"
@@ -79,7 +80,7 @@ function Signup({ onLogin }) {
             onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="passwordConfirmation">
-            Confirm password
+            confirm password
           </label>
           <input
             type="password"
@@ -90,7 +91,7 @@ function Signup({ onLogin }) {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
           <label htmlFor="email">
-            Email address
+            email address
           </label>
           <input
             type="email"
@@ -100,7 +101,7 @@ function Signup({ onLogin }) {
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="dob">
-            Date of Birth
+            dob
           </label>
           <input
             type="date"
@@ -110,7 +111,8 @@ function Signup({ onLogin }) {
             onChange={(e) => setDob(e.target.value)}
           />
           <label htmlFor="pronouns">
-            Preferred pronouns - optional
+            <p>preferred pronouns</p>
+            <p className="subtext">(optional)</p>
           </label>
           <input
             type="text"
@@ -120,7 +122,8 @@ function Signup({ onLogin }) {
             onChange={(e) => setPronouns(e.target.value)}
           />
           <label htmlFor="blurb">
-            Write something about yourself in 500 characters or less - optional
+            <p>blurb</p>
+            <p className="subtext">(500 character maximum, optional)</p>
           </label>
           <textarea
             name="blurb"

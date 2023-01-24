@@ -53,7 +53,8 @@ body {
   padding: 10px;
   min-width: 150px;
   background: #D6E4E5;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .center_contents {
@@ -79,9 +80,13 @@ body {
 
 #login {  
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #signup {  
   margin: auto;
   width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

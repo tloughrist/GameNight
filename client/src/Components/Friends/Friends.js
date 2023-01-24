@@ -63,10 +63,10 @@ function Friends({search, setFriends}) {
                                     )}
                                 </div>
                             :   <div>
-                                    <p>no friend requests at this time</p>
+                                    <h3>no friend requests at this time</h3>
                                 </div>
                         :   <div>
-                                <p>loading...</p>
+                                <h3>loading...</h3>
                             </div>
                     }
                 </div>
@@ -84,7 +84,7 @@ function Friends({search, setFriends}) {
                                 )}
                             </div>
                         : <div>
-                            <p>no friends at this time</p>
+                            <h3>no friends at this time</h3>
                         </div>
                     }
                 </div>

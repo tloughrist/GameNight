@@ -36,6 +36,8 @@ function App() {
         setIsLoggedIn(true);
         fetchFriends(user.id);
         fetchGameNights(user.id);
+        console.log(user.name)
+        console.log("fetched")
       } else {
         setIsLoggedIn(false);
       }
@@ -75,6 +77,7 @@ function App() {
     setGameNights([]);
     setSearchedUsers([]);
     setIsLoggedIn(false);
+    setLogNav(false);
   };
 
   async function userSearch(id, string) {
