@@ -37,7 +37,7 @@ function AttendanceEditPopup({ attendance, setCertainty, attendingNights, setAtt
   };
 
   return( 
-    <Popup trigger={<button>Edit Attendance</button>} position="right center">
+    <Popup trigger={<button className="navlink card_button">Edit Attendance</button>} position="right center">
       <form onSubmit={handleEditAttendance}>
         <label htmlFor="certainty">
             Certainty
@@ -49,9 +49,9 @@ function AttendanceEditPopup({ attendance, setCertainty, attendingNights, setAtt
             value={certaintyHolder}
             onChange={(e) => setCertaintyHolder(e.target.value)}
         />
-        <button type="submit">Change Certainty</button>
+        <button className="navlink card_button" type="submit">Change Certainty</button>
       </form>
-      <button onClick={e => handleDelete()}>Regretfully Withdraw</button>
+      <button className="navlink card_button" onClick={e => handleDelete()}>Regretfully Withdraw</button>
     </Popup>
   );
 };

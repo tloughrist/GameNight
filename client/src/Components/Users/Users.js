@@ -12,17 +12,17 @@ function Users({ searchedUsers }) {
         
     return (
         isLoggedIn !== false?
-            <div className="display-container">
+            <div className="user-container">
                 {
                     searchedUsers.length > 0?
-                        <>
+                        <div className="users">
                             {searchedUsers.map((user) =>
                                 <UserCard
                                     key={`user${user.user.id}`}
                                     user={user}
                                 />
                             )}
-                        </>
+                        </div>
                     :   <h2>No users loaded.</h2>
                 }
             </div>

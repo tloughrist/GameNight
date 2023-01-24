@@ -102,8 +102,8 @@ function Profile({ setCurrentUser, logout }) {
                             <div className="brand-logo"></div>
                             <div className="side-by-side_container">
                                 <div className="side-by-side_element">
+                                    <h3>change profile</h3>
                                     <form onSubmit={handleProfileChange}>
-                                        <h3>change profile</h3>
                                         <label htmlFor="name">
                                             name
                                         </label>
@@ -159,12 +159,13 @@ function Profile({ setCurrentUser, logout }) {
                                         <input
                                             type="submit"
                                             value="submit profile"
+                                            className="navlink"
                                         />
                                     </form>
                                 </div>
                                 <div className="side-by-side_element">
-                                    <form onSubmit={handlePasswordChange}>
                                     <h3>change password</h3>
+                                    <form onSubmit={handlePasswordChange}>
                                         <input
                                             type="text"
                                             className="hidden"
@@ -194,6 +195,7 @@ function Profile({ setCurrentUser, logout }) {
                                         <input
                                             type="submit"
                                             value="submit password"
+                                            className="navlink"
                                         />
                                     </form>
                                     <div>

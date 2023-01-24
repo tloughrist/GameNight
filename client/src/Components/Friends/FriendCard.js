@@ -16,11 +16,11 @@ function FriendCard({ friend, setFriends }) {
 
   return (
     <div className="card">
-      <p>{friend.name}</p>
+      <p><b>{friend.name}</b></p>
       <p>{friend.username}</p>
       <p>{friend.pronouns}</p>
       <p>{friend.blurb}</p>
-      <button onClick={(e) => handleUnfriend(currentUser.id, friend.id)}>Unfriend</button>
+      <button className="navlink" onClick={(e) => handleUnfriend(currentUser.id, friend.id)}>Unfriend</button>
     </div>
   )
 }

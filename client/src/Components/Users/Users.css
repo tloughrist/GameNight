@@ -1,6 +1,4 @@
 .card {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -9,4 +7,10 @@
   width: 300px;
   margin: 1rem;
   background: white;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

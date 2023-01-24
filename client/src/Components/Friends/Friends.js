@@ -34,13 +34,14 @@ function Friends({search, setFriends}) {
     
     return (
         isLoggedIn !== false?
-            <div className="display-container">
+            <div className="friend-container">
                 <div>
                     <h3>Find Users</h3>
                     <input
                         type="text"
                         placeholder="Search by username.."
                         value={searchString}
+                        className="search"
                         onChange={(e) => setSearchString(e.target.value)}
                     />
                     <button onClick={(e) => search(currentUser.id,searchString)} className="navlink">Search for Users</button>
@@ -50,7 +51,7 @@ function Friends({search, setFriends}) {
                     {
                         isLoaded?
                             friendRequests.length > 0 ?
-                                <div>
+                                <div id="requests">
                                     {friendRequests.map((request) =>
                                         <FriendRequestCard
                                             key={`request${request.id}`}
@@ -73,7 +74,7 @@ function Friends({search, setFriends}) {
                     <h3>Friends</h3>
                     {
                         friends.length > 0 ?
-                            <div>
+                            <div id="friends">
                                 {friends.map((friend) =>
                                     <FriendCard
                                         key={`friend${friend.id}`}

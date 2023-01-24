@@ -15,8 +15,8 @@ function InviteeCard({ invitee, invitees, night, setInvitees }) {
 
   return(
     <div>
-      <p>{invitee.name}!</p>
-      <button onClick={e => handleDelete(invitee.id, night.id)}>Uninvite</button>
+      <p>{invitee.name} / {invitee.username}</p>
+      <button className="navlink card_button" onClick={e => handleDelete(invitee.id, night.id)}>Uninvite</button>
     </div>
   );
 }

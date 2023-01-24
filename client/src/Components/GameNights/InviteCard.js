@@ -32,7 +32,7 @@ function InvitationCard({ night, invitedNights, setInvitedNights, setAttendances
         handleDelete={handleDelete}
 
       />
-      <button onClick={e => handleDelete(night.id)}>Regretfully Decline</button>
+      <button className="navlink card_button"  onClick={e => handleDelete(night.id)}>Regretfully Decline</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    background-image: linear-gradient(  #F2DEBA 70%, rgba(255,0,0,0));
+    background-image: linear-gradient(  #497174 70%, rgba(255,0,0,0));
 }
 
 #banner_img_container {
@@ -30,26 +30,27 @@
     position: relative;
     display: inline; 
     border: solid;
-    width: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-width: 1px 1px 1 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 1px 1px 1px 1px;
     border-radius: 10px;
     color: rgb(42, 42, 42);
-    background: rgb(255, 255, 255);
+    background: #D6E4E5;
     font-size: larger;  
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-top: 10px;
     text-decoration: none;
     align-content: center;
     justify-content: center;
+    transition: .5s;
+    max-width: 70%;
 }
 
 .navlink-active {
-    background: #a2e0a6;
+    background: #EB6440;
 }
 
 .navlink:hover {
-    background: #a2e0a6;
+    background: #EB6440;
 }

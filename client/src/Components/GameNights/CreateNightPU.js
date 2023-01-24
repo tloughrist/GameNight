@@ -36,7 +36,7 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
   };
 
   return( 
-    <Popup trigger={<button>Create Game Night</button>} position="right center">
+    <Popup trigger={<button className="navlink card_button">Create Game Night</button>} position="bottom center">
       <form onSubmit={handleCreateGameNight}>
         <label htmlFor="title">
             Title
@@ -78,7 +78,7 @@ function CreatePopup({ title, setTitle, date, setDate, time, setTime, location, 
             value={location}
             onChange={(e) => setLocation(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button className="navlink card_button" type="submit">Submit</button>
       </form>
     </Popup>
   );

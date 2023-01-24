@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
 input {
-  caret-color: red;
+  caret-color: #EB6440;
 }
 
 .container {
   position: relative;
-  margin: auto;;
+  margin: auto;
   margin-top: 20px;
-  width: 50%;
-  height: 1000px;
+  margin-bottom: 20px;
+  width: 75%;
+  height: auto;
   border-radius: 20px;
   padding: 40px;
-  background: #ecf0f3;
+  background: #D6E4E5;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
@@ -34,10 +35,12 @@ input {
 
 .side-by-side_container {
   display: flex;
+  justify-content: space-between;
 }
 
 .side-by-side_element {
   margin: 10px;
+  width: 50%;
 }
 
 .subtext {
@@ -46,6 +49,15 @@ input {
 }
 
 label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label, textarea {
   display: block;
   width: 100%;
   padding: 0;
@@ -72,29 +84,39 @@ input {
   padding-left: 20px;
   height: 50px;
   font-size: 14px;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+input[type=submit] {
+  margin-top: 20px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
 }
 
 textarea {
   background: #ecf0f3;
   padding: 10px;
   padding-left: 20px;
-  width: 90%;
-  height: 50px;
+  height: 75px;
   font-size: 14px;
-  border-radius: 25px;
+  border-radius: 10px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  caret-color: #EB6440;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 button {
   color: white;
+  background: #D6E4E5;
   margin-top: 20px;
-  background: #1DA1F2;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 500;
   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
   transition: 0.5s;
 }
@@ -104,14 +126,8 @@ button:hover {
 }
 
 a {
-  position: absolute;
-  font-size: 8px;
   bottom: 4px;
   right: 4px;
-  text-decoration: none;
-  color: black;
-  background: yellow;
-  border-radius: 10px;
   padding: 2px;
 }
 
@@ -119,4 +135,8 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.hidden {
+  display: none;
 }

@@ -44,51 +44,57 @@ function GameNightEditPopup({ night, originatedNights, setOriginatedNights }){
   };
 
   return( 
-    <Popup trigger={<button>Edit Event</button>} position="right center">
-      <form onSubmit={(e) => handleEditGameNight(e, night.id)}>
-        <label htmlFor="title">
-            Title
-        </label>
-        <input
-            type="text"
-            name="title"
-            autoComplete="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-        />
-        <label htmlFor="date">
-            Date
-        </label>
-        <input
-            type="date"
-            name="date"
-            autoComplete="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-        />
-        <label htmlFor="time">
-            Time  
-        </label>
-        <input
-            type="time"
-            name="time"
-            autoComplete="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-        />
-        <label htmlFor="location">
-            Location  
-        </label>
-        <input
-            type="text"
-            name="location"
-            autoComplete="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <button onClick={e => handleDelete(night.id)}>Cancel Game Night</button>
+    <Popup
+      trigger={<button className="navlink card_button center_contents">Edit Event</button>}
+      position="right center"
+      contentStyle={{width: "250px"}}
+    >
+      <div>
+        <form onSubmit={(e) => handleEditGameNight(e, night.id)}>
+          <label htmlFor="title">
+              Title
+          </label>
+          <input
+              type="text"
+              name="title"
+              autoComplete="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+          />
+          <label htmlFor="date">
+              Date
+          </label>
+          <input
+              type="date"
+              name="date"
+              autoComplete="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+          />
+          <label htmlFor="time">
+              Time  
+          </label>
+          <input
+              type="time"
+              name="time"
+              autoComplete="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+          />
+          <label htmlFor="location">
+              Location  
+          </label>
+          <input
+              type="text"
+              name="location"
+              autoComplete="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+          />
+          <button className="navlink card_button" type="submit">Submit</button>
+        </form>
+        <button className="navlink card_button" onClick={e => handleDelete(night.id)}>Cancel Game Night</button>
+      </div>
     </Popup>
   );
 };

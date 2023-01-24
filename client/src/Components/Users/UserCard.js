@@ -42,7 +42,7 @@ function UserCard({ user }) {
             <h3>Friend request pending.</h3>
           : currentUser.id === user.user.id?
               <></>
-            : <button onClick={(e) => handleFriendRequest(currentUser, user.user)}>Send Friend Request</button>
+            : <button className="navlink" onClick={(e) => handleFriendRequest(currentUser, user.user)}>Send Friend Request</button>
       }
     </div>
   )

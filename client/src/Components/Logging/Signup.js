@@ -43,6 +43,7 @@ function Signup({ onLogin }) {
     }
 
     return (
+      <div className="login_container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">
             Name
@@ -121,6 +122,7 @@ function Signup({ onLogin }) {
           />
           <button type="submit">Submit</button>
         </form>
+      </div>
     );
 };
 

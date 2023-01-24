@@ -60,7 +60,7 @@ function GameNights({ gameNights }) {
 
     return (
         isLoggedIn !== false?
-            <div className="display-container">
+            <div className="request-container">
                 <div>
                     <CreatePopup
                         title={title}
@@ -79,7 +79,7 @@ function GameNights({ gameNights }) {
                     <h3>Your Game Nights</h3>
                     {
                         originatedNights.length > 0? 
-                            <div>
+                            <div id="origin_nights">
                                 {originatedNights.map((night) =>
                                     <GameNightCard
                                         key={`night${night.id}`}
@@ -98,7 +98,7 @@ function GameNights({ gameNights }) {
                     <h3>Game Nights You're Attending</h3>
                     {
                         attendingNights.length > 0? 
-                            <div>
+                            <div id="attend_nights">
                                 {attendingNights.map((night) =>
                                     <AttendanceCard
                                         key={`attendance${night.id}`}
@@ -118,7 +118,7 @@ function GameNights({ gameNights }) {
                     <h3>Invitations</h3>
                     {
                         invitedNights.length > 0? 
-                            <div>
+                            <div id="invite_nights">
                                 {invitedNights.map((night) =>
                                     <InvitationCard
                                         key={`invitation${night.id}`}

@@ -1,0 +1,45 @@
+.request_container {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #EFF5F5;
+}
+
+#origin_nights {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#attend_nights {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#invite_nights {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+input[type=checkbox] {
+  margin-top: 20px;
+  height: 30px;
+  cursor: pointer;
+  background: #ecf0f3;
+  padding: 0;
+  padding-left: 0;
+  border-radius: 0;
+  box-shadow: 0;
+}
+
+.invitee_label {
+  float: left;
+  width: 10em;
+  margin-right: 1em;
+}
+
+.invitee_option {
+  display: flex;
+}

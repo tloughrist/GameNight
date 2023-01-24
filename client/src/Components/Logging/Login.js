@@ -24,6 +24,7 @@ function Login({ onLogin }) {
     };
     
     return (
+      <div className="login_container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">
             Username
@@ -46,6 +47,7 @@ function Login({ onLogin }) {
           />
           <button type="submit">Login</button>
         </form>
+      </div>
     );
 };
 
