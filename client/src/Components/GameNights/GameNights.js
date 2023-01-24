@@ -58,8 +58,6 @@ function GameNights({ gameNights }) {
         }
     }, [gameNights]);
 
-    console.log(gameNights)
-
     return (
         isLoggedIn !== false?
             <div className="request-container">

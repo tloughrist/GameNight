@@ -36,12 +36,10 @@ function App() {
         setIsLoggedIn(true);
         fetchFriends(user.id);
         fetchGameNights(user.id);
-        console.log(user.name)
-        console.log("fetched")
       } else {
         setIsLoggedIn(false);
       }
-    }; 
+    };
     fetchData();
   }, [logNav]);
 
@@ -64,9 +62,22 @@ function App() {
   };
   
   function onLogin(user) {
+    async function fetchData() {
+      const response = await fetch("/me");
+      if (response.ok) {
+        const user = await response.json();
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+        fetchFriends(user.id);
+        fetchGameNights(user.id);
+      } else {
+        setIsLoggedIn(false);
+      }
+    };
     setCurrentUser(user);
     setIsLoggedIn(true);
     setLogNav(true);
+    fetchData();
     history.push("/home");
   };
 
