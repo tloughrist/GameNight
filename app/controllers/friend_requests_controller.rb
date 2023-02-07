@@ -24,10 +24,14 @@ class FriendRequestsController < ApplicationController
 
   def destroy
       request = FriendRequest.find(params[:id])
-      user = User.find_by(id: request.receiver_id)
-      request.delete
-      requests = user.receiver_friend_requests
-      render json: requests
+      if request.sender_id == session[:user_id] || request.receiver_id == session[:user_id]
+        user = User.find_by(id: request.receiver_id)
+        request.delete
+        requests = user.receiver_friend_requests
+        render json: requests
+      else
+        return render json: { error: "Not authorized" }, status: :unauthorized
+      end
   end
 
   private

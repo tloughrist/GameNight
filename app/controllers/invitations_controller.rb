@@ -34,10 +34,14 @@ class InvitationsController < ApplicationController
 
   def destroy
       invitation = Invitation.find_by(receiver_id: params[:invitee_id], game_night_id: params[:game_night_id])
-      invitation.delete
-      invitations = Invitation.where(game_night_id: params[:game_night_id]).all
-      invitees = invitations.map {|invitation| invitation.receiver}
-      render json: invitees, status: :created
+      if invitation.receiver_id == session[:user_id] || invitation.sender_id == session[:user_id]
+        invitation.delete
+        invitations = Invitation.where(game_night_id: params[:game_night_id]).all
+        invitees = invitations.map {|invitation| invitation.receiver}
+        render json: invitees, status: :created
+      else
+        return render json: { error: "Not authorized" }, status: :unauthorized
+      end
   end
 
   private

@@ -17,11 +17,15 @@ class AttendancesController < ApplicationController
 
   def update
     attendance = Attendance.find_by(id: params[:id])
-    attendance.update(attendance_params)
-    if attendance.valid?
-      render json: attendance, status: :accepted
+    if attendance.attendee_id == session[:user_id] || attendance.game_night.orginator_id == session[:user_id]
+      attendance.update(attendance_params)
+      if attendance.valid?
+        render json: attendance, status: :accepted
+      else
+        render json: { errors: attendance.errors.full_messages }, status: :unprocessable_entity
+      end
     else
-      render json: { errors: attendance.errors.full_messages }, status: :unprocessable_entity
+      return render json: { error: "Not authorized" }, status: :unauthorized
     end
   end
 
@@ -34,10 +38,14 @@ class AttendancesController < ApplicationController
 
   def destroy
     attendance = Attendance.find_by(attendee_id: params[:attendee_id], game_night_id: params[:game_night_id])
-    attendance.delete
-    attendances = Attendance.where(game_night_id: params[:game_night_id]).all
-    attendees = attendances.map {|attendance| attendance.attendee}
-    render json: attendees, status: :created
+    if attendance.attendee_id == session[:user_id] || attendance.game_night.orginator_id == session[:user_id]
+      attendance.delete
+      attendances = Attendance.where(game_night_id: params[:game_night_id]).all
+      attendees = attendances.map {|attendance| attendance.attendee}
+      render json: attendees, status: :created
+    else
+      return render json: { error: "Not authorized" }, status: :unauthorized
+    end
   end
 
   private

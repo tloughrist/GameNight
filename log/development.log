@@ -1,0 +1,1368 @@
+Started GET "/users/9/friend_requests" for 127.0.0.1 at 2023-01-26 11:10:00 -0600
+Processing by UsersController#get_friend_requests as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `get_friend_requests'
+  [1m[36mFriendRequest Load (0.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 9]]
+  ↳ app/controllers/users_controller.rb:69:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+No serializer found for resource: {:request_id=>3, :sender_id=>3, :sender_name=>"Simone de Beauvoir", :sender_username=>"sdebeauvoir"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.12ms)
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 12.7ms | Allocations: 10833)
+
+
+Started GET "/users/9/friend_requests" for 127.0.0.1 at 2023-01-26 11:10:03 -0600
+Processing by UsersController#get_friend_requests as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `get_friend_requests'
+  [1m[36mFriendRequest Load (0.4ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 9]]
+  ↳ app/controllers/users_controller.rb:69:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+No serializer found for resource: {:request_id=>3, :sender_id=>3, :sender_name=>"Simone de Beauvoir", :sender_username=>"sdebeauvoir"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.09ms)
+Completed 200 OK in 43ms (Views: 0.5ms | ActiveRecord: 13.5ms | Allocations: 11872)
+
+
+Started GET "/attendances/9" for 127.0.0.1 at 2023-01-26 11:10:03 -0600
+Started GET "/game_nights/9" for 127.0.0.1 at 2023-01-26 11:10:03 -0600
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"9"}
+Started GET "/game_nights/9/invitees" for 127.0.0.1 at 2023-01-26 11:10:03 -0600
+Processing by GameNightsController#get_invitees as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  [1m[36mGameNight Load (0.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:38:in `get_invitees'
+Processing by AttendancesController#fetch as */*
+  Parameters: {"user_id"=>"9"}
+  [1m[36mInvitation Load (0.6ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."game_night_id" = $1[0m  [["game_night_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:40:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 1457)
+
+
+  [1m[36mGameNight Load (0.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.7ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Started GET "/game_nights/9/attendees" for 127.0.0.1 at 2023-01-26 11:10:03 -0600
+  ↳ app/controllers/attendances_controller.rb:29:in `fetch'
+Processing by GameNightsController#get_attendees as */*
+  Parameters: {"id"=>"9"}
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 9]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+  ↳ app/controllers/attendances_controller.rb:31:in `map'
+  ↳ app/controllers/game_nights_controller.rb:49:in `get_attendees'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `map'
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 9]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 4]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+No serializer found for resource: {:attendee=>#<User id: 10, name: "Judith Butler", username: "jbutler", password_digest: [FILTERED], blurb: "If speech depends upon censorship, then the princi...", dob: "1956-02-24", pronouns: "they/them", email: "tim.loughrist@gmail.com", created_at: "2023-01-24 23:56:57.669062000 +0000", updated_at: "2023-01-24 23:56:57.669062000 +0000">, :certainty=>"certain"}
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.55ms)
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 1.2ms | Allocations: 2997)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 8]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+No serializer found for resource: {:id=>15, :night=>#<GameNight id: 7, title: "Time for Games", date: "2000-01-01", time: "20:30", originator_id: 7, location: "My house", created_at: "2023-01-24 23:56:58.188000000 +0000", updated_at: "2023-01-24 23:56:58.188000000 +0000">, :originator=>{:name=>"Edmund Husserl", :username=>"ehusserl"}, :certainty=>"high", :attendee_id=>9}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.54ms)
+Completed 200 OK in 39ms (Views: 18.5ms | ActiveRecord: 6.5ms | Allocations: 18946)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.51ms)
+Completed 200 OK in 34ms (Views: 1.6ms | ActiveRecord: 10.6ms | Allocations: 12331)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-02-02 06:28:46 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#self as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1831)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]", "session"=>{"username"=>"acamus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.47ms)
+Completed 201 Created in 220ms (Views: 11.5ms | ActiveRecord: 7.8ms | Allocations: 20619)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#self as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `self'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 31ms (Views: 3.1ms | ActiveRecord: 5.0ms | Allocations: 19299)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+Processing by UsersController#self as */*
+Started GET "/game_nights/1" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/1/friends" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61:in `get_friends'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `self'
+  [1m[36mGameNight Load (1.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friendee_id" WHERE "friendships"."friender_id" = $1[0m  [["friender_id", 1]]
+Completed 200 OK in 33ms (Views: 2.3ms | ActiveRecord: 4.7ms | Allocations: 18898)
+
+
+  ↳ app/models/user.rb:31:in `friends'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friender_id" WHERE "friendships"."friendee_id" = $1[0m  [["friendee_id", 1]]
+  ↳ app/models/user.rb:31:in `friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.73ms)
+Completed 200 OK in 36ms (Views: 16.3ms | ActiveRecord: 3.6ms | Allocations: 10056)
+
+
+  [1m[36mGameNight Load (2.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+Started GET "/users/1/friends" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+Processing by UsersController#get_friends as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mGameNight Load (1.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61:in `get_friends'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friendee_id" WHERE "friendships"."friender_id" = $1[0m  [["friender_id", 1]]
+  ↳ app/models/user.rb:31:in `friends'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 2]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.51ms)
+Completed 200 OK in 78ms (Views: 17.1ms | ActiveRecord: 15.5ms | Allocations: 28389)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friender_id" WHERE "friendships"."friendee_id" = $1[0m  [["friendee_id", 1]]
+  ↳ app/models/user.rb:31:in `friends'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 34ms (Views: 2.3ms | ActiveRecord: 2.9ms | Allocations: 9954)
+
+
+Started GET "/game_nights/1" for 127.0.0.1 at 2023-02-02 06:28:53 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.9ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 2]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.16ms)
+Completed 200 OK in 93ms (Views: 16.3ms | ActiveRecord: 15.0ms | Allocations: 46364)
+
+
+Started GET "/users/1/friend_requests" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+Processing by UsersController#get_friend_requests as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `get_friend_requests'
+  [1m[36mFriendRequest Load (1.5ms)[0m  [1m[34mSELECT "friend_requests".* FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `block in get_friend_requests'
+No serializer found for resource: {:request_id=>12, :sender_id=>11, :sender_name=>"Martha Nussbaum", :sender_username=>"mnussbaum"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.11ms)
+Completed 200 OK in 23ms (Views: 0.9ms | ActiveRecord: 6.6ms | Allocations: 6145)
+
+
+Started GET "/attendances/1" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+Started GET "/game_nights/1" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"1"}
+Processing by AttendancesController#fetch as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  ↳ app/controllers/attendances_controller.rb:29:in `fetch'
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+Started GET "/game_nights/1/invitees" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+Processing by GameNightsController#get_invitees as */*
+  Parameters: {"id"=>"1"}
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+Started GET "/game_nights/11/invitees" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+Processing by GameNightsController#get_invitees as */*
+  Parameters: {"id"=>"11"}
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 2]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+  [1m[36mGameNight Load (0.9ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.72ms)
+Completed 200 OK in 36ms (Views: 22.2ms | ActiveRecord: 5.4ms | Allocations: 11364)
+
+
+  [1m[36mGameNight Load (0.7ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:38:in `get_invitees'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:31:in `block in fetch'
+No serializer found for resource: {:id=>1, :night=>#<GameNight id: 2, title: "Gamefest!", date: "2000-01-01", time: "20:30", originator_id: 2, location: "Spielbound", created_at: "2023-01-24 23:56:58.145620000 +0000", updated_at: "2023-01-24 23:56:58.145620000 +0000">, :originator=>{:name=>"Jean-Paul Sartre", :username=>"jpsartre"}, :certainty=>"certain", :attendee_id=>1}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.44ms)
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."game_night_id" = $1[0m  [["game_night_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:40:in `map'
+Completed 200 OK in 45ms (Views: 2.4ms | ActiveRecord: 12.5ms | Allocations: 17094)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 6.7ms | Allocations: 10447)
+
+
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:38:in `get_invitees'
+  [1m[36mInvitation Load (0.6ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."game_night_id" = $1[0m  [["game_night_id", 11]]
+  ↳ app/controllers/game_nights_controller.rb:40:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:40:in `block in get_invitees'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 53ms (Views: 1.0ms | ActiveRecord: 16.8ms | Allocations: 16571)
+
+
+Started GET "/game_nights/1/attendees" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+Processing by GameNightsController#get_attendees as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:49:in `get_attendees'
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+Started GET "/game_nights/11/attendees" for 127.0.0.1 at 2023-02-02 06:28:55 -0600
+  ↳ app/controllers/game_nights_controller.rb:51:in `map'
+Processing by GameNightsController#get_attendees as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:49:in `get_attendees'
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+No serializer found for resource: {:attendee=>#<User id: 2, name: "Jean-Paul Sartre", username: "jpsartre", password_digest: [FILTERED], blurb: "There is a contingency of human existence. It is a...", dob: "1905-06-21", pronouns: "he/him", email: "tim.loughrist@gmail.com", created_at: "2023-01-24 23:56:57.600170000 +0000", updated_at: "2023-01-24 23:56:57.600170000 +0000">, :certainty=>"certain"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.81ms)
+Completed 200 OK in 22ms (Views: 1.9ms | ActiveRecord: 3.8ms | Allocations: 6962)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:51:in `block in get_attendees'
+No serializer found for resource: {:attendee=>#<User id: 2, name: "Jean-Paul Sartre", username: "jpsartre", password_digest: [FILTERED], blurb: "There is a contingency of human existence. It is a...", dob: "1905-06-21", pronouns: "he/him", email: "tim.loughrist@gmail.com", created_at: "2023-01-24 23:56:57.600170000 +0000", updated_at: "2023-01-24 23:56:57.600170000 +0000">, :certainty=>"certain"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.49ms)
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 4.0ms | Allocations: 6057)
+
+
+Started GET "/game_nights/9" for ::1 at 2023-02-07 07:02:34 -0600
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"9"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 1202)
+
+
+Started POST "/login?username=acamus&password=[FILTERED]" for ::1 at 2023-02-07 07:04:10 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.85ms)
+Completed 201 Created in 247ms (Views: 18.1ms | ActiveRecord: 9.0ms | Allocations: 20051)
+
+
+Started GET "/game_nights/9" for ::1 at 2023-02-07 07:04:35 -0600
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  [1m[36mGameNight Load (1.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (2.9ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (2.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 9]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 9]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 4]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 8]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.84ms)
+Completed 200 OK in 139ms (Views: 23.2ms | ActiveRecord: 21.9ms | Allocations: 47262)
+
+
+Started PATCH "/game_nights/9" for ::1 at 2023-02-07 07:05:03 -0600
+Processing by GameNightsController#update as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:60:in `update'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 41ms (Views: 0.8ms | ActiveRecord: 6.2ms | Allocations: 13152)
+
+
+Started DELETE "/game_nights/9" for ::1 at 2023-02-07 07:12:21 -0600
+Processing by GameNightsController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:74:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 24ms (Views: 0.6ms | ActiveRecord: 9.6ms | Allocations: 4311)
+
+
+Started DELETE "/game_nights/9" for ::1 at 2023-02-07 07:12:54 -0600
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GameNightsController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:74:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 47ms (Views: 1.5ms | ActiveRecord: 7.7ms | Allocations: 13781)
+
+
+Started PATCH "/game_nights/9" for ::1 at 2023-02-07 07:13:00 -0600
+Processing by GameNightsController#update as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:60:in `update'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 25ms (Views: 0.3ms | ActiveRecord: 4.9ms | Allocations: 17366)
+
+
+  [1m[36mGameNight Load (0.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+Started DELETE "/game_nights/1" for ::1 at 2023-02-07 07:14:25 -0600
+Processing by GameNightsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mGameNight Load (0.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:74:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mInvitation Load (0.5ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."game_night_id" = $1[0m  [["game_night_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.5ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.4ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.4ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mGameNight Destroy (8.2ms)[0m  [1m[31mDELETE FROM "game_nights" WHERE "game_nights"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+Completed 204 No Content in 64ms (ActiveRecord: 25.4ms | Allocations: 22063)
+
+
+Started GET "/game_nights/1" for ::1 at 2023-02-07 07:14:32 -0600
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (7.8ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 2]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.65ms)
+Completed 200 OK in 65ms (Views: 26.1ms | ActiveRecord: 12.1ms | Allocations: 26006)
+
+
+  [1m[36mGameNight Load (0.7ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5034.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (43.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (38.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (171.5ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (97.7ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" bigint, "attendee_id" bigint, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_attendee_id" ON "attendances" ("attendee_id")[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_game_night_id" ON "attendances" ("game_night_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "sender_id" bigint, "receiver_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE INDEX "index_friend_requests_on_receiver_id" ON "friend_requests" ("receiver_id")[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE INDEX "index_friend_requests_on_sender_id" ON "friend_requests" ("sender_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "friender_id" bigint, "friendee_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE INDEX "index_friendships_on_friendee_id" ON "friendships" ("friendee_id")[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE INDEX "index_friendships_on_friender_id" ON "friendships" ("friender_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "title" character varying, "date" date, "time" character varying, "originator_id" bigint, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE INDEX "index_game_nights_on_originator_id" ON "game_nights" ("originator_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" bigint, "receiver_id" bigint, "sender_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_game_night_id" ON "invitations" ("game_night_id")[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_receiver_id" ON "invitations" ("receiver_id")[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_sender_id" ON "invitations" ("sender_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "attendances" ADD CONSTRAINT "fk_rails_910cacd3ff"
+FOREIGN KEY ("game_night_id")
+  REFERENCES "game_nights" ("id")
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "attendances" ADD CONSTRAINT "fk_rails_a07acd73a1"
+FOREIGN KEY ("attendee_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "friend_requests" ADD CONSTRAINT "fk_rails_099388ad25"
+FOREIGN KEY ("receiver_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "friend_requests" ADD CONSTRAINT "fk_rails_9f6f8488d3"
+FOREIGN KEY ("sender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "friendships" ADD CONSTRAINT "fk_rails_70ff589a95"
+FOREIGN KEY ("friendee_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "friendships" ADD CONSTRAINT "fk_rails_a84d773d95"
+FOREIGN KEY ("friender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "game_nights" ADD CONSTRAINT "fk_rails_731ec92b19"
+FOREIGN KEY ("originator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_69ff05dcd5"
+FOREIGN KEY ("game_night_id")
+  REFERENCES "game_nights" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_1ac0cd1f08"
+FOREIGN KEY ("receiver_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_892c9262cb"
+FOREIGN KEY ("sender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220124957)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916);
+
+[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-07 13:18:46.195071"], ["updated_at", "2023-02-07 13:18:46.195071"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "dc8360a1d5aa0d5c40d099e105505313f1a5374d"], ["created_at", "2023-02-07 13:18:46.204303"], ["updated_at", "2023-02-07 13:18:46.204303"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances" CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "game_night_id" bigint, "attendee_id" bigint, "certainty" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_attendee_id" ON "attendances" ("attendee_id")[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_game_night_id" ON "attendances" ("game_night_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friend_requests" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "friend_requests" ("id" bigserial primary key, "sender_id" bigint, "receiver_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE INDEX "index_friend_requests_on_receiver_id" ON "friend_requests" ("receiver_id")[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE INDEX "index_friend_requests_on_sender_id" ON "friend_requests" ("sender_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "friender_id" bigint, "friendee_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE INDEX "index_friendships_on_friendee_id" ON "friendships" ("friendee_id")[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE INDEX "index_friendships_on_friender_id" ON "friendships" ("friender_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "game_nights" CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "game_nights" ("id" bigserial primary key, "title" character varying, "date" date, "time" character varying, "originator_id" bigint, "location" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE INDEX "index_game_nights_on_originator_id" ON "game_nights" ("originator_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "invitations" CASCADE[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "invitations" ("id" bigserial primary key, "game_night_id" bigint, "receiver_id" bigint, "sender_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_game_night_id" ON "invitations" ("game_night_id")[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_receiver_id" ON "invitations" ("receiver_id")[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE INDEX "index_invitations_on_sender_id" ON "invitations" ("sender_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password_digest" character varying, "blurb" character varying, "dob" date, "pronouns" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "attendances" ADD CONSTRAINT "fk_rails_910cacd3ff"
+FOREIGN KEY ("game_night_id")
+  REFERENCES "game_nights" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "attendances" ADD CONSTRAINT "fk_rails_a07acd73a1"
+FOREIGN KEY ("attendee_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "friend_requests" ADD CONSTRAINT "fk_rails_099388ad25"
+FOREIGN KEY ("receiver_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "friend_requests" ADD CONSTRAINT "fk_rails_9f6f8488d3"
+FOREIGN KEY ("sender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "friendships" ADD CONSTRAINT "fk_rails_70ff589a95"
+FOREIGN KEY ("friendee_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "friendships" ADD CONSTRAINT "fk_rails_a84d773d95"
+FOREIGN KEY ("friender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.5ms)[0m  [1m[35mALTER TABLE "game_nights" ADD CONSTRAINT "fk_rails_731ec92b19"
+FOREIGN KEY ("originator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_69ff05dcd5"
+FOREIGN KEY ("game_night_id")
+  REFERENCES "game_nights" ("id")
+[0m
+  [1m[35m (5.7ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_1ac0cd1f08"
+FOREIGN KEY ("receiver_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.8ms)[0m  [1m[35mALTER TABLE "invitations" ADD CONSTRAINT "fk_rails_892c9262cb"
+FOREIGN KEY ("sender_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221220124957)[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221220124416),
+(20221220124644),
+(20221220124718),
+(20221220124821),
+(20221220124916);
+
+[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-07 13:18:46.506340"], ["updated_at", "2023-02-07 13:18:46.506340"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2023-02-07 13:18:46.522210"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "dc8360a1d5aa0d5c40d099e105505313f1a5374d"], ["created_at", "2023-02-07 13:18:46.530435"], ["updated_at", "2023-02-07 13:18:46.530435"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Albert Camus"], ["username", "acamus"], ["password_digest", "$2a$12$RpFPkCW5cdoZ3uoQ47RUfuhsEEqVthB3yTK58MSfKeHnsEMcs2ZSi"], ["blurb", "Man's existence is absurd because his contingency finds no external justification."], ["dob", "1913-11-07"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.846013"], ["updated_at", "2023-02-07 13:18:48.846013"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jpsartre"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Jean-Paul Sartre"], ["username", "jpsartre"], ["password_digest", "$2a$12$jnxHimZWt04zvOV7Y.rdledLcm3scVccscN3cc7EhrLSCLvD1yOAe"], ["blurb", "There is a contingency of human existence. It is a condemnation of their being. Their being is not determined, so it is up to everyone to create their own existence, for which they are then responsible. They cannot not be free, there is a form of necessity for freedom, which can never be given up."], ["dob", "1905-06-21"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.862002"], ["updated_at", "2023-02-07 13:18:48.862002"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sdebeauvoir"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Simone de Beauvoir"], ["username", "sdebeauvoir"], ["password_digest", "$2a$12$ENkHr8PZi9RmE7eOIJbDx.ELe7hq30V4GMOc3CaMoWwfunJm2K8wi"], ["blurb", "On ne naît pas femme, on le devient."], ["dob", "1908-01-09"], ["pronouns", "she/her"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.871650"], ["updated_at", "2023-02-07 13:18:48.871650"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hmarcuse"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Herbert Marcuse"], ["username", "hmarcuse"], ["password_digest", "$2a$12$JeB8VFIDZOoD2Ll9TpXrt.YiXyNI2R5KVGLpSxuYlwF8plJL50/3e"], ["blurb", "The people recognize themselves in their commodities, they find their soul in their automobile, hi-fi set, split-level home, kitchen equipment."], ["dob", "1898-07-19"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.878922"], ["updated_at", "2023-02-07 13:18:48.878922"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mmerleauponty"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Maurice Merleau-Ponty"], ["username", "mmerleauponty"], ["password_digest", "$2a$12$X055uUlU18.XkMYUS9A4Z.Ld8mED5kabmXxfNGV4sqneCZZk0Ui1O"], ["blurb", "Insofar as I have hands, feet, a body, I sustain around me intentions which are not dependent on my decisions and which affect my surroundings in a way that I do not choose."], ["dob", "1908-03-14"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.886415"], ["updated_at", "2023-02-07 13:18:48.886415"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "fbrentano"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Franz Brentano"], ["username", "fbrentano"], ["password_digest", "$2a$12$l4DjVUdew4ikIAo4P2/odeFYKdcG4HpOCWpHgIZfkbQMSomWZGI4."], ["blurb", "We could, therefore, define mental phenomena by saying that they are those phenomena which contain an object intentionally within themselves."], ["dob", "1838-01-16"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.895071"], ["updated_at", "2023-02-07 13:18:48.895071"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ehusserl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Edmund Husserl"], ["username", "ehusserl"], ["password_digest", "$2a$12$16Vlptp4DbWbEkszRF.VCOjOcT0mwFPz6f.4OVsfk8ebIDHHimmeS"], ["blurb", "It is my conviction that intentional phenomenology has for the first time made spirit as spirit the field of systematic scientific experience, thus effecting a total transformation of the task of knowledge."], ["dob", "1859-04-08"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.906341"], ["updated_at", "2023-02-07 13:18:48.906341"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jlacan"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Jacques Lacan"], ["username", "jlacan"], ["password_digest", "$2a$12$KsxY1Fdd3uED/sEMT.12u.fiyHQWiQm6Panrlu9qAT1KSM0bpxrDm"], ["blurb", "The Other must first of all be considered a locus in which speech is constituted."], ["dob", "1901-04-13"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.914912"], ["updated_at", "2023-02-07 13:18:48.914912"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aronell"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Avital Ronell"], ["username", "aronell"], ["password_digest", "$2a$12$Aka6q08Mt8F/o7lcwKhBquE5cboMRr0WgJuFoscYL1ye4ZijW./Kq"], ["blurb", "Always incomplete, always unreachable, forever promising at once its essence and its existence, philosophy identifies itself finally with this promise, which is to say, with its own unreachability."], ["dob", "1952-04-15"], ["pronouns", "she/her"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.923362"], ["updated_at", "2023-02-07 13:18:48.923362"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jbutler"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Judith Butler"], ["username", "jbutler"], ["password_digest", "$2a$12$VoLNklAUFRkjJiFhGsFboOd3fVikB/nXVc4Gi81/014OzXyGijkze"], ["blurb", "If speech depends upon censorship, then the principle that one might seek to oppose is at once the formative principle of oppositional speech."], ["dob", "1956-02-24"], ["pronouns", "they/them"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.932068"], ["updated_at", "2023-02-07 13:18:48.932068"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mnussbaum"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Martha Nussbaum"], ["username", "mnussbaum"], ["password_digest", "$2a$12$15bx6t92sYSeXgtINrm0meR/ITzm137.xRdav2M4kcq0VjHfw5CAi"], ["blurb", "Disgust and shame are inherently hierarchical, they set up ranks and orders of human beings."], ["dob", "1947-05-06"], ["pronouns", "she/her"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.940505"], ["updated_at", "2023-02-07 13:18:48.940505"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "adworkin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Andrea Dworkin"], ["username", "adworkin"], ["password_digest", "$2a$12$O8SxIXhEV4zcgQEAFKYhneIWAmwXoCPIXgXx/rwpdOiKyu9AIXre."], ["blurb", "Feminism is hated because women are hated. Anti-feminism is a direct expression of misogyny, it is the political defense of women hating."], ["dob", "1946-09-26"], ["pronouns", "she/her"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.947866"], ["updated_at", "2023-02-07 13:18:48.947866"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jderrida"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "blurb", "dob", "pronouns", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Jacques Derrida"], ["username", "jderrida"], ["password_digest", "$2a$12$iuDGCiWNPcvuo1eLW/4Mz.BNOoKc1PCIULeLqrWiO6kmN3F32DZve"], ["blurb", "Any text contains implicit hierarchies, by which an order is imposed on reality and by which a subtle repression is exercised, as these hierarchies exclude, subordinate, and hide the various potential meanings."], ["dob", "1930-07-15"], ["pronouns", "he/him"], ["email", "tim.loughrist@gmail.com"], ["created_at", "2023-02-07 13:18:48.956002"], ["updated_at", "2023-02-07 13:18:48.956002"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 1], ["friendee_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 2], ["friender_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Create (1.0ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 1], ["friendee_id", 2], ["created_at", "2023-02-07 13:18:48.988574"], ["updated_at", "2023-02-07 13:18:48.988574"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 1], ["friendee_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 3], ["friender_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 1], ["friendee_id", 3], ["created_at", "2023-02-07 13:18:49.002075"], ["updated_at", "2023-02-07 13:18:49.002075"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 2], ["friendee_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 3], ["friender_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.6ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 2], ["friendee_id", 3], ["created_at", "2023-02-07 13:18:49.014404"], ["updated_at", "2023-02-07 13:18:49.014404"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 2], ["friendee_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 4], ["friender_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 2], ["friendee_id", 4], ["created_at", "2023-02-07 13:18:49.027626"], ["updated_at", "2023-02-07 13:18:49.027626"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 3], ["friendee_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 4], ["friender_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.8ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 3], ["friendee_id", 4], ["created_at", "2023-02-07 13:18:49.039400"], ["updated_at", "2023-02-07 13:18:49.039400"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 3], ["friendee_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 5], ["friender_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 3], ["friendee_id", 5], ["created_at", "2023-02-07 13:18:49.052525"], ["updated_at", "2023-02-07 13:18:49.052525"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 4], ["friendee_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 5], ["friender_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 4], ["friendee_id", 5], ["created_at", "2023-02-07 13:18:49.064308"], ["updated_at", "2023-02-07 13:18:49.064308"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 4], ["friendee_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 6], ["friender_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 4], ["friendee_id", 6], ["created_at", "2023-02-07 13:18:49.076743"], ["updated_at", "2023-02-07 13:18:49.076743"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 5], ["friendee_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 6], ["friender_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 5], ["friendee_id", 6], ["created_at", "2023-02-07 13:18:49.089310"], ["updated_at", "2023-02-07 13:18:49.089310"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 5], ["friendee_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 7], ["friender_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 5], ["friendee_id", 7], ["created_at", "2023-02-07 13:18:49.102434"], ["updated_at", "2023-02-07 13:18:49.102434"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 6], ["friendee_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 7], ["friender_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 6], ["friendee_id", 7], ["created_at", "2023-02-07 13:18:49.114655"], ["updated_at", "2023-02-07 13:18:49.114655"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 6], ["friendee_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 8], ["friender_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 6], ["friendee_id", 8], ["created_at", "2023-02-07 13:18:49.128074"], ["updated_at", "2023-02-07 13:18:49.128074"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 7], ["friendee_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 8], ["friender_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 7], ["friendee_id", 8], ["created_at", "2023-02-07 13:18:49.139935"], ["updated_at", "2023-02-07 13:18:49.139935"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 7], ["friendee_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 9], ["friender_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 7], ["friendee_id", 9], ["created_at", "2023-02-07 13:18:49.152537"], ["updated_at", "2023-02-07 13:18:49.152537"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 8], ["friendee_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 9], ["friender_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 8], ["friendee_id", 9], ["created_at", "2023-02-07 13:18:49.164582"], ["updated_at", "2023-02-07 13:18:49.164582"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 8], ["friendee_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 10], ["friender_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.7ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 8], ["friendee_id", 10], ["created_at", "2023-02-07 13:18:49.180475"], ["updated_at", "2023-02-07 13:18:49.180475"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 9], ["friendee_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 10], ["friender_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 9], ["friendee_id", 10], ["created_at", "2023-02-07 13:18:49.195067"], ["updated_at", "2023-02-07 13:18:49.195067"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 9], ["friendee_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 11], ["friender_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.6ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 9], ["friendee_id", 11], ["created_at", "2023-02-07 13:18:49.209457"], ["updated_at", "2023-02-07 13:18:49.209457"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 10], ["friendee_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 11], ["friender_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 10], ["friendee_id", 11], ["created_at", "2023-02-07 13:18:49.223726"], ["updated_at", "2023-02-07 13:18:49.223726"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 10], ["friendee_id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 12], ["friender_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 10], ["friendee_id", 12], ["created_at", "2023-02-07 13:18:49.236631"], ["updated_at", "2023-02-07 13:18:49.236631"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 11], ["friendee_id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 12], ["friender_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 11], ["friendee_id", 12], ["created_at", "2023-02-07 13:18:49.249290"], ["updated_at", "2023-02-07 13:18:49.249290"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 11], ["friendee_id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 13], ["friender_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.4ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 11], ["friendee_id", 13], ["created_at", "2023-02-07 13:18:49.265744"], ["updated_at", "2023-02-07 13:18:49.265744"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 12], ["friendee_id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 13], ["friender_id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 12], ["friendee_id", 13], ["created_at", "2023-02-07 13:18:49.280882"], ["updated_at", "2023-02-07 13:18:49.280882"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 12], ["friendee_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 1], ["friender_id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 12], ["friendee_id", 1], ["created_at", "2023-02-07 13:18:49.293451"], ["updated_at", "2023-02-07 13:18:49.293451"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 13], ["friendee_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 1], ["friender_id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.7ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 13], ["friendee_id", 1], ["created_at", "2023-02-07 13:18:49.304937"], ["updated_at", "2023-02-07 13:18:49.304937"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 13], ["friendee_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 2], ["friender_id", 13], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 13], ["friendee_id", 2], ["created_at", "2023-02-07 13:18:49.317317"], ["updated_at", "2023-02-07 13:18:49.317317"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 1], ["friendee_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 6], ["friender_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 1], ["friendee_id", 6], ["created_at", "2023-02-07 13:18:49.329614"], ["updated_at", "2023-02-07 13:18:49.329614"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 2], ["friendee_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 7], ["friender_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.6ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 2], ["friendee_id", 7], ["created_at", "2023-02-07 13:18:49.342490"], ["updated_at", "2023-02-07 13:18:49.342490"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 3], ["friendee_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 8], ["friender_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 3], ["friendee_id", 8], ["created_at", "2023-02-07 13:18:49.355656"], ["updated_at", "2023-02-07 13:18:49.355656"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 4], ["friendee_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 9], ["friender_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 4], ["friendee_id", 9], ["created_at", "2023-02-07 13:18:49.367823"], ["updated_at", "2023-02-07 13:18:49.367823"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 5], ["friendee_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 10], ["friender_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 5], ["friendee_id", 10], ["created_at", "2023-02-07 13:18:49.383644"], ["updated_at", "2023-02-07 13:18:49.383644"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 6], ["friendee_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 11], ["friender_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 6], ["friendee_id", 11], ["created_at", "2023-02-07 13:18:49.396613"], ["updated_at", "2023-02-07 13:18:49.396613"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friender_id" = $1 AND "friendships"."friendee_id" = $2 LIMIT $3[0m  [["friender_id", 7], ["friendee_id", 12], ["LIMIT", 1]]
+  [1m[36mFriendship Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."friendee_id" = $1 AND "friendships"."friender_id" = $2 LIMIT $3[0m  [["friendee_id", 12], ["friender_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendship Create (0.5ms)[0m  [1m[32mINSERT INTO "friendships" ("friender_id", "friendee_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["friender_id", 7], ["friendee_id", 12], ["created_at", "2023-02-07 13:18:49.408931"], ["updated_at", "2023-02-07 13:18:49.408931"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGameNight Create (1.0ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Weekly Meetup"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 1], ["location", "My house"], ["created_at", "2023-02-07 13:18:49.430820"], ["updated_at", "2023-02-07 13:18:49.430820"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.5ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Gamefest!"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 2], ["location", "Spielbound"], ["created_at", "2023-02-07 13:18:49.438182"], ["updated_at", "2023-02-07 13:18:49.438182"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.7ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Doug Con"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 3], ["location", "Mana Games"], ["created_at", "2023-02-07 13:18:49.445923"], ["updated_at", "2023-02-07 13:18:49.445923"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.6ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Wayne Con"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 4], ["location", "My house"], ["created_at", "2023-02-07 13:18:49.453896"], ["updated_at", "2023-02-07 13:18:49.453896"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.6ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Weekly Meetup"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 5], ["location", "Spielbound"], ["created_at", "2023-02-07 13:18:49.461579"], ["updated_at", "2023-02-07 13:18:49.461579"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.6ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Catanfest"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 6], ["location", "Mana Games"], ["created_at", "2023-02-07 13:18:49.468937"], ["updated_at", "2023-02-07 13:18:49.468937"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.8ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Time for Games"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 7], ["location", "My house"], ["created_at", "2023-02-07 13:18:49.480024"], ["updated_at", "2023-02-07 13:18:49.480024"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.6ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Casual Night"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 8], ["location", "Spielbound"], ["created_at", "2023-02-07 13:18:49.488853"], ["updated_at", "2023-02-07 13:18:49.488853"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.5ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Weekly Meetup"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 9], ["location", "Mana Games"], ["created_at", "2023-02-07 13:18:49.496802"], ["updated_at", "2023-02-07 13:18:49.496802"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.6ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Bring a Friend"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 10], ["location", "My house"], ["created_at", "2023-02-07 13:18:49.505511"], ["updated_at", "2023-02-07 13:18:49.505511"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGameNight Create (0.5ms)[0m  [1m[32mINSERT INTO "game_nights" ("title", "date", "time", "originator_id", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Board Games & Brews"], ["date", "2000-01-01"], ["time", "20:30"], ["originator_id", 1], ["location", "Spielbound"], ["created_at", "2023-02-07 13:18:49.512743"], ["updated_at", "2023-02-07 13:18:49.512743"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAttendance Create (1.3ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 2], ["attendee_id", 1], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.533460"], ["updated_at", "2023-02-07 13:18:49.533460"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.7ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 1], ["attendee_id", 2], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.543676"], ["updated_at", "2023-02-07 13:18:49.543676"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 1], ["attendee_id", 3], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.552651"], ["updated_at", "2023-02-07 13:18:49.552651"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 2], ["attendee_id", 3], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.561936"], ["updated_at", "2023-02-07 13:18:49.561936"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 2], ["attendee_id", 4], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.574548"], ["updated_at", "2023-02-07 13:18:49.574548"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 3], ["attendee_id", 4], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.584087"], ["updated_at", "2023-02-07 13:18:49.584087"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 3], ["attendee_id", 5], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.593070"], ["updated_at", "2023-02-07 13:18:49.593070"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 4], ["attendee_id", 5], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.601974"], ["updated_at", "2023-02-07 13:18:49.601974"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 4], ["attendee_id", 6], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.610648"], ["updated_at", "2023-02-07 13:18:49.610648"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 5], ["attendee_id", 6], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.619523"], ["updated_at", "2023-02-07 13:18:49.619523"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 5], ["attendee_id", 7], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.629231"], ["updated_at", "2023-02-07 13:18:49.629231"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 6], ["attendee_id", 7], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.638232"], ["updated_at", "2023-02-07 13:18:49.638232"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 6], ["attendee_id", 8], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.647838"], ["updated_at", "2023-02-07 13:18:49.647838"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 7], ["attendee_id", 8], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.656867"], ["updated_at", "2023-02-07 13:18:49.656867"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 7], ["attendee_id", 9], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.665986"], ["updated_at", "2023-02-07 13:18:49.665986"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.6ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 8], ["attendee_id", 9], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.675727"], ["updated_at", "2023-02-07 13:18:49.675727"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 8], ["attendee_id", 10], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.685090"], ["updated_at", "2023-02-07 13:18:49.685090"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 9], ["attendee_id", 10], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.694742"], ["updated_at", "2023-02-07 13:18:49.694742"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 9], ["attendee_id", 11], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.703648"], ["updated_at", "2023-02-07 13:18:49.703648"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 10], ["attendee_id", 11], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.717931"], ["updated_at", "2023-02-07 13:18:49.717931"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 10], ["attendee_id", 12], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.727001"], ["updated_at", "2023-02-07 13:18:49.727001"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 11], ["attendee_id", 2], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.735348"], ["updated_at", "2023-02-07 13:18:49.735348"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 11], ["attendee_id", 3], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.743863"], ["updated_at", "2023-02-07 13:18:49.743863"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 1], ["attendee_id", 6], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.754382"], ["updated_at", "2023-02-07 13:18:49.754382"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 2], ["attendee_id", 7], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.763371"], ["updated_at", "2023-02-07 13:18:49.763371"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 3], ["attendee_id", 8], ["certainty", "certain"], ["created_at", "2023-02-07 13:18:49.771512"], ["updated_at", "2023-02-07 13:18:49.771512"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 4], ["attendee_id", 9], ["certainty", "high"], ["created_at", "2023-02-07 13:18:49.780193"], ["updated_at", "2023-02-07 13:18:49.780193"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 5], ["attendee_id", 10], ["certainty", "50/50"], ["created_at", "2023-02-07 13:18:49.791826"], ["updated_at", "2023-02-07 13:18:49.791826"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("game_night_id", "attendee_id", "certainty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 6], ["attendee_id", 11], ["certainty", "low"], ["created_at", "2023-02-07 13:18:49.800267"], ["updated_at", "2023-02-07 13:18:49.800267"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mInvitation Create (1.1ms)[0m  [1m[32mINSERT INTO "invitations" ("game_night_id", "receiver_id", "sender_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 11], ["receiver_id", 6], ["sender_id", 1], ["created_at", "2023-02-07 13:18:49.823445"], ["updated_at", "2023-02-07 13:18:49.823445"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mInvitation Create (0.7ms)[0m  [1m[32mINSERT INTO "invitations" ("game_night_id", "receiver_id", "sender_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 7], ["receiver_id", 12], ["sender_id", 7], ["created_at", "2023-02-07 13:18:49.835083"], ["updated_at", "2023-02-07 13:18:49.835083"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGameNight Load (0.2ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInvitation Create (0.6ms)[0m  [1m[32mINSERT INTO "invitations" ("game_night_id", "receiver_id", "sender_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["game_night_id", 7], ["receiver_id", 1], ["sender_id", 7], ["created_at", "2023-02-07 13:18:49.844852"], ["updated_at", "2023-02-07 13:18:49.844852"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 3], ["sender_id", 1], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.8ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 1], ["receiver_id", 3], ["created_at", "2023-02-07 13:18:49.868256"], ["updated_at", "2023-02-07 13:18:49.868256"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 8], ["sender_id", 2], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 2], ["receiver_id", 8], ["created_at", "2023-02-07 13:18:49.878481"], ["updated_at", "2023-02-07 13:18:49.878481"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 9], ["sender_id", 3], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 3], ["receiver_id", 9], ["created_at", "2023-02-07 13:18:49.889298"], ["updated_at", "2023-02-07 13:18:49.889298"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 10], ["sender_id", 4], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 4], ["receiver_id", 10], ["created_at", "2023-02-07 13:18:49.898987"], ["updated_at", "2023-02-07 13:18:49.898987"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 9], ["sender_id", 5], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 5], ["receiver_id", 9], ["created_at", "2023-02-07 13:18:49.909773"], ["updated_at", "2023-02-07 13:18:49.909773"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 9], ["sender_id", 6], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 6], ["receiver_id", 9], ["created_at", "2023-02-07 13:18:49.920456"], ["updated_at", "2023-02-07 13:18:49.920456"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 13], ["sender_id", 7], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 7], ["receiver_id", 13], ["created_at", "2023-02-07 13:18:49.935655"], ["updated_at", "2023-02-07 13:18:49.935655"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 13], ["sender_id", 8], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 8], ["receiver_id", 13], ["created_at", "2023-02-07 13:18:49.945984"], ["updated_at", "2023-02-07 13:18:49.945984"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 13], ["sender_id", 9], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 9], ["receiver_id", 13], ["created_at", "2023-02-07 13:18:49.957928"], ["updated_at", "2023-02-07 13:18:49.957928"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 13], ["sender_id", 10], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 10], ["receiver_id", 13], ["created_at", "2023-02-07 13:18:49.969021"], ["updated_at", "2023-02-07 13:18:49.969021"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 4], ["sender_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 11], ["receiver_id", 4], ["created_at", "2023-02-07 13:18:49.980326"], ["updated_at", "2023-02-07 13:18:49.980326"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFriendRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friend_requests" WHERE "friend_requests"."receiver_id" = $1 AND "friend_requests"."sender_id" = $2 LIMIT $3[0m  [["receiver_id", 1], ["sender_id", 11], ["LIMIT", 1]]
+  [1m[36mFriendRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "friend_requests" ("sender_id", "receiver_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["sender_id", 11], ["receiver_id", 1], ["created_at", "2023-02-07 13:18:49.992463"], ["updated_at", "2023-02-07 13:18:49.992463"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/game_nights/1" for ::1 at 2023-02-07 07:19:15 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GameNightsController#get_packages as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:29:in `get_packages'
+  [1m[36mGameNight Load (0.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."originator_id" = $1[0m  [["originator_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (0.9ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "attendances" ON "game_nights"."id" = "attendances"."game_night_id" WHERE "attendances"."attendee_id" = $1[0m  [["attendee_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `get_packages'
+  [1m[36mGameNight Load (1.0ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" INNER JOIN "invitations" ON "game_nights"."id" = "invitations"."game_night_id" WHERE "invitations"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:33:in `+'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/game_nights_controller.rb:34:in `get_packages'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 11]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 2]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendee_id" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 7]]
+[active_model_serializers]   ↳ app/serializers/game_night_serializer.rb:8:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.93ms)
+Completed 200 OK in 97ms (Views: 19.1ms | ActiveRecord: 17.3ms | Allocations: 46367)
+
+
+Started DELETE "/logout" for ::1 at 2023-02-07 07:19:38 -0600
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/login?username=acamus&password=[FILTERED]" for ::1 at 2023-02-07 07:21:55 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"acamus", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "acamus"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 201 Created in 228ms (Views: 2.5ms | ActiveRecord: 5.4ms | Allocations: 20188)
+
+
+Started DELETE "/game_nights/9" for ::1 at 2023-02-07 07:22:26 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GameNightsController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.5ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:74:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 401 Unauthorized in 28ms (Views: 1.3ms | ActiveRecord: 5.0ms | Allocations: 13790)
+
+
+Started PATCH "/game_nights/9" for ::1 at 2023-02-07 07:22:33 -0600
+Processing by GameNightsController#update as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mGameNight Load (0.4ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:60:in `update'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/game_nights_controller.rb:61:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 46ms (Views: 0.6ms | ActiveRecord: 5.2ms | Allocations: 17374)
+
+
+Started DELETE "/game_nights/1" for ::1 at 2023-02-07 07:22:43 -0600
+Processing by GameNightsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mGameNight Load (0.3ms)[0m  [1m[34mSELECT "game_nights".* FROM "game_nights" WHERE "game_nights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/game_nights_controller.rb:74:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mInvitation Load (0.8ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."game_night_id" = $1[0m  [["game_night_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."game_night_id" = $1[0m  [["game_night_id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.8ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.5ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mAttendance Destroy (0.5ms)[0m  [1m[31mDELETE FROM "attendances" WHERE "attendances"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mGameNight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "game_nights" WHERE "game_nights"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/game_nights_controller.rb:76:in `destroy'
+Completed 204 No Content in 46ms (ActiveRecord: 17.0ms | Allocations: 12351)
+
+

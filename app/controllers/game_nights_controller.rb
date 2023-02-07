@@ -59,17 +59,25 @@ class GameNightsController < ApplicationController
   def update
       gameNight = GameNight.find_by(id: params[:id])
       gameNight.update(game_night_params)
-      if gameNight.valid?
-        render json: gameNight, status: :accepted
+      if gameNight.originator_id == session[:user_id]
+        if gameNight.valid?
+          render json: gameNight, status: :accepted
+        else
+          render json: { errors: gameNight.errors.full_messages }, status: :unprocessable_entity
+        end
       else
-        render json: { errors: gameNight.errors.full_messages }, status: :unprocessable_entity
+        return render json: { error: "Update Not authorized" }, status: :unauthorized
       end
   end
 
   def destroy
       gameNight = GameNight.find_by(id: params[:id])
-      gameNight.destroy
-      head :no_content
+      if gameNight.originator_id == session[:user_id]
+        gameNight.destroy
+        head :no_content
+      else
+        return render json: { error: "Delete Not authorized" }, status: :unauthorized
+      end
   end
 
   private
