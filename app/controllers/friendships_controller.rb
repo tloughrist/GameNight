@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
     friend = User.find_by(id: params[:friend_id])
     friendee_friendship = user.friendee_friendships.where(friender_id: friend.id)
     friender_friendship = user.friender_friendships.where(friendee_id: friend.id)
-    if params[:user_id] == session[:user_id]
+    if params[:user_id].to_i == session[:user_id]
       if friendee_friendship.size > 0
         friendee_invitations = friendee_friendship.first().get_invitations
         friendee_attendances = friendee_friendship.first().get_attendances
@@ -51,7 +51,7 @@ class FriendshipsController < ApplicationController
       friends = user.friends
       attendances = user.attendances
       receiver_invitations = user.receiver_invitations
-      sender_invitations = user.sender_invitaitons
+      sender_invitations = user.sender_invitations
       render json: friends
     else
       return render json: { error: "Not authorized" }, status: :unauthorized

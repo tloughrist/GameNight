@@ -34,7 +34,6 @@ function Signup({ onLogin }) {
               if (user.errors) {
                 alert(user.errors)
               } else {
-                console.log(user);
                 onLogin(user)
               }
         } else {

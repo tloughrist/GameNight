@@ -26,7 +26,6 @@ function AttendanceEditPopup({ attendance, setCertainty, attendingNights, setAtt
   };
 
   async function handleDelete() {
-    console.log(attendance)
     if (window.confirm("Are you sure you want to withdraw from this game night?")) {
       await fetch(`/unattend/${attendance.attendee_id}/${attendance.night.id}`, {
         method: "DELETE"
