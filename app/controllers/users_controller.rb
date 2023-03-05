@@ -76,6 +76,14 @@ class UsersController < ApplicationController
       render json: games
     end
 
+    def most_attendances
+      users = User.all
+      user = users.max_by {|user| user.attendances.length}
+      user_name = user.name
+      attending = user.attendances.map {|attendance| attendance.game_night.title}
+      render json: {user.name => {attending: attending}}
+    end
+
     def update
         user = User.find(params[:id])
         user.update(user_params)

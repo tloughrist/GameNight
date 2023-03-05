@@ -88,7 +88,6 @@ function Profile({ setCurrentUser, logout }) {
         if (user.errors) {
             alert(user.errors)
         } else {
-            console.log(user);
             setCurrentUser(user);
         }
     };

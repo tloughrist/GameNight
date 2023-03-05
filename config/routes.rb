@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :game_nights, only: [:create, :update, :destroy]
   resources :friend_requests, only: [:create, :show, :destroy]
   resources :friendships, only: [:create, :show]
-  resources :users, only: [:update, :destroy]
+  resources :users, only: [:index, :update, :destroy]
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/game_nights/:id/invitees", to: "game_nights#get_invitees"
   get "/game_nights/:id/attendees", to: "game_nights#get_attendees"
   get "/users/:id/friend_requests", to: "users#get_friend_requests"
+  get "/users/most_attendances", to: "users#most_attendances"
   delete "/logout", to: "sessions#destroy"
   delete "/friendships/:user_id/:friend_id", to: "friendships#destroy"
   delete "/uninvite/:invitee_id/:game_night_id", to: "invitations#destroy"
